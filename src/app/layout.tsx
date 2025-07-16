@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans, Tomorrow } from 'next/font/google';
 import './globals.css';
+import { Footer, Topbar } from '@/components';
 
 const notoSans = Noto_Sans({
   variable: '--font-noto-sans',
@@ -25,8 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable} ${tomorrow.variable} antialiased`}>
+      <body
+        className={`${notoSans.variable} ${tomorrow.variable} antialiased relative`}
+      >
+        <Topbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
