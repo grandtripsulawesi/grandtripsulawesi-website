@@ -60,7 +60,7 @@ const Topbar = () => {
   }, []);
 
   return (
-    <div className={`fixed z-50 top-6 flex items-center w-full my-3`}>
+    <div className={`fixed z-50 top-6 hidden lg:flex items-center w-full my-3`}>
       <div
         className={` flex items-center width__wrapper mx-auto px-4 py-2.5 ${
           scrolled
