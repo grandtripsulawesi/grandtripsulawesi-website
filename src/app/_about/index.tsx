@@ -53,9 +53,9 @@ const About = () => {
         </div>
 
         <div className="flex flex-col justify-end lg:justify-start basis-full lg:basis-1/3">
-          <div className="font-heading">
+          <div>
             <p>Tentang kami</p>
-            <h1 className="leading-tight font-semibold">
+            <h1 className="font-heading leading-tight font-semibold">
               GrandTrip Sulawesi: Mitra
               <br /> Perjalanan Anda
             </h1>

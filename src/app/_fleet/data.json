@@ -1,0 +1,74 @@
+[
+  {
+    "name": "honda brio",
+    "imagePath": "/images/armada/armada_brio.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota innova",
+    "imagePath": "/images/armada/armada_innova.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota alphard",
+    "imagePath": "/images/armada/armada_alphard.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota hiace",
+    "imagePath": "/images/armada/armada_hiace.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota hiace",
+    "imagePath": "/images/armada/armada_hiace.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota alphard",
+    "imagePath": "/images/armada/armada_alphard.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota hiace",
+    "imagePath": "/images/armada/armada_hiace.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  },
+  {
+    "name": "toyota hiace",
+    "imagePath": "/images/armada/armada_hiace.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "manual",
+      "rental": 250000
+    }
+  }
+]
