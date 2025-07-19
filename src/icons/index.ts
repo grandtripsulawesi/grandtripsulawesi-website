@@ -10,3 +10,4 @@ export { default as EyeSlashIcon } from './EyeSlashIcon';
 // Chevron Right
 export { default as ArrowRightIcon } from './ArrowRightIcon';
 export { default as CheckIcon } from './CheckIcon';
+export { default as HandThumbUpIcon } from './HandThumbUpIcon';

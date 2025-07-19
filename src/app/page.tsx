@@ -2,6 +2,7 @@ import About from './_about';
 import Benefit from './_benefit';
 import Fleet from './_fleet';
 import Hero from './_hero';
+import Service from './_service';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <About />
       <Benefit />
       <Fleet />
+      <Service />
     </main>
   );
 }
