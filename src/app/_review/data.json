@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Luke",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula ornare velit non vehicula. Duis quis massa eget arcu luctus ullamcorper vel ac lacus. Vivamus eu tortor id justo finibus pellentesque.",
+    "rating": 5
+  },
+  {
+    "name": "Han",
+    "comment": "Curabitur lobortis, diam eget luctus lacinia, tellus lacus aliquam quam, quis blandit dui diam non mi. Aliquam erat volutpat.",
+    "rating": 5
+  },
+  {
+    "name": "Leia",
+    "comment": "Curabitur scelerisque magna a felis volutpat convallis. Nunc eleifend fermentum ex, nec sodales nunc tristique in. Ut viverra nec enim ac aliquam.",
+    "rating": 3
+  }
+]
