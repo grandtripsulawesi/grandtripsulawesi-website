@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 
 export type CardType<T = unknown> = {
   className?: string;
-  title: string;
+  title?: string;
   action: ReactNode;
   content: ReactNode | string;
   footer: (data: T) => ReactNode;

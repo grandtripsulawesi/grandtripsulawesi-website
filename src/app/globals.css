@@ -85,6 +85,7 @@
   --font-heading: var(--font-tomorrow);
 
   --custom-gradient: url('/images/hero_gradient_bg.webp');
+  --custom-gradient-footer: url('/images/footer_gradient_bg.webp');
   --custom-hero-indo-map: url('/images/hero_indo_map.webp');
 }
 
@@ -160,6 +161,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover; /* width, height */
   background-position: top;
+}
+
+.bg__custom__gradient__footer {
+  background-image: var(--custom-gradient-footer);
+  background-repeat: no-repeat;
+  background-size: cover; /* width, height */
+  background-position: bottom;
 }
 
 .bg__custom__decorative {
