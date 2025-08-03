@@ -3,13 +3,11 @@ slug: 'petualangan-kuliner-urban-makassar'
 title: 'Warisan Kuliner Bertemu Cita Rasa Indonesia Modern di Makassar'
 date: '2024-03-20'
 excerpt: 'Selami scene kuliner Makassar yang vibrant dan budaya urban, dari pasar seafood legendaris hingga rute perdagangan rempah bersejarah, menemukan mengapa ibu kota Sulawesi Selatan ini menjadi destinasi kuliner Indonesia yang sedang naik daun.'
-tags: ['Makassar', 'Kuliner', 'Seafood']
+tags: ['Travelling', 'Makassar', 'Kuliner', 'Seafood']
 published: true
 readingTime: '5 menit baca'
 coverImage: ''
 ---
-
-# Makassar: Dimana Warisan Perdagangan Rempah Bertemu Cita Rasa Indonesia Modern
 
 Makassar, ibu kota Sulawesi Selatan yang ramai, berdiri sebagai salah satu kota paling dinamis Indonesia di mana tradisi perdagangan rempah berabad-abad berpadu dengan energi urban kontemporer. Metropolis pesisir ini berfungsi sebagai gerbang Indonesia timur sambil menawarkan pengunjung perjalanan kuliner luar biasa yang mencerminkan posisi bersejarahnya sebagai persimpangan perdagangan maritim.
 

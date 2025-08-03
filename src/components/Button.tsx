@@ -1,5 +1,5 @@
 import { Button as UIButton } from '@/components/ui/button';
-import { MouseEventHandler, ReactNode } from 'react';
+import { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react';
 
 type variantsValue =
   | 'default'
@@ -16,9 +16,20 @@ interface ButtonType {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ className, variant, children, onClick }: ButtonType) => {
+const Button = ({
+  className,
+  variant,
+  children,
+  onClick,
+  ...rest
+}: ButtonType & ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
-    <UIButton className={className} variant={variant} onClick={onClick}>
+    <UIButton
+      {...rest}
+      className={className}
+      variant={variant}
+      onClick={onClick}
+    >
       {children}
     </UIButton>
   );

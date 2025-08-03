@@ -17,7 +17,7 @@ const Faq = () => {
 
         <Accordion type="single" collapsible className="w-full my-12">
           {faqContent.faq.map((item, index) => (
-            <AccordionItem value={`faq-${index}`}>
+            <AccordionItem value={`faq-${index}`} key={`faq-${index}`}>
               <AccordionTrigger className="text-lg">
                 {item.question}
               </AccordionTrigger>

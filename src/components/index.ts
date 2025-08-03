@@ -8,3 +8,6 @@ export { default as Card } from './Card';
 // Footer
 export { default as Footer } from './Footer';
 export { default as Backdrop } from './Backdrop';
+export { default as CarDialog } from './CarDialog';
+export { default as Icon } from './Icon';
+export { default as OrderForm } from './OrderForm';

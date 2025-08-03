@@ -13,8 +13,9 @@ const Gallery = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
           {Array(6)
             .fill(0)
-            .map((item) => (
+            .map((_, index) => (
               <Image
+                key={'gallery-' + index}
                 alt="gallery collection"
                 src={'/images/gallery/gallery_illustration.webp'}
                 width={367}

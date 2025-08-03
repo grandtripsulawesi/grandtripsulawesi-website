@@ -55,8 +55,11 @@ const Service = () => {
           </p>
 
           <ul className="w-full grid grid-cols-2 gap-3 mt-4">
-            {dummyService.map((item) => (
-              <li className="flex w-full space-x-2 bg-amber-500/10 border-2 border-amber-400/50 px-2.5 py-2 rounded-xl">
+            {dummyService.map((item, index) => (
+              <li
+                key={item.title + '-' + index}
+                className="flex w-full space-x-2 bg-amber-500/10 border-2 border-amber-400/50 px-2.5 py-2 rounded-xl"
+              >
                 <div className="flex items-center justify-center bg-amber-500/20 border-2 border-amber-400 p-1.5 rounded-lg h-fit">
                   <HandThumbUpIcon className="size-5 text-amber-500" />
                 </div>

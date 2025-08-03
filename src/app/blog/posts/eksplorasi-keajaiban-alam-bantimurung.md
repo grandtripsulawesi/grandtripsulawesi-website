@@ -3,13 +3,11 @@ slug: 'eksplorasi-keajaiban-alam-bantimurung'
 title: 'Menemukan Kerajaan Kupu-Kupu di Bantimurung Sulawesi Selatan'
 date: '2024-03-25'
 excerpt: 'Jelajahi Taman Nasional Bantimurung-Bulusaraung yang menakjubkan, rumah bagi lebih dari 200 spesies kupu-kupu, gua batu kapur dramatis, dan air terjun bertingkat yang menampilkan keanekaragaman hayati luar biasa Sulawesi Selatan.'
-tags: ['Bantimurung', 'Kupu-kupu', 'Alam']
+tags: ['Travelling', 'Bantimurung', 'Kupu-kupu', 'Alam']
 published: true
 readingTime: '4 menit baca'
 coverImage: ''
 ---
-
-# Bantimurung-Bulusaraung: Menemukan Kerajaan Kupu-Kupu dan Lanskap Karst Sulawesi Selatan
 
 Hanya 50 kilometer timur laut Makassar terletak Taman Nasional Bantimurung-Bulusaraung, "Kerajaan Kupu-Kupu" Indonesia yang memesona. Area lindung seluas 43.750 hektar ini menampilkan keanekaragaman hayati luar biasa dan keajaiban geologis melalui air terjun bertingkat yang dikelilingi kupu-kupu berwarna-warni, gua batu kapur luas dengan formasi kuno, dan lanskap karst unik.
 

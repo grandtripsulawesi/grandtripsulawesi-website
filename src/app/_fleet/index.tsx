@@ -1,53 +1,18 @@
 'use client';
-import { Backdrop, Button, Card } from '@/components';
+import { Backdrop, Button, Card, CarDialog, Icon } from '@/components';
 import { ArrowRightIcon, EyeIcon, EyeSlashIcon } from '@/icons';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import armadaData from './data.json';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-
-interface ArmadaType {
-  name: string;
-  imagePath: string | StaticImport;
-  armadaDetail: {
-    person: number;
-    transmission: string;
-    rental: number;
-  };
-}
+import useURLState from '@/hooks/useUrlState';
+import { ArmadaType } from '../types';
 
 const dummyArmada: ArmadaType[] = armadaData;
 
-const Icon = ({
-  url,
-  alt = 'Icon',
-  width,
-  height,
-  className,
-}: {
-  url: string;
-  alt: string;
-  width: number;
-  height: number;
-  className: string;
-}) => {
-  const iconWidth = width;
-  const iconHeight = height;
-
-  return (
-    <Image
-      src={url}
-      alt={alt}
-      width={iconWidth}
-      height={iconHeight}
-      className={className}
-    />
-  );
-};
-
 const Fleet = () => {
   const [isExpand, setIsExpand] = useState<boolean>(false);
+  const { searchParams, updateUrl } = useURLState();
 
   return (
     <section className="relative w-full">
@@ -73,15 +38,22 @@ const Fleet = () => {
           </p>
         </div>
         <div className="flex flex-row flex-wrap justify-center gap-4">
-          {dummyArmada.map((armada) => (
+          {dummyArmada.map((armada, index) => (
             <Card
-              key={armada.name}
+              key={armada.name + '-' + index}
               title={armada.name}
               action={
                 <Button
                   variant="ghost"
                   onClick={() => {
-                    console.log('click');
+                    updateUrl('/fleet', {
+                      modal: true,
+                      name: armada.name,
+                      imageUrl: armada.imagePath,
+                      person: armada.armadaDetail.person,
+                      transmission: armada.armadaDetail.transmission,
+                      rental: armada.armadaDetail.rental,
+                    });
                   }}
                 >
                   <ArrowRightIcon className="size-8" />
@@ -162,6 +134,7 @@ const Fleet = () => {
           )}
         </Button>
       </div>
+      <CarDialog params={searchParams} updateUrl={updateUrl} />
     </section>
   );
 };

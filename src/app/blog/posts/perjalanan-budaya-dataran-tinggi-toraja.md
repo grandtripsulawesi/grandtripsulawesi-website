@@ -3,13 +3,11 @@ slug: 'perjalanan-budaya-dataran-tinggi-toraja'
 title: 'Menjelajahi Dataran Tinggi Toraja yang Mistis'
 date: '2024-03-15'
 excerpt: 'Temukan pesona Dataran Tinggi Toraja dengan upacara pemakaman kuno, arsitektur tradisional, dan lanskap pegunungan yang menakjubkan yang menciptakan pengalaman budaya tak terlupakan di Sulawesi Selatan.'
-tags: ['Toraja', 'Budaya', 'Pegunungan']
+tags: ['Travelling', 'Toraja', 'Budaya', 'Pegunungan']
 published: true
 readingTime: '4 menit baca'
 coverImage: ''
 ---
-
-# Menjelajahi Dataran Tinggi Toraja yang Mistis: Perjalanan Melalui Tradisi Kuno
 
 Tersembunyi di jantung pegunungan Sulawesi Selatan, Dataran Tinggi Toraja menawarkan salah satu pengalaman budaya paling mendalam di Indonesia. Dikenal secara lokal sebagai Tana Toraja, wilayah luar biasa ini menyajikan museum hidup tradisi kuno, arsitektur spektakuler, dan praktik spiritual yang mendalam.
 

@@ -77,7 +77,7 @@ const Footer = () => {
               Terpercaya di Makassar & Maros.
             </p>
           </div>
-          <div className="basis-auto grid grid-cols-5">
+          <div className="text-sm basis-auto grid grid-cols-5">
             <article className="flex flex-col space-y-6 col-span-2">
               <div className="flex space-x-2">
                 <Image
@@ -135,7 +135,7 @@ const Footer = () => {
                 {bottomNav.map((section) => (
                   <li key={section.name}>
                     <Link href={section.url}>
-                      <p className="text-sm capitalize">{section.name}</p>
+                      <p className="capitalize">{section.name}</p>
                     </Link>
                   </li>
                 ))}

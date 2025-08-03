@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans, Tomorrow } from 'next/font/google';
 import './globals.css';
 import { Footer, Topbar } from '@/components';
+import Faq from './_faq';
 
 const notoSans = Noto_Sans({
   variable: '--font-noto-sans',
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <Topbar />
         {children}
+        <Faq />
         <Footer />
       </body>
     </html>

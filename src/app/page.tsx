@@ -1,6 +1,5 @@
 import About from './_about';
 import Benefit from './_benefit';
-import Faq from './_faq';
 import Fleet from './_fleet';
 import Gallery from './_gallery';
 import Hero from './_hero';
@@ -19,7 +18,6 @@ export default function Home() {
       <Review />
       <Gallery />
       <Blog />
-      <Faq />
     </main>
   );
 }

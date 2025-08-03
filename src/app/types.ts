@@ -1,3 +1,5 @@
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -21,4 +23,14 @@ export interface PostFrontMatter {
   published: boolean;
   readingTime?: string;
   coverImage?: string;
+}
+
+export interface ArmadaType {
+  name: string;
+  imagePath: string | StaticImport;
+  armadaDetail: {
+    person: number;
+    transmission: string;
+    rental: number;
+  };
 }
