@@ -15,7 +15,7 @@ const Trip = () => {
       <div className="mt-[110px] width__wrapper flex flex-col items-center min-h-screen mx-auto">
         <header className="flex flex-col items-center justify-center w-full h-[60vh]">
           <div className="w-full h-3/5 bg-gray-300" />
-          <Command className="h-16 rounded-full my-12">
+          <Command className="h-16 border rounded-full my-12">
             <CommandInput
               className="h-full"
               placeholder="Cari paket liburan mu"
