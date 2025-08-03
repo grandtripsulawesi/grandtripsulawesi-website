@@ -7,10 +7,11 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 
-const postDirectory = path.join(process.cwd(), '/src/app/blog/posts');
+const postDirectory = (pathname: string = '/src/app/blog/posts') =>
+  path.join(process.cwd(), pathname);
 
-export const getAllPostSlug = () => {
-  const fileNames = fs.readdirSync(postDirectory);
+export const getAllPostSlug = (pathname?: string) => {
+  const fileNames = fs.readdirSync(postDirectory(pathname));
   const slugCollection = fileNames.map((filename) => {
     const slug = filename.replace(/\.md$/, '');
 
@@ -24,12 +25,12 @@ export const getAllPostSlug = () => {
   return slugCollection;
 };
 
-export const getAllPosts = (): BlogPost[] => {
-  const fileNames = fs.readdirSync(postDirectory);
+export const getAllPosts = (pathname?: string): BlogPost[] => {
+  const fileNames = fs.readdirSync(postDirectory(pathname));
   const allPostData: BlogPost[] = fileNames
     .map((filename) => {
       const slug = filename.replace(/\.md$/, '');
-      const fullPath = path.join(postDirectory, filename);
+      const fullPath = path.join(postDirectory(pathname), filename);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const matterResult = matter(fileContents);
       const frontMatter = matterResult.data as PostFrontMatter;
@@ -45,10 +46,11 @@ export const getAllPosts = (): BlogPost[] => {
 };
 
 export const getPostData = async (
-  slug: string
+  slug: string,
+  pathname?: string
 ): Promise<BlogPostWithContent | null> => {
   try {
-    const fullPath = path.join(postDirectory, slug + '.md');
+    const fullPath = path.join(postDirectory(pathname), slug + '.md');
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
     const frontMatter = matterResult.data as PostFrontMatter;
@@ -75,9 +77,10 @@ export const getPostData = async (
 export const getRelatedPost = (
   currentSlug: string,
   tags?: string[],
-  limit: number = 3
+  limit: number = 3,
+  pathname?: string
 ) => {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts(pathname);
 
   return allPosts
     .filter((post) => post.slug !== currentSlug)

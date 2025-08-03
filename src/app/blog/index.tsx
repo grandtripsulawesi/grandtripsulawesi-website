@@ -1,4 +1,3 @@
-import { BlogPost } from '@/app/types';
 import { Button } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
@@ -9,10 +8,6 @@ import {
 } from '@/icons';
 import { getAllPosts } from '@/lib/post';
 import Link from 'next/link';
-
-interface BlogPostProps {
-  posts: BlogPost[];
-}
 
 const Blog = () => {
   const posts = getAllPosts();

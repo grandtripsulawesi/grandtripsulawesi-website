@@ -69,7 +69,7 @@ const CarDialog = ({
   return (
     <Dialog open={params.get('modal') === 'true'}>
       <DialogContent
-        className="w-3/5 h-auto max-w-none"
+        className="!w-3/5 h-auto !max-w-none"
         showCloseButton={false}
       >
         <DialogHeader className="flex-row justify-between items-baseline">

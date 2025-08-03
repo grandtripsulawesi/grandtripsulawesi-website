@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const pageSection = [
   {
     name: 'paket trip',
-    url: '#',
+    url: '/trip',
   },
   {
     name: 'tentang kami',
