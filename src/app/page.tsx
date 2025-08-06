@@ -16,13 +16,13 @@ export default function Home() {
   return (
     <main className="relative flex flex-col items-center justify-between font-sans">
       <Hero />
-      <About />
-      <Benefit />
-      <Fleet />
-      <Service />
-      <Review />
-      <Gallery />
-      <Blog />
+      {/* <About /> */}
+      {/* <Benefit /> */}
+      {/* <Fleet /> */}
+      {/* <Service /> */}
+      {/* <Review /> */}
+      {/* <Gallery /> */}
+      {/* <Blog /> */}
     </main>
   );
 }

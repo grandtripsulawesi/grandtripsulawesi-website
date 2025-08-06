@@ -187,3 +187,14 @@ body {
   background-size: contain; /* width, height */
   background-position: center;
 }
+
+@media (max-width: 640px) {
+  .width__wrapper {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .bg__custom__decorative {
+    background-size: 150%, 100%; /* width, height */
+  }
+}

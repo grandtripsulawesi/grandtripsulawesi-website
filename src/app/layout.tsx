@@ -30,10 +30,10 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${tomorrow.variable} antialiased relative`}
       >
-        <Topbar />
+        {/* <Topbar /> */}
         {children}
-        <Faq />
-        <Footer />
+        {/* <Faq /> */}
+        {/* <Footer /> */}
       </body>
     </html>
   );
