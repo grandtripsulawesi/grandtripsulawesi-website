@@ -26,90 +26,21 @@ const Hero = () => {
             di Makassar & Maros
           </h1>
           {!isMobile && isMobile !== null ? (
-            <div className="relative">
-              <Image
-                alt="White Honda Brio"
-                src={'/images/armada/armada_hiace.webp'}
-                width={720}
-                height={350}
-                className="max-w-11/12 mt-12 z-50 relative"
-              />
-
-              <div className="absolute w-auto top-[10%] -left-[10%]">
+            <div className="relative w-full h-3/5">
+              <div>
                 <Image
-                  alt="image of tana toraja depicts a traditional tana toraja building; tongkonan"
-                  src={'/images/hero/hero_place_1.webp'}
-                  width={800}
-                  height={800}
-                  className="w-1/2 max-w-full h-auto inline-block"
-                />
-                <Image
-                  alt="arrow that points to a photo"
-                  src={'/images/hero/hero_arrow_1.webp'}
-                  width={260}
-                  height={260}
-                  className="w-1/3 max-w-xs md:max-w-sm h-auto inline-block"
-                />
-              </div>
-
-              <div className="absolute w-auto top-[5%] -right-[21%]">
-                <Image
-                  alt="arrow that points to a photo"
-                  src={'/images/hero/hero_arrow_2.webp'}
-                  width={260}
-                  height={260}
-                  className="w-1/3 max-w-xs md:max-w-sm h-auto rotate-180 inline-block"
-                />
-                <Image
-                  alt="image of tanjung bira depicts a beautiful beach located in bulukumba"
-                  src={'/images/hero/hero_place_2.webp'}
-                  width={800}
-                  height={800}
-                  className="w-3/5 max-w-full h-auto inline-block rotate-6"
-                />
-              </div>
-
-              <div className="absolute w-full bottom-[3%] left-0">
-                <div className="relative flex flex-col">
-                  <Image
-                    alt=""
-                    src={'/images/hero/hero_place_4.webp'}
-                    width={200}
-                    height={200}
-                    className="absolute -top-[120%] -left-[20%] shrink-0 w-1/4 max-w-full h-auto -rotate-12"
-                  />
-
-                  <Image
-                    alt="arrow that points to a photo"
-                    src={'/images/hero/hero_arrow_2.webp'}
-                    width={100}
-                    height={100}
-                    className="shrink-0 w-1/6 max-w-xs md:max-w-sm h-auto rotate-12"
-                  />
-                </div>
-              </div>
-
-              <div className="absolute w-auto -bottom-[3%] -right-[20%]">
-                <Image
-                  alt="arrow that points to a photo"
-                  src={'/images/hero/hero_arrow_1.webp'}
-                  width={260}
-                  height={260}
-                  className="w-1/3 max-w-xs md:max-w-sm h-auto inline-block rotate-180"
-                />
-                <Image
-                  alt="image of tana toraja depicts a christian holy place; Lord Jesus Christ Statue"
-                  src={'/images/hero/hero_place_3.webp'}
-                  width={800}
-                  height={800}
-                  className="w-3/5 max-w-full h-auto inline-block rotate-12"
+                  alt="White Honda Brio"
+                  src={'/images/hero/hero_slide_2.webp'}
+                  width={720}
+                  height={350}
+                  className="w-full z-50 relative"
                 />
               </div>
             </div>
           ) : (
             <div className="my-auto h-1/3">
               <Image
-                alt="White Honda Brio"
+                alt="Armada collection"
                 src={'/images/hero/hero_cars.webp'}
                 width={400}
                 height={350}
