@@ -30,10 +30,10 @@ const Hero = () => {
           <div className="relative">
             <Image
               alt="White Honda Brio"
-              src={'/images/armada/armada_brio.webp'}
+              src={'/images/armada/armada_hiace.webp'}
               width={720}
               height={350}
-              className="max-w-11/12 mt-12"
+              className="max-w-11/12 mt-12 z-50 relative"
             />
 
             <div className="absolute w-auto top-[10%] -left-[10%]">

@@ -32,7 +32,7 @@ const bottomNav = [
 const CallToAction = () => {
   return (
     <div className="w-full h-[60vh] bg-foreground flex items-center justify-center">
-      <div className="width__wrapper bg-gray-800/40 rounded-2xl flex px-6 py-10">
+      <div className="width__wrapper bg-zinc-800/40 rounded-2xl flex px-6 py-10">
         <div className="basis-1/2 text-background">
           <h1 className="text-4xl font-medium font-heading leading-tight">
             Sewa Mobil No Ribet!
