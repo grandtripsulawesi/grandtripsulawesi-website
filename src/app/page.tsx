@@ -1,9 +1,28 @@
-import Image from 'next/image';
+import About from './_about';
+import Benefit from './_benefit';
+import Fleet from './_fleet';
+import Gallery from './_gallery';
+import Hero from './_hero';
+import Review from './_review';
+import Service from './_service';
+import Blog from './blog';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'GrandTrip Sulawesi',
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-sans">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start"></main>
-    </div>
+    <main className="relative flex flex-col items-center justify-between font-sans">
+      <Hero />
+      <About />
+      <Benefit />
+      <Fleet />
+      <Service />
+      <Review />
+      <Gallery />
+      <Blog />
+    </main>
   );
 }
