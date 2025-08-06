@@ -29,7 +29,7 @@ const Hero = () => {
             <div className="relative w-full h-3/5">
               <div>
                 <Image
-                  alt="White Honda Brio"
+                  alt=""
                   src={'/images/hero/hero_slide_2.webp'}
                   width={720}
                   height={350}
@@ -37,7 +37,7 @@ const Hero = () => {
                 />
               </div>
             </div>
-          ) : (
+          ) : isMobile && isMobile !== null ? (
             <div className="my-auto h-1/3">
               <Image
                 alt="Armada collection"
@@ -47,6 +47,8 @@ const Hero = () => {
                 className="w-full h-auto z-50 relative object-cover"
               />
             </div>
+          ) : (
+            <div className="h-3/5"></div>
           )}
 
           <Button
