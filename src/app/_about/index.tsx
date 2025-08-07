@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <section className="relative w-full bg-foreground text-background h-[80vh] flex items-center justify-center">
-      <div className="width__wrapper h-3/4 lg:h-3/5 flex mx-auto space-x-4">
-        <div className="basis-3/5 h-full lg:h-auto flex flex-col lg:flex-row space-y-4 lg:space-x-4">
+    <section className="relative w-full bg-foreground text-background lg:h-[80vh] flex items-center justify-center">
+      <div className="width__wrapper my-24 lg:my-0 h-3/4 lg:h-3/5 flex flex-col lg:flex-row mx-auto space-y-8 lg:space-y-0 lg:space-x-4">
+        <div className="lg:basis-3/5 h-full lg:h-auto flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
           <div className="relative h-1/3 lg:h-full min-w-2/4 flex justify-center items-center">
             <div className="absolute z-10 flex flex-col justify-center items-center">
               <h2 className="font-heading font-semibold text-4xl">100+</h2>
@@ -17,7 +17,7 @@ const About = () => {
               src={'/images/about/about_illustration_1.webp'}
               width={300}
               height={500}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-40 lg:h-full object-cover rounded-xl"
             />
           </div>
           <div className="flex flex-col space-y-4 h-full">
@@ -32,7 +32,7 @@ const About = () => {
                 src={'/images/about/about_illustration_2.webp'}
                 width={300}
                 height={200}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-40 lg:h-full object-cover rounded-xl"
               />
             </div>
             <div className="relative h-full lg:h-1/2">
@@ -46,7 +46,7 @@ const About = () => {
                 src={'/images/about/about_illustration_3.webp'}
                 width={300}
                 height={300}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-40 lg:h-full object-cover rounded-xl"
               />
             </div>
           </div>
@@ -77,7 +77,7 @@ const About = () => {
 
           <Button
             variant="secondary"
-            className="px-3 py-2 mt-4 lg:mt-auto w-fit"
+            className="px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto w-fit"
           >
             Hubungi Kami
           </Button>
