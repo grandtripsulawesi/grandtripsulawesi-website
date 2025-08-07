@@ -12,3 +12,4 @@ export { default as CarDialog } from './CarDialog';
 export { default as Icon } from './Icon';
 export { default as OrderForm } from './OrderForm';
 export { default as Widget } from './Widget';
+export { default as MobileNav } from './MobileNav';

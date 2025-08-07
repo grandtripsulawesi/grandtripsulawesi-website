@@ -3,6 +3,8 @@ import { ArrowRightIcon } from '@/icons';
 import Button from './Button';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import useMediaQuery from '@/hooks/useMediaQuery';
+import MobileNav from './MobileNav';
 
 const pageSection = [
   {
@@ -49,6 +51,7 @@ const Navigation = () => {
 };
 
 const Topbar = () => {
+  const { isMobile } = useMediaQuery();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -59,8 +62,8 @@ const Topbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <div className={`fixed z-50 top-6 hidden lg:flex items-center w-full my-3`}>
+  return !isMobile && isMobile !== null ? (
+    <div className={`fixed z-50 top-6 flex items-center w-full my-3`}>
       <div
         className={` flex items-center width__wrapper mx-auto px-4 py-2.5 ${
           scrolled
@@ -83,6 +86,10 @@ const Topbar = () => {
         </Button>
       </div>
     </div>
+  ) : isMobile && isMobile !== null ? (
+    <MobileNav pageSection={pageSection} />
+  ) : (
+    ''
   );
 };
 

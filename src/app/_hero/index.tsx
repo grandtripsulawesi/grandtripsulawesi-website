@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <>
       <section className="relative w-full bg__custom__gradient">
-        <div className="mt-24 width__wrapper flex flex-col items-center h-lvh lg:h-screen mx-auto">
+        <div className="pt-24 width__wrapper flex flex-col items-center h-svh lg:h-screen mx-auto">
           <h1 className="lg:text-center font-heading font-bold text-4xl text-center tracking-tight leading-tight lg:text-5xl lg:mt-12 lg:tracking-normal lg:leading-tight">
             Rental Mobil{' '}
             <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 inline-block text-transparent bg-clip-text">
@@ -38,26 +38,28 @@ const Hero = () => {
               </div>
             </div>
           ) : isMobile && isMobile !== null ? (
-            <div className="my-auto h-1/3">
+            <div className="mt-auto h-1/4 max-h-1/3">
               <Image
                 alt="Armada collection"
                 src={'/images/hero/hero_cars.webp'}
                 width={400}
                 height={350}
-                className="w-full h-auto z-50 relative object-cover"
+                className="w-full h-auto z-30 relative object-cover"
               />
             </div>
           ) : (
             <div className="h-3/5"></div>
           )}
 
-          <Button
-            variant="outline"
-            className="mt-auto lg:mt-0 mb-12 lg:mb-0 border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white"
-          >
-            <p className="text-lg lg:text-base">Lihat Koleksi Armada</p>
-            <ArrowRightIcon className="size-12 lg:size-10" />
-          </Button>
+          <div className="mt-24 lg:mt-0 mb-12 lg:mb-0 ">
+            <Button
+              variant="outline"
+              className="border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white"
+            >
+              <p className="text-lg lg:text-base">Lihat Koleksi Armada</p>
+              <ArrowRightIcon className="size-12 lg:size-10" />
+            </Button>
+          </div>
         </div>
 
         <div

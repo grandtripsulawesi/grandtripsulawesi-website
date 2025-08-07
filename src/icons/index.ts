@@ -19,3 +19,4 @@ export { default as ClockIcon } from './ClockIcon';
 export { default as CalendarIcon } from './CalendarIcon';
 export { default as XMarkIcon } from './XMarkIcon';
 export { default as CurrencyIcon } from './CurrencyIcon';
+export { default as MenuIcon } from './MenuIcon';
