@@ -2,7 +2,7 @@
 
 import { MenuIcon, XMarkIcon } from '@/icons';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from './Button';
 import { cn } from '@/lib/utils';
 
@@ -13,6 +13,17 @@ const MobileNav = ({
 }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
+  useEffect(() => {
+    if (isNavOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isNavOpen]);
+
   return (
     <div className="relative">
       <Button
@@ -20,12 +31,12 @@ const MobileNav = ({
           setIsNavOpen(!isNavOpen);
         }}
         variant="ghost"
-        className="absolute right-5 top-8 z-50"
+        className="fixed right-5 top-8 z-50"
       >
         {!isNavOpen ? (
           <MenuIcon className="size-10 text-amber-600" />
         ) : (
-          <XMarkIcon className="size-10 text-white" />
+          <XMarkIcon className="size-10 text-amber-600" />
         )}
       </Button>
 
