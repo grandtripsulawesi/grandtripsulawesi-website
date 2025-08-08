@@ -17,7 +17,7 @@ export default function Home() {
     <main className="relative flex flex-col items-center justify-between font-sans">
       <Hero />
       <About />
-      {/* <Benefit /> */}
+      <Benefit />
       {/* <Fleet /> */}
       {/* <Service /> */}
       {/* <Review /> */}

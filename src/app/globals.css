@@ -188,7 +188,7 @@ body {
   background-position: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .width__wrapper {
     width: 95%;
     max-width: 100%;
@@ -196,5 +196,9 @@ body {
 
   .bg__custom__decorative {
     background-size: 150%, 100%; /* width, height */
+  }
+
+  p {
+    font-size: 1.15rem;
   }
 }

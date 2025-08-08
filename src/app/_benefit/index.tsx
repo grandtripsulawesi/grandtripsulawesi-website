@@ -10,7 +10,7 @@ const Benefit = () => {
             Berkomitmen Untuk Kualitas Terbaik
           </h1>
         </div>
-        <article className="flex space-x-8">
+        <article className="flex flex-col space-y-14 lg:flex-row lg:space-x-8 lg:space-y-0">
           <div className="relative">
             <Image
               alt="illustration of two people handshake in agreement with showroom at the background"
@@ -25,14 +25,14 @@ const Benefit = () => {
             <h2 className="font-heading text-2xl mb-2">
               Memberikan Fleksibilitas
             </h2>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-justify">
               Dengan memilih jasa rental mobil kami, Anda tidak perlu repot
               mempersiapkan kebutuhan transportasi Anda lagi. Sehingga, Anda
               bisa lebih fokus dalam kegiatan Anda. Alih-alih berlama-lama
               menyiapkan keperluan kendaraan, gunakan waktu itu untuk bekerja
-              atau
+              atau:
             </p>
-            <ul className="mt-4 list-image-[url(./../icons/svg/CheckIcon.svg)] list-inside text-sm">
+            <ul className="mt-4 list-image-[url(./../icons/svg/CheckIcon.svg)] list-inside text-lg lg:text-sm">
               <li>Menghilangkan pekerjaan maintenance yang memakan waktu.</li>
               <li>
                 Memungkinkan Anda untuk fokus pada kegiatan penting lainnya.
@@ -42,7 +42,7 @@ const Benefit = () => {
           </div>
         </article>
 
-        <article className="flex flex-row-reverse space-x-8 mt-24">
+        <article className="flex flex-col space-y-14 lg:space-y-0 lg:flex-row-reverse lg:space-x-8 lg:mt-24">
           <div className="relative">
             <Image
               alt="illustration of two people handshake in agreement with showroom at the background"
@@ -57,13 +57,13 @@ const Benefit = () => {
             <h2 className="font-heading text-2xl mb-2">
               Kualitas Terbaik Bagi Anda
             </h2>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-justify">
               Kami sangat menjaga kualitas service kami. Kami akan menyiapkan
               semua kebutuhan Anda terkait akomodasi transportasi. Kami
               berkomitmen untuk memastikan bahwa anda akan menikmati perjalanan
               Anda dengan pengalaman terbaik seperti:
             </p>
-            <ul className="mt-4 list-image-[url(./../icons/svg/CheckIcon.svg)] list-inside text-sm">
+            <ul className="mt-4 list-image-[url(./../icons/svg/CheckIcon.svg)] list-inside text-lg lg:text-sm">
               <li>Menyediakan driver professional sesuai kebutuhan Anda.</li>
               <li>
                 Memberikan layanan Drop-and-Pick sesuai titik jemput dan antar.

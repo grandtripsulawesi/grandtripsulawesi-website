@@ -80,6 +80,7 @@ const Topbar = () => {
         <Button
           variant="outline"
           className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent"
+          aria-label="Booking sekarang"
         >
           <p>Booking Sekarang</p>
           <ArrowRightIcon className="size-10" />

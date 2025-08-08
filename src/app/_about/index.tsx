@@ -70,14 +70,14 @@ const About = () => {
             melayani Anda.
           </p>
           <br />
-          <p>
+          <p className="text-justify">
             Misi kami adalah memberikan kemudahan dan kenyamanan dalam setiap
             perjalanan Anda.
           </p>
 
           <Button
             variant="secondary"
-            className="px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto w-fit"
+            className="text-base lg:text-sm px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto w-fit"
           >
             Hubungi Kami
           </Button>
