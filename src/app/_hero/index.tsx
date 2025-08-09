@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <>
       <section className="relative w-full bg__custom__gradient">
-        <div className="pt-24 width__wrapper flex flex-col items-center h-svh lg:h-screen mx-auto">
+        <div className="pt-24 width__wrapper flex flex-col items-center h-svh lg:h-lvh mx-auto">
           <h1 className="lg:text-center font-heading font-bold text-4xl text-center tracking-tight leading-tight lg:text-5xl lg:mt-12 lg:tracking-normal lg:leading-tight">
             Rental Mobil{' '}
             <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 inline-block text-transparent bg-clip-text">
@@ -51,7 +51,7 @@ const Hero = () => {
             <div className="h-3/5"></div>
           )}
 
-          <div className="mt-24 lg:mt-0 mb-12 lg:mb-0 ">
+          <div className="mt-24 lg:mt-auto mb-12 lg:mb-10 ">
             <Button
               variant="outline"
               className="border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white"

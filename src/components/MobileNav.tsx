@@ -53,14 +53,16 @@ const MobileNav = ({
 
       <nav
         aria-label="Mobile"
-        className="fixed z-40 top-0 right-0 w-full h-full"
+        className={cn(
+          'fixed z-40 top-0 right-0 w-full h-full transition-transform duration-300 ease-in-out',
+          isNavOpen ? 'translate-x-0' : 'translate-x-full'
+        )}
       >
         <ul
           id="mobile-menu"
           role="list"
           className={cn(
-            'list-none flex flex-col items-center justify-center space-y-4 w-full h-full bg-zinc-800 text-white transition-transform duration-300 ease-in-out',
-            isNavOpen ? 'translate-x-0' : 'translate-x-full'
+            'list-none flex flex-col items-center justify-center space-y-4 w-full h-full bg-zinc-800 text-white'
           )}
         >
           {pageSection.map((section) => (

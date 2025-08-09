@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 const Benefit = () => {
   return (
-    <section className="w-full h-screen flex flex-col items-center justify-center mt-24">
-      <div className="width__wrapper mx-auto flex flex-col min-h-4/5 max-h-screen space-y-8">
+    <section className="w-full lg:h-screen flex flex-col items-center justify-center mt-24 overflow-clip">
+      <div className="width__wrapper mx-auto flex flex-col min-h-4/5 lg:max-h-screen space-y-8">
         <div className="text-center">
           <p>Mengapa memilih kami?</p>
           <h1 className="font-semibold font-heading">
@@ -22,7 +22,7 @@ const Benefit = () => {
             <div className="absolute top-8 -left-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
           </div>
           <div className="basis-1/2">
-            <h2 className="font-heading text-2xl mb-2">
+            <h2 className="font-heading text-xl font-medium lg:text-2xl mb-2">
               Memberikan Fleksibilitas
             </h2>
             <p className="leading-relaxed text-justify">
@@ -32,12 +32,16 @@ const Benefit = () => {
               menyiapkan keperluan kendaraan, gunakan waktu itu untuk bekerja
               atau:
             </p>
-            <ul className="mt-4 list-image-[url(./../icons/svg/CheckIcon.svg)] list-inside text-lg lg:text-sm">
-              <li>Menghilangkan pekerjaan maintenance yang memakan waktu.</li>
-              <li>
+            <ul className="mt-4 text-base lg:text-sm space-y-2">
+              <li className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1 before:w-4 before:h-4 before:bg-amber-600 before:[mask-image:url(./../icons/svg/CheckIcon.svg)] before:[-webkit-mask-image:url(./../icons/svg/CheckIcon.svg)] before:[mask-repeat:no-repeat] before:[-webkit-mask-repeat:no-repeat] before:[mask-size:contain] before:[-webkit-mask-size:contain] before:[mask-position:center] before:[-webkit-mask-position:center]">
+                Menghilangkan pekerjaan maintenance yang memakan waktu.
+              </li>
+              <li className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1 before:w-4 before:h-4 before:bg-amber-600 before:[mask-image:url(./../icons/svg/CheckIcon.svg)] before:[-webkit-mask-image:url(./../icons/svg/CheckIcon.svg)] before:[mask-repeat:no-repeat] before:[-webkit-mask-repeat:no-repeat] before:[mask-size:contain] before:[-webkit-mask-size:contain] before:[mask-position:center] before:[-webkit-mask-position:center]">
                 Memungkinkan Anda untuk fokus pada kegiatan penting lainnya.
               </li>
-              <li>Memberikan pengalaman berkesan bagi keperluan acara anda.</li>
+              <li className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1 before:w-4 before:h-4 before:bg-amber-600 before:[mask-image:url(./../icons/svg/CheckIcon.svg)] before:[-webkit-mask-image:url(./../icons/svg/CheckIcon.svg)] before:[mask-repeat:no-repeat] before:[-webkit-mask-repeat:no-repeat] before:[mask-size:contain] before:[-webkit-mask-size:contain] before:[mask-position:center] before:[-webkit-mask-position:center]">
+                Memberikan pengalaman berkesan bagi keperluan acara anda.
+              </li>
             </ul>
           </div>
         </article>
@@ -54,7 +58,7 @@ const Benefit = () => {
             <div className="absolute top-8 -right-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
           </div>
           <div className="mr-auto basis-3/5">
-            <h2 className="font-heading text-2xl mb-2">
+            <h2 className="font-heading text-xl font-medium lg:text-2xl mb-2">
               Kualitas Terbaik Bagi Anda
             </h2>
             <p className="leading-relaxed text-justify">
@@ -63,12 +67,16 @@ const Benefit = () => {
               berkomitmen untuk memastikan bahwa anda akan menikmati perjalanan
               Anda dengan pengalaman terbaik seperti:
             </p>
-            <ul className="mt-4 list-image-[url(./../icons/svg/CheckIcon.svg)] list-inside text-lg lg:text-sm">
-              <li>Menyediakan driver professional sesuai kebutuhan Anda.</li>
-              <li>
+            <ul className="mt-4 text-base lg:text-sm space-y-2">
+              <li className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1 before:w-4 before:h-4 before:bg-amber-600 before:[mask-image:url(./../icons/svg/CheckIcon.svg)] before:[-webkit-mask-image:url(./../icons/svg/CheckIcon.svg)] before:[mask-repeat:no-repeat] before:[-webkit-mask-repeat:no-repeat] before:[mask-size:contain] before:[-webkit-mask-size:contain] before:[mask-position:center] before:[-webkit-mask-position:center]">
+                Menyediakan driver professional sesuai kebutuhan Anda.
+              </li>
+              <li className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1 before:w-4 before:h-4 before:bg-amber-600 before:[mask-image:url(./../icons/svg/CheckIcon.svg)] before:[-webkit-mask-image:url(./../icons/svg/CheckIcon.svg)] before:[mask-repeat:no-repeat] before:[-webkit-mask-repeat:no-repeat] before:[mask-size:contain] before:[-webkit-mask-size:contain] before:[mask-position:center] before:[-webkit-mask-position:center]">
                 Memberikan layanan Drop-and-Pick sesuai titik jemput dan antar.
               </li>
-              <li>Menjamin perjalanan yang aman dan nyaman untuk anda.</li>
+              <li className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1 before:w-4 before:h-4 before:bg-amber-600 before:[mask-image:url(./../icons/svg/CheckIcon.svg)] before:[-webkit-mask-image:url(./../icons/svg/CheckIcon.svg)] before:[mask-repeat:no-repeat] before:[-webkit-mask-repeat:no-repeat] before:[mask-size:contain] before:[-webkit-mask-size:contain] before:[mask-position:center] before:[-webkit-mask-position:center]">
+                Menjamin perjalanan yang aman dan nyaman untuk anda.
+              </li>
             </ul>
           </div>
         </article>

@@ -18,11 +18,11 @@ export default function Home() {
       <Hero />
       <About />
       <Benefit />
-      {/* <Fleet /> */}
-      {/* <Service /> */}
-      {/* <Review /> */}
-      {/* <Gallery /> */}
-      {/* <Blog /> */}
+      <Fleet />
+      <Service />
+      <Review />
+      <Gallery />
+      <Blog />
     </main>
   );
 }

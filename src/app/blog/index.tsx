@@ -15,7 +15,7 @@ const Blog = () => {
   return (
     <section className="w-full relative">
       <div className="width__wrapper mx-auto my-24 flex flex-col space-x-4">
-        <div>
+        <div className="text-center lg:text-left">
           <p>Artikel</p>
           <h1 className="font-heading leading-tight font-semibold">
             Bacaan Untuk Anda
@@ -23,12 +23,12 @@ const Blog = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
           {posts.map((post) => (
-            <Card className="min-h-[400px]" key={post.title}>
+            <Card className="lg:min-h-[400px]" key={post.title}>
               <div>
                 <div className="w-full h-[180px] bg-gray-200" />
               </div>
               <CardContent>
-                <h3 className="font-semibold font-heading mb-2 text-base">
+                <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">
                   {post.title}
                 </h3>
                 <p className="line-clamp-3">{post.excerpt}</p>
@@ -50,11 +50,14 @@ const Blog = () => {
                 </ul>
                 <Button
                   variant="default"
-                  className="ml-auto font-heading py-2.5 px-2 mt-4"
+                  className="w-full ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4"
                 >
-                  <Link href={'/'.concat('blog/', post.slug)} className="flex">
+                  <Link
+                    href={'/'.concat('blog/', post.slug)}
+                    className="flex justify-center items-end font-semibold"
+                  >
                     <p>Baca Artikel</p>
-                    <ChevronRightIcon />
+                    <ChevronRightIcon className="size-6 lg:size-5" />
                   </Link>
                 </Button>
               </CardFooter>
