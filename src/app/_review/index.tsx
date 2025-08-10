@@ -83,14 +83,16 @@ const Review = () => {
             <div className="mx-auto mt-12 flex justify-center items-center space-x-4">
               <Button
                 variant="ghost"
-                className="text-white border rounded-full"
+                aria-label="Sebelumnya"
+                className="text-white border border-white/30 rounded-full h-12 w-12 transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                 onClick={handleClickPrevious}
               >
                 <ChevronLeftIcon className="size-10" />
               </Button>
               <Button
                 variant="ghost"
-                className="text-white border rounded-full"
+                aria-label="Berikutnya"
+                className="text-white border border-white/30 rounded-full h-12 w-12 transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                 onClick={handleClickNext}
               >
                 <ChevronRightIcon className="size-10" />

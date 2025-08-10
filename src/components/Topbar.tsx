@@ -79,7 +79,7 @@ const Topbar = () => {
         <Navigation />
         <Button
           variant="outline"
-          className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent"
+          className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
           aria-label="Booking sekarang"
         >
           <p>Booking Sekarang</p>

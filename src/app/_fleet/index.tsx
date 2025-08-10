@@ -1,6 +1,10 @@
 'use client';
 import { Backdrop, Button, Card, CarDialog, Icon } from '@/components';
-import { ArrowRightIcon, EyeIcon, EyeSlashIcon } from '@/icons';
+import {
+  ArrowRightIcon,
+  ChevronDoubleDownIcon,
+  ChevronDoubleUpIcon,
+} from '@/icons';
 import Image from 'next/image';
 import armadaData from './data.json';
 import { useState } from 'react';
@@ -126,17 +130,17 @@ const Fleet = () => {
           onClick={() => setIsExpand(!isExpand)}
           className={cn(
             !isExpand ? 'absolute bottom-24 z-40' : 'mt-12 mb-24',
-            'text-white text-md font-semibold px-4 py-2.5 tracking-wide rounded-full'
+            'text-white text-md font-semibold px-4 py-2.5 tracking-wide rounded-full transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
           )}
         >
           {!isExpand ? (
             <span className="flex items-center space-x-2">
-              <EyeIcon />
+              <ChevronDoubleDownIcon />
               <p>Selengkapnya</p>
             </span>
           ) : (
             <span className="flex items-center space-x-1">
-              <EyeSlashIcon />
+              <ChevronDoubleUpIcon />
               <p>Tutup</p>
             </span>
           )}
