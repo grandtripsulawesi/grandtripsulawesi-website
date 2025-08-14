@@ -1,10 +1,11 @@
 'use client';
 
-import { MenuIcon, XMarkIcon } from '@/icons';
+import { ChevronLeftIcon, MenuIcon, XMarkIcon } from '@/icons';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Button from './Button';
 import { cn } from '@/lib/utils';
+import { usePathname, useRouter } from 'next/navigation';
 
 const MobileNav = ({
   pageSection,
@@ -12,6 +13,8 @@ const MobileNav = ({
   pageSection: { name: string; url: string }[];
 }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     if (isNavOpen) {
@@ -35,6 +38,19 @@ const MobileNav = ({
 
   return (
     <div className="relative">
+      {pathname.length > 1 && (
+        <div className="relative flex items-center left-0 top-8 z-50">
+          <Button
+            onClick={() => router.back()}
+            variant="ghost"
+            aria-label={'Previous page'}
+          >
+            {<ChevronLeftIcon className="size-10" />}
+          </Button>
+          <p>Kembali</p>
+        </div>
+      )}
+
       <Button
         onClick={() => setIsNavOpen((v) => !v)}
         variant="ghost"
@@ -54,7 +70,7 @@ const MobileNav = ({
       <nav
         aria-label="Mobile"
         className={cn(
-          'fixed z-40 top-0 right-0 w-full h-full transition-transform duration-300 ease-in-out',
+          'fixed z-50 top-0 right-0 w-full h-full transition-transform duration-300 ease-in-out',
           isNavOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -62,7 +78,7 @@ const MobileNav = ({
           id="mobile-menu"
           role="list"
           className={cn(
-            'list-none flex flex-col items-center justify-center space-y-4 w-full h-full bg-zinc-800 text-white'
+            'list-none flex flex-col items-center justify-center space-y-4 w-full h-full text-white bg-foreground bg__custom__gradient__footer overflow-clip'
           )}
         >
           {pageSection.map((section) => (
@@ -72,6 +88,10 @@ const MobileNav = ({
               </Link>
             </li>
           ))}
+          <div
+            id="indo__map__decoration"
+            className="absolute size-full bg__custom__decorative left-1/2 -translate-x-1/2 translate-y-1/3 lg:left-0 lg:translate-x-1/3 lg:translate-y-1/3 opacity-20 pointer-events-none"
+          />
         </ul>
       </nav>
     </div>

@@ -52,24 +52,11 @@ const Navigation = () => {
 
 const Topbar = () => {
   const { isMobile } = useMediaQuery();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10); // adjust threshold as needed
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return !isMobile && isMobile !== null ? (
-    <div className={`fixed z-50 top-6 flex items-center w-full my-3`}>
+    <div className={`absolute z-50 top-6 flex items-center w-full my-3`}>
       <div
-        className={` flex items-center width__wrapper mx-auto px-4 py-2.5 ${
-          scrolled
-            ? 'backdrop-blur border border-slate-100/50 rounded-full'
-            : 'bg-transparent'
-        } transition-all duration-300`}
+        className={` flex items-center width__wrapper mx-auto px-4 py-2.5 bg-transparent transition-all duration-300`}
       >
         <div className="w-1/4">
           <div className="size-16 bg-custom rounded-full flex items-center justify-center shrink-0">

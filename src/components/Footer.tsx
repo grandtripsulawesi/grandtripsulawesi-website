@@ -82,7 +82,7 @@ const Footer = () => {
           </div>
           <div className="text-sm basis-auto grid gap-y-12 lg:gap-y-0 lg:grid-cols-5">
             <article className="flex flex-col space-y-6 lg:col-span-2">
-              <div className="mx-auto lg:mx-0 text-center lg:text-left flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2">
+              <div className="mx-auto lg:mx-0 text-center lg:text-left flex flex-col lg:flex-row space-y-2 lg:space-y-0">
                 <Image
                   alt="building-shaped icon that represents office address"
                   src={'/icons/icon_office.png'}
@@ -90,7 +90,7 @@ const Footer = () => {
                   height={30}
                   className="mx-auto lg:mx-0 w-full h-fit max-w-[40px] sm:max-w-[24px]"
                 />
-                <div>
+                <div className="lg:ml-2">
                   <h3 className="text-xl lg:text-base font-semibold">
                     Alamat Showroom
                   </h3>
@@ -110,7 +110,7 @@ const Footer = () => {
                   height={30}
                   className="mx-auto lg:mx-0 w-full h-fit max-w-[40px] sm:max-w-[24px]"
                 />
-                <div>
+                <div className="lg:ml-2">
                   <h3 className="text-xl lg:text-base font-semibold">
                     Jam Operasional
                   </h3>
@@ -126,7 +126,7 @@ const Footer = () => {
                   height={30}
                   className="mx-auto lg:mx-0 w-full h-fit max-w-[40px] sm:max-w-[24px]"
                 />
-                <div>
+                <div className="lg:ml-2">
                   <h3 className="text-xl lg:text-base font-semibold">
                     Customer Service
                   </h3>

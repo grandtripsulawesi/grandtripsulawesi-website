@@ -34,7 +34,7 @@ const Blog = () => {
                 <p className="line-clamp-3">{post.excerpt}</p>
               </CardContent>
               <CardFooter className="flex-col">
-                <ul className="flex space-x-2.5 text-zinc-500 w-full">
+                <ul className="flex space-x-2.5 text-zinc-500 w-full flex-wrap">
                   <li className="flex items-center space-x-0.5">
                     <EyeSolidIcon className="size-4" />
                     <p className="text-xs">100 views</p>

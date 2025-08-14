@@ -29,7 +29,7 @@ const Trip = () => {
                 <div className="w-full h-[180px] bg-gray-200" />
               </div>
               <CardContent>
-                <h3 className="font-semibold font-heading mb-2 text-base">
+                <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">
                   {tripPackage.title}
                 </h3>
                 <p className="line-clamp-3">{tripPackage.excerpt}</p>
@@ -37,11 +37,11 @@ const Trip = () => {
               <CardFooter>
                 <Button
                   variant="default"
-                  className="ml-auto font-heading py-2.5 px-2 mt-4"
+                  className="w-full ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4"
                 >
                   <Link
                     href={'/'.concat('trip/', tripPackage.slug)}
-                    className="flex"
+                    className="flex justify-center items-end font-semibold"
                   >
                     <p>Selengkapnya</p>
                     <ChevronRightIcon />

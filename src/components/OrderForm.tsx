@@ -12,15 +12,25 @@ import {
   FormLabel,
   FormMessage,
 } from './ui/form';
-import Button from './Button';
 import { Input } from './ui/input';
+import Button from './Button';
 import Image from 'next/image';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  address: z.string().min(2).max(50),
-  phone: z.string().min(2).max(10),
-  armada: z.string().min(2).max(10),
+  name: z
+    .string()
+    .min(2, 'Nama harus minimal 2 karakter')
+    .max(50, 'Nama maksimal 50 karakter'),
+  address: z
+    .string()
+    .min(2, 'Alamat harus minimal 2 karakter')
+    .max(100, 'Alamat maksimal 100 karakter'),
+  phone: z
+    .string()
+    .min(10, 'Nomor telepon harus minimal 10 digit')
+    .max(15, 'Nomor telepon maksimal 15 digit'),
+  armada: z.string().optional(),
 });
 
 const OrderForm = () => {
@@ -33,17 +43,26 @@ const OrderForm = () => {
       armada: '',
     },
   });
+  const { isMobile } = useMediaQuery();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    console.log('Form submitted successfully!', values);
+
+    // You can add WhatsApp integration here
+    // const whatsappMessage = `Halo, saya ingin booking mobil ${values.armada || 'yang tersedia'}.\nNama: ${values.name}\nAlamat: ${values.address}\nWhatsApp: ${values.phone}`;
+    // const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(whatsappMessage)}`;
+    // window.open(whatsappUrl, '_blank');
   }
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        id="order-form"
+        onSubmit={form.handleSubmit(onSubmit, (errors) => {
+          console.log('Form validation failed:', errors);
+        })}
         className="flex flex-col space-y-4"
       >
         <FormField
@@ -51,9 +70,15 @@ const OrderForm = () => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nama Lengkap</FormLabel>
+              <FormLabel className="text-lg lg:text-base">
+                Nama Lengkap
+              </FormLabel>
               <FormControl>
-                <Input placeholder="Peter Parker" {...field} />
+                <Input
+                  placeholder="Peter Parker"
+                  {...field}
+                  className="h-12 lg:h-auto"
+                />
               </FormControl>
               <FormDescription>Ketik nama lengkap anda</FormDescription>
               <FormMessage />
@@ -66,10 +91,11 @@ const OrderForm = () => {
           name="address"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Alamat</FormLabel>
+              <FormLabel className="text-lg lg:text-base">Alamat</FormLabel>
               <FormControl>
                 <Input
                   placeholder="Jalan Ave Road No.17, Makassar"
+                  className="h-12 lg:h-auto"
                   {...field}
                 />
               </FormControl>
@@ -84,12 +110,15 @@ const OrderForm = () => {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nomor WhatsApp</FormLabel>
+              <FormLabel className="text-lg lg:text-base">
+                Nomor WhatsApp
+              </FormLabel>
               <FormControl>
                 <Input
                   type="number"
                   inputMode="numeric"
                   placeholder="08233456701"
+                  className="h-12 lg:h-auto"
                   {...field}
                 />
               </FormControl>
@@ -98,20 +127,22 @@ const OrderForm = () => {
             </FormItem>
           )}
         />
-        <Button
-          variant="default"
-          type="submit"
-          className="px-4 py-2.5 mt-4 lg:mt-auto w-fit bg-green-600"
-        >
-          <Image
-            src={'/icons/icon_whatsapp.webp'}
-            alt="icon for whatsapp"
-            width={30}
-            height={30}
-            className="w-5 h-auto"
-          />
-          <span>Kirim Pesan</span>
-        </Button>
+        {!isMobile && (
+          <Button
+            variant="default"
+            type="submit"
+            className="px-4 py-2.5 mt-4 lg:mt-auto w-fit bg-green-600"
+          >
+            <Image
+              src={'/icons/icon_whatsapp.webp'}
+              alt="icon for whatsapp"
+              width={30}
+              height={30}
+              className="w-5 h-auto"
+            />
+            <span>Kirim Pesan</span>
+          </Button>
+        )}
       </form>
     </Form>
   );

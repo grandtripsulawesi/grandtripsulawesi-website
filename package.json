@@ -21,6 +21,7 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.525.0",
     "next": "15.3.4",
+    "next-share": "^0.27.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.61.1",
@@ -29,6 +30,7 @@
     "remark-rehype": "^11.1.2",
     "tailwind-merge": "^3.3.1",
     "unified": "^11.0.5",
+    "vaul": "^1.1.2",
     "zod": "^4.0.14"
   },
   "devDependencies": {

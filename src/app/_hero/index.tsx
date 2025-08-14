@@ -3,12 +3,37 @@ import { Button } from '@/components';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { ArrowRightIcon } from '@/icons';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+const images = [
+  {
+    src: '/images/hero/hero_slide_2.webp',
+    alt: 'hero illustration; hiace fleet with 4 images of travelling spot',
+    priority: true,
+  },
+  {
+    src: '/images/hero/hero_slide_1.webp',
+    alt: 'hero illustration; honda brio fleet with 4 images of travelling spot',
+  },
+];
 
 const Hero = () => {
   const { isMobile } = useMediaQuery();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => console.log(isMobile), [isMobile]);
+  const intervalRef = useRef<any>(null);
+
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  }, [images.length]);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(goToNext, 3000);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [goToNext]);
 
   return (
     <>
@@ -26,15 +51,45 @@ const Hero = () => {
             di Makassar & Maros
           </h1>
           {!isMobile && isMobile !== null ? (
-            <div className="relative w-full h-3/5">
-              <div>
-                <Image
-                  alt=""
-                  src={'/images/hero/hero_slide_2.webp'}
-                  width={720}
-                  height={350}
-                  className="w-full z-50 relative"
-                />
+            <div className="relative w-full h-3/5 overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-out h-full will-change-transform"
+                style={{
+                  width: `${images.length * 100}%`,
+                  transform: `translateX(-${currentIndex * 50}%)`,
+                }}
+              >
+                {images.map((image, index) => (
+                  <div
+                    className="shrink-0 flex items-center justify-center"
+                    key={index}
+                    style={{
+                      width: `${100 / images.length}%`,
+                    }}
+                  >
+                    <Image
+                      alt={image.alt}
+                      src={image.src}
+                      priority={image.priority || currentIndex === 0}
+                      width={720}
+                      height={350}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Carousel indicators */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                      index === currentIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           ) : isMobile && isMobile !== null ? (
@@ -51,7 +106,7 @@ const Hero = () => {
             <div className="h-3/5"></div>
           )}
 
-          <div className="mt-24 lg:mt-auto mb-12 lg:mb-10 ">
+          <div className="relative z-30 mt-24 lg:mt-auto mb-12 lg:mb-10 ">
             <Button
               variant="outline"
               className="border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"

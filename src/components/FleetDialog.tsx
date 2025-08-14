@@ -50,7 +50,7 @@ const clearDialogParams = () => ({
   rental: '',
 });
 
-const CarDialog = ({
+const FleetDialog = ({
   params,
   updateUrl,
 }: {
@@ -67,7 +67,7 @@ const CarDialog = ({
   if (!armadaDetail) return null;
 
   return (
-    <Dialog open={params.get('modal') === 'true'}>
+    <Dialog open={Boolean(params.get('modal')) === true}>
       <DialogContent
         className="!w-3/5 h-auto !max-w-none"
         showCloseButton={false}
@@ -135,4 +135,4 @@ const CarDialog = ({
   );
 };
 
-export default CarDialog;
+export default FleetDialog;

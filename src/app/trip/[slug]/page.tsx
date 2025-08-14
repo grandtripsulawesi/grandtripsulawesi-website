@@ -19,12 +19,12 @@ export const Trip = async ({
   return (
     <section className="w-full">
       <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
-        <header className="flex flex-col items-center justify-center h-[33vh]">
-          <div className="flex items-center justify-between">
-            <div className="basis-2/5">
+        <header className="mt-12 lg:mt-0 flex flex-col items-center justify-center lg:h-[33vh]">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="lg:basis-2/5">
               <h1 className="font-semibold text-4xl">{tripDetail?.title}</h1>
               <div className="flex items-center space-x-2">
-                <div className="w-1/3 h-0.5 bg-foreground my-6" />
+                <div className="w-9/12 lg:w-1/3 h-0.5 bg-foreground my-6" />
                 <p>{tripDetail?.tags[0]}</p>
               </div>
             </div>
@@ -34,10 +34,8 @@ export const Trip = async ({
           </div>
         </header>
 
-        <Separator />
-
         <div className="w-full h-80 bg-gray-300 mt-12" />
-        <article className="relative w-full h-full flex gap-8">
+        <article className="relative w-full h-full flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             <div
               id="markdown__content"
@@ -47,7 +45,7 @@ export const Trip = async ({
               }}
             ></div>
           </div>
-          <div className="w-1/3 pt-10">
+          <div className="lg:w-1/3 lg:pt-10">
             <Widget tripTitle={tripDetail?.title} />
           </div>
         </article>
