@@ -39,7 +39,7 @@ const MobileNav = ({
   return (
     <div className="relative">
       {pathname.length > 1 && (
-        <div className="relative flex items-center left-0 top-8 z-50">
+        <div className="relative flex items-center left-0 top-10 z-50">
           <Button
             onClick={() => router.back()}
             variant="ghost"
@@ -61,16 +61,20 @@ const MobileNav = ({
         aria-label={isNavOpen ? 'Close menu' : 'Open menu'}
       >
         {!isNavOpen ? (
-          <MenuIcon className="size-10 text-amber-600" />
+          <div className="bg-amber-500/20 border border-custom p-1 rounded-full">
+            <MenuIcon className="size-10 text-amber-600" />
+          </div>
         ) : (
-          <XMarkIcon className="size-10 text-amber-600" />
+          <div className="bg-amber-500/20 border border-custom p-1 rounded-full">
+            <XMarkIcon className="size-10 text-amber-600" />
+          </div>
         )}
       </Button>
 
       <nav
         aria-label="Mobile"
         className={cn(
-          'fixed z-50 top-0 right-0 w-full h-full transition-transform duration-300 ease-in-out',
+          'fixed z-40 top-0 right-0 w-full h-full transition-transform duration-300 ease-in-out',
           isNavOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >

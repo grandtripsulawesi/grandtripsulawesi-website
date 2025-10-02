@@ -16,6 +16,7 @@ import { Input } from './ui/input';
 import Button from './Button';
 import Image from 'next/image';
 import useMediaQuery from '@/hooks/useMediaQuery';
+import { XMarkIcon } from '@/icons';
 
 const formSchema = z.object({
   name: z
@@ -33,7 +34,7 @@ const formSchema = z.object({
   armada: z.string().optional(),
 });
 
-const OrderForm = () => {
+const OrderForm = ({ handleClose }: { handleClose: any }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -63,8 +64,17 @@ const OrderForm = () => {
         onSubmit={form.handleSubmit(onSubmit, (errors) => {
           console.log('Form validation failed:', errors);
         })}
-        className="flex flex-col space-y-4"
+        className="flex flex-col space-y-4 bg-gray-100 p-6 border rounded-xl"
       >
+        <div className="flex items-baseline justify-between">
+          <div>
+            <h1 className="text-2xl">Form Pemesanan</h1>
+            <p>Lengkapi informasi Anda</p>
+          </div>
+          <Button variant="ghost" onClick={handleClose}>
+            <XMarkIcon />
+          </Button>
+        </div>
         <FormField
           control={form.control}
           name="name"
@@ -74,11 +84,7 @@ const OrderForm = () => {
                 Nama Lengkap
               </FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Peter Parker"
-                  {...field}
-                  className="h-12 lg:h-auto"
-                />
+                <Input placeholder="Peter Parker" {...field} />
               </FormControl>
               <FormDescription>Ketik nama lengkap anda</FormDescription>
               <FormMessage />
@@ -95,7 +101,6 @@ const OrderForm = () => {
               <FormControl>
                 <Input
                   placeholder="Jalan Ave Road No.17, Makassar"
-                  className="h-12 lg:h-auto"
                   {...field}
                 />
               </FormControl>
@@ -118,7 +123,6 @@ const OrderForm = () => {
                   type="number"
                   inputMode="numeric"
                   placeholder="08233456701"
-                  className="h-12 lg:h-auto"
                   {...field}
                 />
               </FormControl>

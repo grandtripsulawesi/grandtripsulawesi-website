@@ -2,6 +2,7 @@
 import { Button } from '@/components';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { ArrowRightIcon } from '@/icons';
+import { smoothScrollToElement } from '@/lib/utils';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -110,6 +111,7 @@ const Hero = () => {
             <Button
               variant="outline"
               className="border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              onClick={() => smoothScrollToElement('fleet', 2500, -80)}
             >
               <p className="text-lg lg:text-base">Lihat Koleksi Armada</p>
               <ArrowRightIcon className="size-12 lg:size-10" />

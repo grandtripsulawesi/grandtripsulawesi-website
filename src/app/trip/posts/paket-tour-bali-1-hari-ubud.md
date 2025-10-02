@@ -3,7 +3,8 @@ slug: 'paket-tour-bali-1-hari-ubud'
 title: 'Paket Tour Bali 1 Hari Ubud'
 excerpt: 'Ubud terkenal di antara para wisatawan mancanegara karena lokasinya yang terletak di antara sawah dan hutan, serta di antara jurang-jurang yang membuat pemandangan alamnya sangat indah. Selain itu, Ubud dikenal karena seni dan budaya yang berkembang sangat pesat dan maju. '
 tags: ['Travelling', 'Bali', 'Trip']
-coverImage: ''
+coverImage: '/images/trip/trip_illustration_1.webp'
+coverImageDesktop: '/images/trip/trip_illustration_desktop_1.webp'
 ---
 
 ### Hari Pertama – GWK Tour: Makan Siang & Makan Malam:

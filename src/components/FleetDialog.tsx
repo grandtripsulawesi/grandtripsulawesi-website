@@ -5,13 +5,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { DialogClose } from '@radix-ui/react-dialog';
 import { useMemo } from 'react';
 import { ArmadaType } from '@/app/types';
-import { XMarkIcon } from '@/icons';
 import Image from 'next/image';
-import Icon from './Icon';
 import OrderForm from './OrderForm';
+import { formatNumber } from '@/lib/utils';
 
 // Helper function to parse URL params into ArmadaType
 const parseArmadaFromParams = (params: URLSearchParams): ArmadaType | null => {
@@ -22,10 +20,11 @@ const parseArmadaFromParams = (params: URLSearchParams): ArmadaType | null => {
   const imagePath = params.get('imageUrl');
   const person = params.get('person');
   const transmission = params.get('transmission');
-  const rental = params.get('rental');
+  const basic = params.get('basicFee');
+  const allin = params.get('allinFee');
 
   // Validate required fields
-  if (!name || !imagePath || !person || !transmission || !rental) {
+  if (!name || !imagePath || !person || !transmission || !basic || !allin) {
     return null;
   }
 
@@ -35,7 +34,10 @@ const parseArmadaFromParams = (params: URLSearchParams): ArmadaType | null => {
     armadaDetail: {
       person: parseInt(person, 10),
       transmission,
-      rental: parseInt(rental, 10),
+      rental: {
+        basic: parseInt(basic, 10),
+        allin: parseInt(allin, 10),
+      },
     },
   };
 };
@@ -72,11 +74,11 @@ const FleetDialog = ({
         className="!w-3/5 h-auto !max-w-none"
         showCloseButton={false}
       >
-        <DialogHeader className="flex-row justify-between items-baseline">
+        <DialogHeader
+          hidden
+          className="flex-row justify-between items-baseline"
+        >
           <DialogTitle className="font-heading">Booking Detail</DialogTitle>
-          <DialogClose className="ml-auto" onClick={handleClose}>
-            <XMarkIcon />
-          </DialogClose>
         </DialogHeader>
         <div className="grid grid-cols-2">
           <div className="flex flex-col justify-center">
@@ -91,44 +93,43 @@ const FleetDialog = ({
               {armadaDetail.name}
             </h2>
             <div className="w-full flex space-x-4 justify-center">
-              <span className="flex items-center space-x-1">
-                <Icon
-                  url="/images/armada/icons/armada_user.webp"
-                  alt=""
-                  height={20}
-                  width={20}
-                  className="size-3"
-                />
-                <p>{armadaDetail.armadaDetail.person}</p>
-              </span>
-              <span className="flex items-center space-x-1">
-                <Icon
-                  url="/images/armada/icons/armada_transmission.webp"
-                  alt=""
-                  height={20}
-                  width={20}
-                  className="size-3"
-                />
-                <p className="capitalize">
+              <div className="flex flex-col items-center space-x-1">
+                <p className="text-xs">Seats</p>
+                <p className="text-xl">{armadaDetail.armadaDetail.person}</p>
+              </div>
+              <span className="flex flex-col items-center space-x-1">
+                <p className="text-xs">Transmission</p>
+                <p className="capitalize text-lg">
                   {armadaDetail.armadaDetail.transmission}
                 </p>
               </span>
-              <span className="flex items-center space-x-1">
-                <Icon
-                  url="/images/armada/icons/armada_rupiah.webp"
-                  alt=""
-                  height={20}
-                  width={20}
-                  className="size-3"
-                />
-                <p>
-                  {armadaDetail.armadaDetail.rental}
-                  <span className="text-slate-400">/Jam</span>
-                </p>
+              <span className="flex flex-col items-left space-x-1">
+                <p className="text-xs">Rental Cost</p>
+                <ul className="flex flex-col space-y-2">
+                  <li>
+                    <p className="text-xs font-bold">Lepas Kunci:</p>
+                    <p className="text-lg">
+                      {`IDR `}
+                      {!armadaDetail.armadaDetail.rental.basic
+                        ? '-'
+                        : formatNumber(armadaDetail.armadaDetail.rental.basic)}
+                      <span className="text-slate-400 text-sm">/Hari</span>
+                    </p>
+                  </li>
+
+                  <li>
+                    <p className="text-xs font-bold">All-In: </p>
+                    <p className="text-lg">
+                      IDR {formatNumber(armadaDetail.armadaDetail.rental.allin)}
+                      <span className="text-slate-400 text-sm">/Hari</span>
+                    </p>
+                    <p className="text-xs">*Termasuk Driver & BBM</p>
+                  </li>
+                </ul>
               </span>
             </div>
           </div>
-          <OrderForm />
+          <OrderForm handleClose={handleClose} />
         </div>
       </DialogContent>
     </Dialog>

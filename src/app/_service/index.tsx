@@ -1,30 +1,55 @@
-import { HandThumbUpIcon } from '@/icons';
+import {
+  ArrowRightLeftIcon,
+  BriefcaseIcon,
+  CalendarIcon,
+  KeyIcon,
+  MapIcon,
+  MapPinIcon,
+  PaperPlaneIcon,
+  UserGroupIcon,
+} from '@/icons';
 import Image from 'next/image';
 
 const dummyService = [
   {
-    title: 'Service Item',
-    body: 'Lorem ipsum dolor sit amet consectetur. Est in congue leo vitae sit.',
+    title: '⁠Lepas Kunci Dalam/Luar Kota',
+    body: 'Sewa mobil tanpa sopir untuk bepergian dalam dan luar kota.',
+    icon: <KeyIcon />,
   },
   {
-    title: 'Service Item',
-    body: 'Lorem ipsum dolor sit amet consectetur. Est in congue leo vitae sit.',
+    title: 'Perjalanan Dalam dan Luar Kota',
+    body: 'Melayani semua keperluan perjalanan Anda di dalam maupun luar kota.',
+    icon: <MapPinIcon />,
   },
   {
-    title: 'Service Item',
-    body: 'Lorem ipsum dolor sit amet consectetur. Est in congue leo vitae sit.',
+    title: 'Perjalanan Dinas',
+    body: 'Layanan sewa kendaraan khusus untuk perjalanan dinas pekerjaan kantor.',
+    icon: <BriefcaseIcon />,
   },
   {
-    title: 'Service Item',
-    body: 'Lorem ipsum dolor sit amet consectetur. Est in congue leo vitae sit.',
+    title: '⁠Perjalanan Wisata',
+    body: 'Rental mobil untuk menemani seluruh perjalanan liburan wisata.',
+    icon: <MapIcon />,
   },
   {
-    title: 'Service Item',
-    body: 'Lorem ipsum dolor sit amet consectetur. Est in congue leo vitae sit.',
+    title: 'Pribadi/Grup',
+    body: 'Melayani kebutuhan transportasi untuk perorangan maupun grup.',
+    icon: <UserGroupIcon />,
   },
   {
-    title: 'Service Item',
-    body: 'Lorem ipsum dolor sit amet consectetur. Est in congue leo vitae sit.',
+    title: 'Antar/Jemput Dalam dan Luar Kota',
+    body: 'Jasa pengantaran atau penjemputan dari/ke lokasi dalam atau luar kota.',
+    icon: <ArrowRightLeftIcon />,
+  },
+  {
+    title: 'Antar/Jemput Bandara/Pelabuhan',
+    body: 'Melayani antar-jemput penumpang dari/ke bandara atau pelabuhan.',
+    icon: <PaperPlaneIcon />,
+  },
+  {
+    title: '⁠Harian/Mingguan/Bulanan',
+    body: 'Pilihan masa sewa mobil fleksibel: harian/mingguan/bulanan.',
+    icon: <CalendarIcon />,
   },
 ];
 
@@ -38,6 +63,7 @@ const Service = () => {
             alt="picture of a man drives car, smiling positively"
             width={600}
             height={648}
+            className="h-full object-cover rounded-2xl"
           />
         </div>
         <div className="basis-full mt-auto">
@@ -60,7 +86,9 @@ const Service = () => {
                 className="flex flex-col lg:flex-row w-full lg:space-x-2 bg-amber-500/10 border-2 border-amber-400/50 px-2.5 py-2 rounded-xl"
               >
                 <div className="flex w-fit items-center justify-center lg:bg-amber-500/20 lg:border-2 lg:border-amber-400 p-1.5 rounded-lg h-fit">
-                  <HandThumbUpIcon className="size-8 lg:size-5 text-amber-500" />
+                  {item.icon && (
+                    <span className="text-amber-500">{item.icon}</span>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-semibold text-xl lg:text-sm">

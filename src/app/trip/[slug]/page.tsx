@@ -1,8 +1,8 @@
 import { Button, Widget } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { ChevronRightIcon } from '@/icons';
 import { getPostData, getRelatedPost } from '@/lib/post';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const postPathname = '/src/app/trip/posts';
@@ -16,10 +16,12 @@ export const Trip = async ({
   const tripDetail = await getPostData(slug, postPathname);
   const relatedTrip = getRelatedPost(slug, ['Trip'], 3, postPathname);
 
+  if (!tripDetail) return <></>;
+
   return (
     <section className="w-full">
       <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
-        <header className="mt-12 lg:mt-0 flex flex-col items-center justify-center lg:h-[33vh]">
+        <header className="lg:mt-12 flex flex-col items-center justify-center lg:h-[33vh]">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:basis-2/5">
               <h1 className="font-semibold text-4xl">{tripDetail?.title}</h1>
@@ -34,7 +36,15 @@ export const Trip = async ({
           </div>
         </header>
 
-        <div className="w-full h-80 bg-gray-300 mt-12" />
+        {/* <div className="w-full h-80 bg-gray-300 mt-12" /> */}
+        <Image
+          src={tripDetail.coverImageDesktop as string}
+          alt={tripDetail.title}
+          width={300}
+          height={300}
+          priority
+          className="w-full h-auto lg:h-[60vh] object-cover mt-12 lg:mt-0"
+        />
         <article className="relative w-full h-full flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             <div

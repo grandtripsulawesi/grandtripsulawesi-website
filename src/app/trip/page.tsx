@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Command, CommandInput } from '@/components/ui/command';
 import { ChevronRightIcon } from '@/icons';
 import { getAllPosts } from '@/lib/post';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const postPathname = '/src/app/trip/posts';
@@ -11,22 +11,37 @@ const Trip = () => {
   const allTripPackages = getAllPosts(postPathname);
 
   return (
-    <section className="w-full relative">
-      <div className="mt-[110px] width__wrapper flex flex-col items-center min-h-screen mx-auto">
-        <header className="flex flex-col items-center justify-center w-full h-[60vh]">
-          <div className="w-full h-3/5 bg-gray-300" />
-          <Command className="h-16 border rounded-full my-12">
-            <CommandInput
-              className="h-full"
-              placeholder="Cari paket liburan mu"
-            />
-          </Command>
-        </header>
+    <section className="w-full relative mt-12 lg:mt-[110px]">
+      <header className="pt-4 flex flex-col items-center justify-center w-full h-[50vh] relative">
+        <Image
+          fill
+          src={'/images/trip/trip_banner.webp'}
+          alt="trip banner"
+          className="w-full h-full object-cover pt-4 hidden md:block"
+        />
+        <Image
+          fill
+          src={'/images/trip/trip_banner_mobile.webp'}
+          alt="trip banner mobile"
+          className="w-full h-full object-cover pt-4 md:hidden"
+        />
+      </header>
+      <div className="width__wrapper flex flex-col items-center min-h-screen mx-auto">
+        <h1 className="py-12 lg:py-24 font-heading text-2xl font-semibold">
+          Daftar Paket Liburan
+        </h1>
         <article className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {allTripPackages.map((tripPackage) => (
             <Card key={tripPackage.title}>
               <div>
-                <div className="w-full h-[180px] bg-gray-200" />
+                {/* <div className="w-full h-[180px] bg-gray-200" /> */}
+                <Image
+                  src={tripPackage.coverImage as string}
+                  alt={tripPackage.title}
+                  width={300}
+                  height={300}
+                  className="w-full object-cover"
+                />
               </div>
               <CardContent>
                 <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">

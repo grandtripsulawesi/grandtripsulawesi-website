@@ -22,9 +22,9 @@ const Gallery = () => {
       )}
       <div className="width__wrapper mx-auto">
         <div className="text-center">
-          <p>Mengapa memilih kami?</p>
+          <p>Gallery</p>
           <h1 className="font-semibold font-heading">
-            Berkomitmen Untuk Kualitas Terbaik
+            Armada Terlengkap Untuk Kebutuhan Anda
           </h1>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">

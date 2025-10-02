@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import MobileNav from './MobileNav';
+import { Command, CommandInput } from '@/components/ui/command';
+import { usePathname } from 'next/navigation';
 
 const pageSection = [
   {
@@ -52,26 +54,63 @@ const Navigation = () => {
 
 const Topbar = () => {
   const { isMobile } = useMediaQuery();
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // adjust threshold as needed
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return !isMobile && isMobile !== null ? (
-    <div className={`absolute z-50 top-6 flex items-center w-full my-3`}>
+    <div className={`fixed z-50 top-6 flex items-center w-full my-3`}>
       <div
-        className={` flex items-center width__wrapper mx-auto px-4 py-2.5 bg-transparent transition-all duration-300`}
+        className={`flex items-center width__wrapper mx-auto px-4 py-2.5 ${
+          scrolled
+            ? 'backdrop-blur border border-slate-100/50 rounded-full'
+            : 'bg-transparent'
+        } transition-all duration-300`}
       >
         <div className="w-1/4">
           <div className="size-16 bg-custom rounded-full flex items-center justify-center shrink-0">
             <p className="text-white font-bold font-heading">GTS</p>
           </div>
         </div>
-        <Navigation />
-        <Button
-          variant="outline"
-          className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
-          aria-label="Booking sekarang"
-        >
-          <p>Booking Sekarang</p>
-          <ArrowRightIcon className="size-10" />
-        </Button>
+        {pathname === '/trip' ? (
+          <>
+            <Command className="ml-auto w-2/6 h-10 border rounded-full">
+              <CommandInput
+                className="h-full"
+                placeholder="Cari paket liburan mu"
+              />
+            </Command>
+          </>
+        ) : pathname === '/' ? (
+          <>
+            <Navigation />
+            <Button
+              variant="outline"
+              className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              aria-label="Booking sekarang"
+            >
+              <p>Booking Sekarang</p>
+              <ArrowRightIcon className="size-10" />
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              variant="outline"
+              className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              aria-label="Booking sekarang"
+            >
+              <p>Booking Sekarang</p>
+              <ArrowRightIcon className="size-10" />
+            </Button>
+          </>
+        )}
       </div>
     </div>
   ) : isMobile && isMobile !== null ? (

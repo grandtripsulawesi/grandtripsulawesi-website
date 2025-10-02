@@ -15,7 +15,7 @@ import {
 import Image from 'next/image';
 import armadaData from './data.json';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn, formatNumber } from '@/lib/utils';
 import useURLState from '@/hooks/useUrlState';
 import { ArmadaType } from '../types';
 import useMediaQuery from '@/hooks/useMediaQuery';
@@ -29,9 +29,10 @@ const Fleet = () => {
 
   return (
     <section
+      id="fleet"
       className={cn(
         'relative w-full',
-        isMobile && (isExpand ? 'h-full' : ' h-[150vh] overflow-clip')
+        isExpand ? 'h-full' : ' h-[100vh] overflow-clip'
       )}
     >
       {!isExpand && (
@@ -70,7 +71,8 @@ const Fleet = () => {
                       imageUrl: armada.imagePath,
                       person: armada.armadaDetail.person,
                       transmission: armada.armadaDetail.transmission,
-                      rental: armada.armadaDetail.rental,
+                      basicFee: armada.armadaDetail.rental.basic,
+                      allinFee: armada.armadaDetail.rental.allin,
                     });
                   }}
                 >
@@ -120,8 +122,8 @@ const Fleet = () => {
                         className="size-3"
                       />
                       <p>
-                        {data.rental}
-                        <span className="text-slate-400">/Jam</span>
+                        {formatNumber(data.rental.basic || data.rental.allin)}
+                        <span className="text-slate-400">/Hari</span>
                       </p>
                     </span>
                   </div>

@@ -92,7 +92,7 @@ const Footer = () => {
                 />
                 <div className="lg:ml-2">
                   <h3 className="text-xl lg:text-base font-semibold">
-                    Alamat Showroom
+                    Alamat Garasi
                   </h3>
                   <p className="lg:mr-12">
                     Jl. Poros Makassar - Maros, Bontoa, Kec. Mandai, Kabupaten
@@ -183,6 +183,10 @@ const Footer = () => {
             id="indo__map__decoration"
             className="absolute size-full bg__custom__decorative left-1/2 -translate-x-1/2 translate-y-1/3 lg:left-0 lg:translate-x-1/3 lg:translate-y-1/3 opacity-20"
           />
+          <span className="lg:text-sm text-center pb-12 lg:pb-0 lg:text-right lg:absolute lg:right-5 lg:bottom-5">
+            © 2025 GrandTrip Sulawesi. All Rights Reserved.
+            <br /> Website by Invokasi Design
+          </span>
         </div>
       </footer>
     </section>

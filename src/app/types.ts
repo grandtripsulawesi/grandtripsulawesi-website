@@ -9,6 +9,7 @@ export interface BlogPost {
   published: boolean;
   readingTime?: string;
   coverImage?: string;
+  coverImageDesktop?: string;
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -31,6 +32,9 @@ export interface ArmadaType {
   armadaDetail: {
     person: number;
     transmission: string;
-    rental: number;
+    rental: {
+      basic: number;
+      allin: number;
+    };
   };
 }
