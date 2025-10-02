@@ -1,7 +1,7 @@
 [
   {
     "name": "toyota new agya",
-    "imagePath": "/images/armada/armada_agya.webp",
+    "imageUrl": "/images/armada/armada_agya.webp",
     "armadaDetail": {
       "person": 5,
       "transmission": "manual",
@@ -13,7 +13,7 @@
   },
   {
     "name": "toyota calya",
-    "imagePath": "/images/armada/armada_calya.webp",
+    "imageUrl": "/images/armada/armada_calya.webp",
     "armadaDetail": {
       "person": 6,
       "transmission": "manual",
@@ -25,7 +25,7 @@
   },
   {
     "name": "honda brio",
-    "imagePath": "/images/armada/armada_brio.webp",
+    "imageUrl": "/images/armada/armada_brio.webp",
     "armadaDetail": {
       "person": 5,
       "transmission": "manual",
@@ -37,7 +37,7 @@
   },
   {
     "name": "daihatsu terios",
-    "imagePath": "/images/armada/armada_terios.webp",
+    "imageUrl": "/images/armada/armada_terios.webp",
     "armadaDetail": {
       "person": 7,
       "transmission": "manual",
@@ -49,7 +49,7 @@
   },
   {
     "name": "toyota new avanza",
-    "imagePath": "/images/armada/armada_avanza.webp",
+    "imageUrl": "/images/armada/armada_avanza.webp",
     "armadaDetail": {
       "person": 8,
       "transmission": "manual",
@@ -61,7 +61,7 @@
   },
   {
     "name": "mitsubishi xpander",
-    "imagePath": "/images/armada/armada_xpander.webp",
+    "imageUrl": "/images/armada/armada_xpander.webp",
     "armadaDetail": {
       "person": 7,
       "transmission": "manual",
@@ -74,7 +74,7 @@
 
   {
     "name": "kijang innova reborn",
-    "imagePath": "/images/armada/armada_reborn.webp",
+    "imageUrl": "/images/armada/armada_reborn.webp",
     "armadaDetail": {
       "person": 8,
       "transmission": "manual",
@@ -86,7 +86,7 @@
   },
   {
     "name": "kijang innova zenix",
-    "imagePath": "/images/armada/armada_zenix.webp",
+    "imageUrl": "/images/armada/armada_zenix.webp",
     "armadaDetail": {
       "person": 8,
       "transmission": "manual",
@@ -98,7 +98,7 @@
   },
   {
     "name": "toyota fortuner",
-    "imagePath": "/images/armada/armada_fortuner.webp",
+    "imageUrl": "/images/armada/armada_fortuner.webp",
     "armadaDetail": {
       "person": 8,
       "transmission": "manual",
@@ -110,7 +110,7 @@
   },
   {
     "name": "mitsubishi pajero",
-    "imagePath": "/images/armada/armada_pajero.webp",
+    "imageUrl": "/images/armada/armada_pajero.webp",
     "armadaDetail": {
       "person": 8,
       "transmission": "manual",
@@ -122,7 +122,7 @@
   },
   {
     "name": "toyota alphard",
-    "imagePath": "/images/armada/armada_alphard.webp",
+    "imageUrl": "/images/armada/armada_alphard.webp",
     "armadaDetail": {
       "person": 7,
       "transmission": "manual",
@@ -134,7 +134,7 @@
   },
   {
     "name": "toyota hiace commuter",
-    "imagePath": "/images/armada/armada_hiace.webp",
+    "imageUrl": "/images/armada/armada_hiace.webp",
     "armadaDetail": {
       "person": 15,
       "transmission": "manual",
@@ -146,7 +146,7 @@
   },
   {
     "name": "toyota hiace premio",
-    "imagePath": "/images/armada/armada_premio.webp",
+    "imageUrl": "/images/armada/armada_premio.webp",
     "armadaDetail": {
       "person": 14,
       "transmission": "manual",
@@ -158,7 +158,7 @@
   },
   {
     "name": "isuzu elf long",
-    "imagePath": "/images/armada/armada_elf.webp",
+    "imageUrl": "/images/armada/armada_elf.webp",
     "armadaDetail": {
       "person": 19,
       "transmission": "manual",

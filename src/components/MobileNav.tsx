@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import Button from './Button';
 import { cn } from '@/lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const MobileNav = ({
   pageSection,
@@ -85,6 +86,18 @@ const MobileNav = ({
             'list-none flex flex-col items-center justify-center space-y-4 w-full h-full text-white bg-foreground bg__custom__gradient__footer overflow-clip'
           )}
         >
+          <div>
+            <Link href="/" aria-label="Home">
+              <Image
+                src="/images/thumbnail.webp"
+                alt="GrandTrip Sulawesi logo"
+                width={500}
+                height={500}
+                className="size-24 rounded-full object-cover"
+                priority
+              />
+            </Link>
+          </div>
           {pageSection.map((section) => (
             <li key={section.name}>
               <Link href={section.url} onClick={() => setIsNavOpen(false)}>

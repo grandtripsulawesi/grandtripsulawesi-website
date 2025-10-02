@@ -1,6 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { format } from 'date-fns';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 import {
@@ -12,36 +14,53 @@ import {
   FormLabel,
   FormMessage,
 } from './ui/form';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
 import { Input } from './ui/input';
+import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import Button from './Button';
-import Image from 'next/image';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { XMarkIcon } from '@/icons';
+import { CalendarIcon, ChevronsUpDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { formSchema } from '@/schema';
+import { Calendar } from './ui/calendar';
 
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, 'Nama harus minimal 2 karakter')
-    .max(50, 'Nama maksimal 50 karakter'),
-  address: z
-    .string()
-    .min(2, 'Alamat harus minimal 2 karakter')
-    .max(100, 'Alamat maksimal 100 karakter'),
-  phone: z
-    .string()
-    .min(10, 'Nomor telepon harus minimal 10 digit')
-    .max(15, 'Nomor telepon maksimal 15 digit'),
-  armada: z.string().optional(),
-});
+const destination = [
+  {
+    label: 'Dalam Kota',
+    value: 'dalam kota',
+  },
+  {
+    label: 'Luar Kota',
+    value: 'luar kota',
+  },
+];
 
-const OrderForm = ({ handleClose }: { handleClose: any }) => {
+const OrderForm = ({
+  rentalCost,
+  handleClose,
+}: {
+  rentalCost: { basic: number; allin: number };
+  handleClose: any;
+}) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       address: '',
-      phone: '',
-      armada: '',
+      armada: Boolean(rentalCost.basic) ? 'lepas kunci' : 'all in',
     },
   });
   const { isMobile } = useMediaQuery();
@@ -64,78 +83,221 @@ const OrderForm = ({ handleClose }: { handleClose: any }) => {
         onSubmit={form.handleSubmit(onSubmit, (errors) => {
           console.log('Form validation failed:', errors);
         })}
-        className="flex flex-col space-y-4 bg-gray-100 p-6 border rounded-xl"
+        className="flex flex-col space-y-3 bg-gray-100 px-2 py-6 lg:p-6 border rounded-xl"
       >
         <div className="flex items-baseline justify-between">
-          <div>
-            <h1 className="text-2xl">Form Pemesanan</h1>
-            <p>Lengkapi informasi Anda</p>
+          <div className="w-full text-center lg:w-auto lg:text-left">
+            <h1 className="text-2xl lg:text-xl">Form Pemesanan</h1>
+            <p className="text-muted-foreground text-sm">
+              Lengkapi informasi Anda
+            </p>
           </div>
-          <Button variant="ghost" onClick={handleClose}>
+          <Button
+            className="hidden lg:block"
+            variant="ghost"
+            onClick={handleClose}
+          >
             <XMarkIcon />
           </Button>
         </div>
+
+        {/* Nama */}
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-lg lg:text-base">
-                Nama Lengkap
-              </FormLabel>
+              <div className="flex flex-col">
+                <FormLabel className="text-lg lg:text-sm">
+                  Nama Lengkap
+                </FormLabel>
+                <FormDescription>Ketik nama lengkap anda</FormDescription>
+              </div>
               <FormControl>
                 <Input placeholder="Peter Parker" {...field} />
               </FormControl>
-              <FormDescription>Ketik nama lengkap anda</FormDescription>
-              <FormMessage />
             </FormItem>
           )}
         />
 
+        {/* Alamat */}
         <FormField
           control={form.control}
           name="address"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-lg lg:text-base">Alamat</FormLabel>
+              <div className="flex flex-col">
+                <FormLabel className="text-lg lg:text-sm">Alamat</FormLabel>
+                <FormDescription>Ketik alamat anda</FormDescription>
+              </div>
               <FormControl>
                 <Input
                   placeholder="Jalan Ave Road No.17, Makassar"
                   {...field}
                 />
               </FormControl>
-              <FormDescription>Ketik alamat anda</FormDescription>
-              <FormMessage />
             </FormItem>
           )}
         />
 
+        {/* Destination */}
         <FormField
           control={form.control}
-          name="phone"
+          name="destination"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-lg lg:text-base">
-                Nomor WhatsApp
-              </FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  inputMode="numeric"
-                  placeholder="08233456701"
-                  {...field}
-                />
-              </FormControl>
-              <FormDescription>Ketik nomor WhatsApp anda</FormDescription>
-              <FormMessage />
+            <FormItem className="flex flex-col">
+              <FormLabel className="text-lg lg:text-sm">Tujuan ke?</FormLabel>
+              <FormDescription>Dalam kota atau luar kota</FormDescription>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className={cn(
+                        'h-14 pl-3 text-base text-left font-semibold justify-between lg:font-normal lg:h-10 lg:text-sm',
+                        !field.value && 'text-muted-foreground'
+                      )}
+                    >
+                      {field.value
+                        ? destination.find(
+                            (place) => place.value === field.value
+                          )?.label
+                        : 'Pilih tujuan'}
+                      <ChevronsUpDown className="mr-2 size-6 lg:size-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="p-0">
+                  <Command>
+                    <CommandList>
+                      <CommandGroup>
+                        {destination.map((place) => (
+                          <CommandItem
+                            className="text-base lg:text-sm"
+                            value={place.label}
+                            key={place.value}
+                            onSelect={() => {
+                              form.setValue(
+                                'destination',
+                                place.value as 'dalam kota' | 'luar kota'
+                              );
+                            }}
+                          >
+                            {place.label}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
             </FormItem>
           )}
         />
+
+        {/* Datepicker */}
+        <FormField
+          control={form.control}
+          name="datePicker"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel className="text-lg lg:text-sm">
+                Tanggal Berangkat
+              </FormLabel>
+              <FormDescription>Pilih tanggal keberangkatan</FormDescription>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={'outline'}
+                      className={cn(
+                        'h-14 pl-3 text-base text-left font-semibold lg:text-sm lg:h-10 lg:font-normal',
+                        !field.value && 'text-muted-foreground'
+                      )}
+                    >
+                      {field.value?.from && field.value?.to ? (
+                        `${format(field.value.from, 'PPP')} - ${format(
+                          field.value.to,
+                          'PPP'
+                        )}`
+                      ) : (
+                        <span>Klik untuk memilih tanggal</span>
+                      )}
+                      <CalendarIcon className="ml-auto mr-2 size-6 lg:size-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="range"
+                    selected={field.value}
+                    onSelect={field.onChange}
+                    disabled={(date) => date < new Date()}
+                    captionLayout="dropdown"
+                  />
+                </PopoverContent>
+              </Popover>
+            </FormItem>
+          )}
+        />
+
+        {/* Rental */}
+        <FormField
+          control={form.control}
+          name="armada"
+          render={({ field }) => (
+            <FormItem>
+              <div className="flex flex-col">
+                <FormLabel className="text-lg lg:text-sm">
+                  Rental untuk?
+                </FormLabel>
+                <FormDescription>Pilih salah satu</FormDescription>
+              </div>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col"
+                >
+                  <FormItem className="flex items-center space-x-1">
+                    <FormControl>
+                      <RadioGroupItem
+                        disabled={!Boolean(rentalCost.basic)}
+                        className="bg-white"
+                        value="lepas kunci"
+                      />
+                    </FormControl>
+                    <FormLabel
+                      className={cn(
+                        'text-base lg:text-sm',
+                        !Boolean(rentalCost.basic) &&
+                          'line-through text-muted-foreground'
+                      )}
+                    >
+                      {`Lepas Kunci (IDR ${rentalCost.basic.toLocaleString()}/Hari)`}
+                    </FormLabel>
+                  </FormItem>
+
+                  <FormItem className="flex items-center space-x-1">
+                    <FormControl>
+                      <RadioGroupItem className="bg-white" value="all in" />
+                    </FormControl>
+                    <FormLabel className="text-base lg:text-sm">
+                      {`All-In Driver & BBM (IDR ${rentalCost.allin.toLocaleString()}/Hari)`}
+                    </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
         {!isMobile && (
           <Button
             variant="default"
             type="submit"
-            className="px-4 py-2.5 mt-4 lg:mt-auto w-fit bg-green-600"
+            className="w-fit px-4 py-2.5 mt-4 lg:mt-auto lg:w-full bg-green-600"
           >
             <Image
               src={'/icons/icon_whatsapp.webp'}
@@ -144,7 +306,7 @@ const OrderForm = ({ handleClose }: { handleClose: any }) => {
               height={30}
               className="w-5 h-auto"
             />
-            <span>Kirim Pesan</span>
+            <span>Rental Armada</span>
           </Button>
         )}
       </form>

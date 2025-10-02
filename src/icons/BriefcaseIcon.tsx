@@ -8,7 +8,7 @@ const BriefcaseIcon = ({ className }: IconType) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={cn(className, 'size-6')}
+    className={cn('size-6', className)}
   >
     <path
       strokeLinecap="round"

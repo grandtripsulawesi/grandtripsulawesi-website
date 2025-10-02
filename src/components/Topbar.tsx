@@ -7,6 +7,7 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 import MobileNav from './MobileNav';
 import { Command, CommandInput } from '@/components/ui/command';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 const pageSection = [
   {
@@ -73,11 +74,19 @@ const Topbar = () => {
             : 'bg-transparent'
         } transition-all duration-300`}
       >
-        <div className="w-1/4">
-          <div className="size-16 bg-custom rounded-full flex items-center justify-center shrink-0">
-            <p className="text-white font-bold font-heading">GTS</p>
-          </div>
+        <div className="mr-4 shrink-0">
+          <Link href="/" aria-label="Home">
+            <Image
+              src="/images/thumbnail.webp"
+              alt="GrandTrip Sulawesi logo"
+              width={500}
+              height={500}
+              className="size-20 rounded-full object-cover"
+              priority
+            />
+          </Link>
         </div>
+
         {pathname === '/trip' ? (
           <>
             <Command className="ml-auto w-2/6 h-10 border rounded-full">

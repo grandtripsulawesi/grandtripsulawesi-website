@@ -77,7 +77,7 @@ const About = () => {
 
           <Button
             variant="secondary"
-            className="mx-auto lg:mx-0 text-base font-semibold lg:text-sm px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="mx-auto w-full lg:mx-0 text-base font-semibold lg:text-sm px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto lg:w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             Hubungi Kami
           </Button>

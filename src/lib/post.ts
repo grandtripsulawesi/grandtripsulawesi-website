@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { BlogPost, BlogPostWithContent, PostFrontMatter } from '@/app/types';
+import { BlogPost, BlogPostWithContent, PostFrontMatter } from '@/types';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';

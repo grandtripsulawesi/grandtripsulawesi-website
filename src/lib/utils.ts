@@ -1,3 +1,4 @@
+import { ArmadaType, ExtractParamsValue } from '@/types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -35,4 +36,55 @@ export const smoothScrollToElement = (
 
 export const formatNumber = (num: number): string => {
   return num.toLocaleString();
+};
+
+export const extractParamsToArmadaType = (
+  params: URLSearchParams
+): ExtractParamsValue | null => {
+  const modal = params.get('modal');
+  if (modal !== 'true') return null;
+
+  let armada = {} as ArmadaType | {};
+  let armadaDetail = {
+    person: 0,
+    rental: { allin: 0, basic: 0 },
+    transmission: '',
+  } as ArmadaType['armadaDetail'];
+
+  params.forEach((value, key) => {
+    if (!value) return null;
+
+    if (key === 'person')
+      return (armadaDetail = { ...armadaDetail, person: parseInt(value, 10) });
+
+    if (key === 'transmission')
+      return (armadaDetail = { ...armadaDetail, transmission: value });
+
+    if (key === 'basicFee') {
+      return (armadaDetail = {
+        ...armadaDetail,
+        rental: { ...armadaDetail.rental, basic: parseInt(value, 10) },
+      });
+    }
+
+    if (key === 'allinFee') {
+      return (armadaDetail = {
+        ...armadaDetail,
+        rental: { ...armadaDetail.rental, allin: parseInt(value, 10) },
+      });
+    }
+
+    armada = { ...armada, [key]: value };
+  });
+
+  return { ...armada, armadaDetail };
+};
+
+export const clearDialogParams = (params: URLSearchParams) => {
+  let clearedObject = {};
+  params.forEach((value, key) => {
+    clearedObject = { ...clearedObject, [key]: '' };
+  });
+
+  return clearedObject;
 };

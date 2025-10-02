@@ -55,7 +55,7 @@ const CallToAction = () => {
         </div>
         <div className="basis-auto flex items-center justify-center">
           <Image
-            src={'/images/armada/armada_brio.webp'}
+            src={'/images/brio.webp'}
             alt="picture of car Honda Brio"
             width={486}
             height={341}
@@ -74,8 +74,16 @@ const Footer = () => {
       <footer className="text-white relative min-h-[40vh] bg-foreground flex items-center justify-center bg__custom__gradient__footer overflow-clip">
         <div className="width__wrapper flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
           <div className="lg:basis-1/5 shrink-0 flex flex-col text-center lg:text-left">
-            <h3>Logo</h3>
-            <p>
+            {/* logo */}
+            <Image
+              src={'/images/thumbnail.webp'}
+              alt="GrandTrip Sulawesi logo"
+              width={500}
+              height={500}
+              className="mx-auto size-40 rounded-full object-cover mb-3"
+              priority
+            />
+            <p className="text-center">
               Rental Mobil Terlengkap &<br />
               Terpercaya di Makassar & Maros.
             </p>

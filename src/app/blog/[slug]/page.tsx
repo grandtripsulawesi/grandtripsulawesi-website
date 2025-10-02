@@ -1,6 +1,5 @@
 import { Button } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import {
   CalendarIcon,
   ChevronRightIcon,

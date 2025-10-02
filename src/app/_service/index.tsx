@@ -14,42 +14,42 @@ const dummyService = [
   {
     title: '⁠Lepas Kunci Dalam/Luar Kota',
     body: 'Sewa mobil tanpa sopir untuk bepergian dalam dan luar kota.',
-    icon: <KeyIcon />,
+    icon: <KeyIcon className="size-12 lg:size-6" />,
   },
   {
     title: 'Perjalanan Dalam dan Luar Kota',
     body: 'Melayani semua keperluan perjalanan Anda di dalam maupun luar kota.',
-    icon: <MapPinIcon />,
+    icon: <MapPinIcon className="size-12 lg:size-6" />,
   },
   {
     title: 'Perjalanan Dinas',
     body: 'Layanan sewa kendaraan khusus untuk perjalanan dinas pekerjaan kantor.',
-    icon: <BriefcaseIcon />,
+    icon: <BriefcaseIcon className="size-12 lg:size-6" />,
   },
   {
     title: '⁠Perjalanan Wisata',
     body: 'Rental mobil untuk menemani seluruh perjalanan liburan wisata.',
-    icon: <MapIcon />,
+    icon: <MapIcon className="size-12 lg:size-6" />,
   },
   {
     title: 'Pribadi/Grup',
     body: 'Melayani kebutuhan transportasi untuk perorangan maupun grup.',
-    icon: <UserGroupIcon />,
+    icon: <UserGroupIcon className="size-12 lg:size-6" />,
   },
   {
     title: 'Antar/Jemput Dalam dan Luar Kota',
     body: 'Jasa pengantaran atau penjemputan dari/ke lokasi dalam atau luar kota.',
-    icon: <ArrowRightLeftIcon />,
+    icon: <ArrowRightLeftIcon className="size-12 lg:size-6" />,
   },
   {
     title: 'Antar/Jemput Bandara/Pelabuhan',
     body: 'Melayani antar-jemput penumpang dari/ke bandara atau pelabuhan.',
-    icon: <PaperPlaneIcon />,
+    icon: <PaperPlaneIcon className="size-12 lg:size-6" />,
   },
   {
     title: '⁠Harian/Mingguan/Bulanan',
     body: 'Pilihan masa sewa mobil fleksibel: harian/mingguan/bulanan.',
-    icon: <CalendarIcon />,
+    icon: <CalendarIcon className="size-12 lg:size-6" />,
   },
 ];
 
@@ -85,12 +85,12 @@ const Service = () => {
                 key={item.title + '-' + index}
                 className="flex flex-col lg:flex-row w-full lg:space-x-2 bg-amber-500/10 border-2 border-amber-400/50 px-2.5 py-2 rounded-xl"
               >
-                <div className="flex w-fit items-center justify-center lg:bg-amber-500/20 lg:border-2 lg:border-amber-400 p-1.5 rounded-lg h-fit">
+                <div className="flex w-fit mx-auto items-center justify-center lg:mr-2 lg:bg-amber-500/20 lg:border-2 lg:border-amber-400 p-1.5 rounded-lg h-fit">
                   {item.icon && (
                     <span className="text-amber-500">{item.icon}</span>
                   )}
                 </div>
-                <div>
+                <div className="text-center lg:text-left">
                   <h3 className="font-semibold text-xl lg:text-sm">
                     {item.title}
                   </h3>

@@ -28,7 +28,7 @@ export interface PostFrontMatter {
 
 export interface ArmadaType {
   name: string;
-  imagePath: string | StaticImport;
+  imageUrl: string | StaticImport;
   armadaDetail: {
     person: number;
     transmission: string;
@@ -38,3 +38,5 @@ export interface ArmadaType {
     };
   };
 }
+
+export type ExtractParamsValue = Partial<ArmadaType>;

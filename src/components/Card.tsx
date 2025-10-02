@@ -34,7 +34,7 @@ const Card = <T,>({
       )}
     >
       <UICardHeader className="flex items-center justify-between">
-        <UICardTitle className="font-heading capitalize text-lg lg:text-base">
+        <UICardTitle className="font-heading capitalize text-xl lg:text-base">
           {title}
         </UICardTitle>
         <UICardAction className="flex items-center justify-center">

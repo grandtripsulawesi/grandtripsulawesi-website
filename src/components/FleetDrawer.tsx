@@ -1,5 +1,5 @@
 'use client';
-import { ArmadaType } from '@/app/types';
+import { ArmadaType } from '@/types';
 import { useMemo } from 'react';
 import {
   Drawer,
@@ -13,68 +13,31 @@ import Button from './Button';
 import Image from 'next/image';
 import Icon from './Icon';
 import OrderForm from './OrderForm';
+import { clearDialogParams, extractParamsToArmadaType } from '@/lib/utils';
+import useURLState from '@/hooks/useUrlState';
 
-// Helper function to parse URL params into ArmadaType
-const parseArmadaFromParams = (params: URLSearchParams): ArmadaType | null => {
-  const modal = params.get('modal');
-  if (modal !== 'true') return null;
-
-  const name = params.get('name');
-  const imagePath = params.get('imageUrl');
-  const person = params.get('person');
-  const transmission = params.get('transmission');
-  const rental = params.get('rental');
-
-  // Validate required fields
-  if (!name || !imagePath || !person || !transmission || !rental) {
-    return null;
-  }
-
-  return {
-    name,
-    imagePath,
-    armadaDetail: {
-      person: parseInt(person, 10),
-      transmission,
-      rental: parseInt(rental, 10),
-    },
-  };
-};
-
-// Helper function to clear dialog params
-const clearDialogParams = () => ({
-  modal: false,
-  name: '',
-  imageUrl: '',
-  person: '',
-  transmission: '',
-  rental: '',
-});
-
-const FleetDrawer = ({
-  params,
-  updateUrl,
-}: {
-  params: URLSearchParams;
-  updateUrl: (pathname: string, param: Record<string, any>) => void;
-}) => {
+const FleetDrawer = () => {
+  const { searchParams, updateUrl } = useURLState();
   // Use useMemo to avoid unnecessary recalculations
-  const armadaDetail = useMemo(() => parseArmadaFromParams(params), [params]);
+  const armada = useMemo(
+    () => extractParamsToArmadaType(searchParams),
+    [searchParams]
+  ) as ArmadaType;
 
   const handleClose = () => {
-    updateUrl('/', clearDialogParams());
+    updateUrl('/', clearDialogParams(searchParams));
   };
 
-  if (!armadaDetail) return null;
+  if (!armada) return null;
 
   return (
     <Drawer
-      open={Boolean(params.get('modal')) === true}
+      open={Boolean(searchParams.get('modal')) === true}
       onOpenChange={(open) => !open && handleClose()}
     >
-      <DrawerContent className="w-full px-3 flex flex-col">
+      <DrawerContent className="w-full h-11/12 px-1 flex flex-col">
         <DrawerHeader className="flex-row justify-between items-baseline">
-          <DrawerTitle className="text-lg mx-auto font-heading">
+          <DrawerTitle className="text-xl mx-auto font-heading">
             Booking Detail
           </DrawerTitle>
         </DrawerHeader>
@@ -84,14 +47,14 @@ const FleetDrawer = ({
           <div className="flex flex-col space-y-4 pb-4">
             <div className="flex flex-col justify-center">
               <Image
-                src={armadaDetail.imagePath}
-                alt={armadaDetail.name}
+                src={armada.imageUrl}
+                alt={armada.name}
                 width={300}
                 height={300}
                 className="size-11/12 mx-auto h-auto"
               />
               <h2 className="font-heading capitalize mx-auto text-2xl font-semibold mb-2">
-                {armadaDetail.name}
+                {armada.name}
               </h2>
               <div className="w-full flex space-x-4 justify-center">
                 <span className="flex items-center space-x-1">
@@ -102,7 +65,7 @@ const FleetDrawer = ({
                     width={20}
                     className="size-3"
                   />
-                  <p>{armadaDetail.armadaDetail.person}</p>
+                  <p>{armada.armadaDetail.person}</p>
                 </span>
                 <span className="flex items-center space-x-1">
                   <Icon
@@ -112,26 +75,16 @@ const FleetDrawer = ({
                     width={20}
                     className="size-3"
                   />
-                  <p className="capitalize">
-                    {armadaDetail.armadaDetail.transmission}
-                  </p>
-                </span>
-                <span className="flex items-center space-x-1">
-                  <Icon
-                    url="/images/armada/icons/armada_rupiah.webp"
-                    alt=""
-                    height={20}
-                    width={20}
-                    className="size-3"
-                  />
-                  <p>
-                    {armadaDetail.armadaDetail.rental}
-                    <span className="text-slate-400">/Jam</span>
+                  <p className="capitalize text-lg">
+                    {armada.armadaDetail.transmission}
                   </p>
                 </span>
               </div>
             </div>
-            <OrderForm />
+            <OrderForm
+              handleClose={handleClose}
+              rentalCost={armada.armadaDetail.rental}
+            />
           </div>
         </div>
 
@@ -150,7 +103,7 @@ const FleetDrawer = ({
               height={30}
               className="w-6 h-auto"
             />
-            <span className="font-semibold text-lg">Kirim Pesan</span>
+            <span className="font-semibold text-lg">Rental Armada</span>
           </Button>
         </div>
       </DrawerContent>

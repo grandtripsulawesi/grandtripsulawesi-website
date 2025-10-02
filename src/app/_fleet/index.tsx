@@ -17,10 +17,10 @@ import armadaData from './data.json';
 import { useState } from 'react';
 import { cn, formatNumber } from '@/lib/utils';
 import useURLState from '@/hooks/useUrlState';
-import { ArmadaType } from '../types';
 import useMediaQuery from '@/hooks/useMediaQuery';
+import { ArmadaType } from '@/types';
 
-const dummyArmada: ArmadaType[] = armadaData;
+const armadaList: ArmadaType[] = armadaData;
 
 const Fleet = () => {
   const { isMobile } = useMediaQuery();
@@ -32,7 +32,11 @@ const Fleet = () => {
       id="fleet"
       className={cn(
         'relative w-full',
-        isExpand ? 'h-full' : ' h-[100vh] overflow-clip'
+        isExpand
+          ? 'h-full'
+          : !isMobile
+          ? 'h-[100vh] overflow-clip'
+          : 'h-[150vh] overflow-clip'
       )}
     >
       {!isExpand && (
@@ -57,7 +61,7 @@ const Fleet = () => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-4 mt-12 lg:mt-0">
-          {dummyArmada.map((armada, index) => (
+          {armadaList.map((armada, index) => (
             <Card
               key={armada.name + '-' + index}
               title={armada.name}
@@ -68,7 +72,7 @@ const Fleet = () => {
                     updateUrl('/fleet', {
                       modal: true,
                       name: armada.name,
-                      imageUrl: armada.imagePath,
+                      imageUrl: armada.imageUrl,
                       person: armada.armadaDetail.person,
                       transmission: armada.armadaDetail.transmission,
                       basicFee: armada.armadaDetail.rental.basic,
@@ -76,12 +80,12 @@ const Fleet = () => {
                     });
                   }}
                 >
-                  <ArrowRightIcon className="size-10 lg:size-8" />
+                  <ArrowRightIcon className="size-12 lg:size-8" />
                 </Button>
               }
               content={
                 <Image
-                  src={armada.imagePath}
+                  src={armada.imageUrl}
                   alt={armada.name}
                   width={226}
                   height={160}
@@ -98,7 +102,7 @@ const Fleet = () => {
                           alt=""
                           height={20}
                           width={20}
-                          className="size-3"
+                          className="size-4 lg:size-3"
                         />
                         <p>{data.person}</p>
                       </span>
@@ -108,7 +112,7 @@ const Fleet = () => {
                           alt=""
                           height={20}
                           width={20}
-                          className="size-3"
+                          className="size-4 lg:size-3"
                         />
                         <p className="capitalize">{data.transmission}</p>
                       </span>
@@ -119,9 +123,9 @@ const Fleet = () => {
                         alt=""
                         height={20}
                         width={20}
-                        className="size-3"
+                        className="size-4 lg:size-3"
                       />
-                      <p>
+                      <p className="text-base lg:text-sm">
                         {formatNumber(data.rental.basic || data.rental.allin)}
                         <span className="text-slate-400">/Hari</span>
                       </p>
@@ -155,11 +159,7 @@ const Fleet = () => {
           )}
         </Button>
       </div>
-      {!isMobile ? (
-        <FleetDialog params={searchParams} updateUrl={updateUrl} />
-      ) : (
-        <FleetDrawer params={searchParams} updateUrl={updateUrl} />
-      )}
+      {!isMobile ? <FleetDialog /> : <FleetDrawer />}
     </section>
   );
 };
