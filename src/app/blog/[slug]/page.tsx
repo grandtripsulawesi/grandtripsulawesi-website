@@ -51,7 +51,7 @@ export const Blog = async ({
 
           <div
             id="markdown__content"
-            className="w-full max-w-none text-left prose mt-8 lg:mt-12 mb-24"
+            className="w-full max-w-none lg:max-w-4/5 text-left lg:text-justify prose lg:prose-lg mt-8 lg:mt-12 mb-24"
             dangerouslySetInnerHTML={{
               __html: postData?.contentHtml ?? '',
             }}

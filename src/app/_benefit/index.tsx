@@ -2,7 +2,10 @@ import Image from 'next/image';
 
 const Benefit = () => {
   return (
-    <section className="w-full lg:h-screen flex flex-col items-center justify-center mt-24 overflow-clip lg:overflow-visible">
+    <section
+      id="benefit"
+      className="w-full lg:h-screen flex flex-col items-center justify-center mt-24 overflow-clip lg:overflow-visible"
+    >
       <div className="width__wrapper mx-auto flex flex-col min-h-4/5 lg:max-h-screen space-y-8">
         <div className="text-center">
           <p>Mengapa memilih kami?</p>
@@ -19,7 +22,7 @@ const Benefit = () => {
               height={270}
               className="w-full h-auto"
             />
-            <div className="absolute top-8 -left-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
+            <div className="absolute top-8 left-0 lg:-left-6 -z-10 bg-slate-300 w-full h-full lg:h-11/12 rounded-2xl" />
           </div>
           <div className="basis-1/2">
             <ul className="mt-4 text-base lg:text-sm space-y-3">
@@ -67,7 +70,7 @@ const Benefit = () => {
               height={270}
               className="w-full h-auto"
             />
-            <div className="absolute top-8 -right-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
+            <div className="absolute top-8 right-0 lg:-right-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
           </div>
           <div className="mr-auto basis-3/5">
             <ul className="mt-4 text-base lg:text-sm space-y-3">

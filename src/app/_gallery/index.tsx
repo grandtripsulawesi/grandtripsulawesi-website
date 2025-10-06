@@ -12,9 +12,14 @@ const Gallery = () => {
 
   return (
     <section
+      id="gallery"
       className={cn(
-        'mt-24 relative w-full',
-        isMobile && (isExpand ? 'h-full' : ' h-[100vh] overflow-clip')
+        'relative mt-24 w-full',
+        isExpand
+          ? 'h-full'
+          : !isMobile
+          ? 'h-[100vh] overflow-clip'
+          : 'h-[150vh] overflow-clip'
       )}
     >
       {!isExpand && (
@@ -28,16 +33,16 @@ const Gallery = () => {
           </h1>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
-          {Array(6)
+          {Array(9)
             .fill(0)
             .map((_, index) => (
               <Image
                 key={'gallery-' + index}
                 alt="gallery collection"
-                src={'/images/gallery/gallery_illustration.webp'}
+                src={`/images/gallery/gallery_customer_${index + 1}.webp`}
                 width={367}
                 height={377}
-                className="rounded-xl w-full min-h-full lg:h-80 object-cover"
+                className="rounded-xl w-full min-h-full object-cover"
               />
             ))}
         </div>
@@ -47,18 +52,18 @@ const Gallery = () => {
           onClick={() => setIsExpand(!isExpand)}
           className={cn(
             !isExpand ? 'absolute bottom-24 z-30' : 'mt-12 mb-24',
-            'text-white text-md font-semibold px-4 py-2.5 tracking-wide rounded-full transition duration-150 ease-out hover:bg-black/60 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
+            'text-white font-semibold px-4 py-2.5 tracking-wide rounded-full transition duration-150 ease-out hover:bg-black/60 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
           )}
         >
           {!isExpand ? (
             <span className="flex items-center space-x-2">
               <ChevronDoubleDownIcon />
-              <p>Selengkapnya</p>
+              <p className=" text-md lg:text-lg ">Selengkapnya</p>
             </span>
           ) : (
             <span className="flex items-center space-x-1">
               <ChevronDoubleUpIcon />
-              <p>Tutup</p>
+              <p className=" text-md lg:text-lg ">Tutup</p>
             </span>
           )}
         </Button>

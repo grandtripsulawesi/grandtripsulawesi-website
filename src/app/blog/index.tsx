@@ -35,10 +35,10 @@ const Blog = () => {
               </CardContent>
               <CardFooter className="flex-col">
                 <ul className="flex space-x-2.5 text-zinc-500 w-full flex-wrap">
-                  <li className="flex items-center space-x-0.5">
+                  {/* <li className="flex items-center space-x-0.5">
                     <EyeSolidIcon className="size-4" />
                     <p className="text-xs">100 views</p>
-                  </li>
+                  </li> */}
                   <li className="flex items-center space-x-0.5">
                     <ClockIcon className="size-4" />
                     <p className="text-xs">{post.readingTime}</p>
@@ -56,7 +56,7 @@ const Blog = () => {
                     href={'/'.concat('blog/', post.slug)}
                     className="flex justify-center items-end font-semibold"
                   >
-                    <p>Baca Artikel</p>
+                    <p className="text-base">Baca Artikel</p>
                     <ChevronRightIcon className="size-6 lg:size-5" />
                   </Link>
                 </Button>

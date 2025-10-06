@@ -82,6 +82,7 @@ const FleetDrawer = () => {
               </div>
             </div>
             <OrderForm
+              fleet={armada.name}
               handleClose={handleClose}
               rentalCost={armada.armadaDetail.rental}
             />

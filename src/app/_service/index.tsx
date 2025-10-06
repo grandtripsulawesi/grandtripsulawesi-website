@@ -55,7 +55,7 @@ const dummyService = [
 
 const Service = () => {
   return (
-    <section className="w-full relative">
+    <section id="service" className="w-full relative">
       <div className="width__wrapper mx-auto my-24 flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
         <div className="basis-1/2 shrink-0">
           <Image

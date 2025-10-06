@@ -3,7 +3,10 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <section className="relative w-full bg-foreground text-background lg:h-[80vh] flex items-center justify-center">
+    <section
+      id="about"
+      className="relative w-full bg-foreground text-background lg:h-[80vh] flex items-center justify-center"
+    >
       <div className="width__wrapper my-24 lg:my-0 h-3/4 lg:max-h-2/3 flex flex-col lg:flex-row mx-auto space-y-8 lg:space-y-0 lg:space-x-4">
         <div className="lg:basis-3/5 h-full lg:h-auto flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
           <div className="relative h-1/3 lg:h-full min-w-2/4 flex justify-center items-center">
@@ -77,7 +80,7 @@ const About = () => {
 
           <Button
             variant="secondary"
-            className="mx-auto w-full lg:mx-0 text-base font-semibold lg:text-sm px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto lg:w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="mx-auto w-full lg:mx-0 text-lg lg:text-base font-semibold px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto lg:w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             Hubungi Kami
           </Button>

@@ -102,6 +102,10 @@ body {
   color: var(--bg-black);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -160,6 +164,11 @@ body {
   input[type='number'] {
     -moz-appearance: textfield;
   }
+}
+
+/* Ensure anchored sections are not hidden under fixed Topbar */
+section[id] {
+  scroll-margin-top: 96px; /* matches approx Topbar height and spacing */
 }
 
 .width__wrapper {

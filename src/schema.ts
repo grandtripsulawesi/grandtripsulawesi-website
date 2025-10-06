@@ -13,8 +13,9 @@ export const formSchema = z.object({
     },
     { error: 'Tanggal keberangkatan harus diisi' }
   ),
+  fleet: z.string(),
   destination: z.enum(['dalam kota', 'luar kota'], {
     error: 'Tujuan harus diisi',
   }),
-  armada: z.enum(['lepas kunci', 'all in']),
+  service: z.enum(['lepas kunci', 'all in']),
 });

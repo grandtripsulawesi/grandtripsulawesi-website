@@ -48,18 +48,18 @@ const CallToAction = () => {
           </p>
           <Button
             variant="secondary"
-            className="mx-auto lg:mx-0 text-base font-semibold lg:text-sm px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto w-full lg:w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="mx-auto lg:mx-0 text-base font-semibold  px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto w-full lg:w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             Booking Sekarang!
           </Button>
         </div>
         <div className="basis-auto flex items-center justify-center">
           <Image
-            src={'/images/brio.webp'}
-            alt="picture of car Honda Brio"
-            width={486}
-            height={341}
-            className="w-11/12 h-auto"
+            src={'/images/avanza.webp'}
+            alt="picture of avanza"
+            width={500}
+            height={400}
+            className="w-full h-auto"
           />
         </div>
       </div>
@@ -102,11 +102,15 @@ const Footer = () => {
                   <h3 className="text-xl lg:text-base font-semibold">
                     Alamat Garasi
                   </h3>
-                  <p className="lg:mr-12">
-                    Jl. Poros Makassar - Maros, Bontoa, Kec. Mandai, Kabupaten
-                    Maros, Sulawesi Selatan 90552 (Depan Pintu Utama Grand Mall
-                    Maros)
-                  </p>
+                  <div className="flex flex-col space-y-2">
+                    <p className="lg:mr-12">
+                      Jl. Poros Makassar - Maros, Bontoa, Kec. Mandai, Kabupaten
+                      Maros, Sulawesi Selatan 90552 (Basement Grand Mall Maros)
+                    </p>
+                    <p className="lg:mr-12">
+                      Jl. Domba No.18, Makassar, Sulawesi Selatan
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -122,7 +126,7 @@ const Footer = () => {
                   <h3 className="text-xl lg:text-base font-semibold">
                     Jam Operasional
                   </h3>
-                  <p>09:20 am - 04.30 pm (Setiap hari)</p>
+                  <p>07:30 am - 22.00 pm (Setiap hari)</p>
                 </div>
               </div>
 
@@ -178,10 +182,20 @@ const Footer = () => {
                 Follow Us!
               </h3>
               <ul className="list-none flex flex-col space-y-2 w-full">
-                <Link href={'#'} referrerPolicy="no-referrer">
+                <Link
+                  href={
+                    'https://web.facebook.com/profile.php?id=100090651137648'
+                  }
+                  referrerPolicy="no-referrer"
+                >
                   <p>Facebook</p>
                 </Link>
-                <Link href={'#'} referrerPolicy="no-referrer">
+                <Link
+                  href={
+                    'https://www.instagram.com/grandtripsulawesi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+                  }
+                  referrerPolicy="no-referrer"
+                >
                   <p>Instagram</p>
                 </Link>
               </ul>

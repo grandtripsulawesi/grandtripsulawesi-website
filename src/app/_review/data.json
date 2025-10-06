@@ -1,17 +1,32 @@
 [
   {
-    "name": "Luke",
-    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula ornare velit non vehicula. Duis quis massa eget arcu luctus ullamcorper vel ac lacus. Vivamus eu tortor id justo finibus pellentesque.",
+    "name": "Irwan Syah",
+    "comment": "Tempat penyewaan ini sangat bagus. Mobil yang tersedia selalu dalam kondisi baik dan bersih. Kebersihan mobil sangat diperhatikan, baik dari segi interior maupun eksterior. Pelayanannya juga sangat memuaskan, sopirnya ramah dan berpengalaman. Saya sudah beberapa kali menyewa mobil di tempat ini, dan selalu puas. Mobilnya selalu bersih, terawat, dan nyaman untuk perjalanan. Stafnya juga ramah dan membantu. Pokoknya, tempat penyewaan ini sangat recommended!",
     "rating": 5
   },
   {
-    "name": "Han",
-    "comment": "Curabitur lobortis, diam eget luctus lacinia, tellus lacus aliquam quam, quis blandit dui diam non mi. Aliquam erat volutpat.",
+    "name": "Chiko Cardoso",
+    "comment": "Pelayanan bagus mobilnya bersih nyaman di pakai, drivernya ramah dan sopan.",
     "rating": 5
   },
   {
-    "name": "Leia",
-    "comment": "Curabitur scelerisque magna a felis volutpat convallis. Nunc eleifend fermentum ex, nec sodales nunc tristique in. Ut viverra nec enim ac aliquam.",
-    "rating": 3
+    "name": "Bento Benz",
+    "comment": "Sangat baik pelayanannya, ramah dan murah.. Cocok untuk kantong... Mobilnya bersih dan keren... 🙏 …",
+    "rating": 5
+  },
+  {
+    "name": "Bram Kamasi",
+    "comment": "Pelayanan Grand trip sulawesi baik,ramah, dan harga terjangkau... mobilnya bersih dan bagus... sangat membantu ketika butuh kendaraan selama di sulawesi",
+    "rating": 5
+  },
+  {
+    "name": "Andri Permana",
+    "comment": "The car is comfortable, cheap and clean...",
+    "rating": 5
+  },
+  {
+    "name": "Nirma Sau",
+    "comment": "Good, cool, cheap, comfortable, clean, friendly service",
+    "rating": 5
   }
 ]

@@ -21,9 +21,7 @@ import {
 } from '@/components/ui/popover';
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
@@ -49,9 +47,11 @@ const destination = [
 ];
 
 const OrderForm = ({
+  fleet,
   rentalCost,
   handleClose,
 }: {
+  fleet: string;
   rentalCost: { basic: number; allin: number };
   handleClose: any;
 }) => {
@@ -60,20 +60,41 @@ const OrderForm = ({
     defaultValues: {
       name: '',
       address: '',
-      armada: Boolean(rentalCost.basic) ? 'lepas kunci' : 'all in',
+      destination: 'dalam kota',
+      fleet: fleet,
+      service: Boolean(rentalCost.basic) ? 'lepas kunci' : 'all in',
     },
   });
   const { isMobile } = useMediaQuery();
+  const isLuarKotaDestination = form.watch('destination') === 'luar kota';
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit({
+    name,
+    address,
+    service,
+    fleet,
+    destination,
+    datePicker,
+  }: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log('Form submitted successfully!', values);
-
     // You can add WhatsApp integration here
-    // const whatsappMessage = `Halo, saya ingin booking mobil ${values.armada || 'yang tersedia'}.\nNama: ${values.name}\nAlamat: ${values.address}\nWhatsApp: ${values.phone}`;
-    // const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(whatsappMessage)}`;
-    // window.open(whatsappUrl, '_blank');
+    const whatsappMessage = `Halo! Saya ingin membuat pemesanan. Berikut detailnya:
+
+Nama: ${name}
+Jenis Layanan: ${service}
+Unit Kendaraan: ${fleet}
+Tujuan Penggunaan: ${destination}
+Alamat: ${address}
+Tanggal Ambil: ${format(datePicker.from, 'dd/MM/yyyy')}
+Tanggal Balik: ${
+      datePicker.to ? format(datePicker.to, 'dd/MM/yyyy') : 'Belum ditentukan'
+    }`;
+
+    const whatsappUrl = `https://wa.me/6285695771804?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+    window.open(whatsappUrl, '_blank');
   }
 
   return (
@@ -245,7 +266,7 @@ const OrderForm = ({
         {/* Rental */}
         <FormField
           control={form.control}
-          name="armada"
+          name="service"
           render={({ field }) => (
             <FormItem>
               <div className="flex flex-col">
@@ -275,7 +296,11 @@ const OrderForm = ({
                           'line-through text-muted-foreground'
                       )}
                     >
-                      {`Lepas Kunci (IDR ${rentalCost.basic.toLocaleString()}/Hari)`}
+                      {`Lepas Kunci ${
+                        !isLuarKotaDestination || !Boolean(rentalCost.basic)
+                          ? `(IDR ${rentalCost.basic.toLocaleString()}/Hari)`
+                          : '(Silahkan chat Admin)'
+                      }`}
                     </FormLabel>
                   </FormItem>
 
@@ -284,7 +309,11 @@ const OrderForm = ({
                       <RadioGroupItem className="bg-white" value="all in" />
                     </FormControl>
                     <FormLabel className="text-base lg:text-sm">
-                      {`All-In Driver & BBM (IDR ${rentalCost.allin.toLocaleString()}/Hari)`}
+                      {`All-In Driver + BBM ${
+                        !isLuarKotaDestination
+                          ? `(IDR ${rentalCost.allin.toLocaleString()}/Hari)`
+                          : '(Silahkan chat Admin)'
+                      }`}
                     </FormLabel>
                   </FormItem>
                 </RadioGroup>

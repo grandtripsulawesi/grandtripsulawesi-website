@@ -88,6 +88,7 @@ const FleetDialog = () => {
             </div>
           </div>
           <OrderForm
+            fleet={armada.name}
             handleClose={handleClose}
             rentalCost={armada.armadaDetail.rental}
           />

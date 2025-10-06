@@ -12,27 +12,27 @@ import Image from 'next/image';
 const pageSection = [
   {
     name: 'paket trip',
-    url: '/trip',
+    url: '#',
   },
   {
     name: 'tentang kami',
-    url: '#',
+    url: '/#about',
   },
   {
     name: 'armada',
-    url: '#',
+    url: '/#fleet',
   },
   {
     name: 'layanan',
-    url: '#',
+    url: '/#service',
   },
   {
     name: 'ulasan',
-    url: '#',
+    url: '/#review',
   },
   {
     name: 'galeri',
-    url: '#',
+    url: '/#gallery',
   },
 ];
 
@@ -45,7 +45,7 @@ const Navigation = () => {
       {pageSection.map((section) => (
         <li key={section.name}>
           <Link href={section.url}>
-            <p className="text-base capitalize">{section.name}</p>
+            <p className="text-base capitalize font-semibold">{section.name}</p>
           </Link>
         </li>
       ))}
@@ -70,7 +70,7 @@ const Topbar = () => {
       <div
         className={`flex items-center width__wrapper mx-auto px-4 py-2.5 ${
           scrolled
-            ? 'backdrop-blur border border-slate-100/50 rounded-full'
+            ? 'bg-white border border-slate-200 rounded-full'
             : 'bg-transparent'
         } transition-all duration-300`}
       >
@@ -101,10 +101,10 @@ const Topbar = () => {
             <Navigation />
             <Button
               variant="outline"
-              className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              className="border-black rounded-full font-heading pl-3 mr-4 bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
               aria-label="Booking sekarang"
             >
-              <p>Booking Sekarang</p>
+              <p className="font-semibold">Booking Sekarang</p>
               <ArrowRightIcon className="size-10" />
             </Button>
           </>

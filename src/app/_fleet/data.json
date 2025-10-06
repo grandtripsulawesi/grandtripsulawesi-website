@@ -4,10 +4,10 @@
     "imageUrl": "/images/armada/armada_agya.webp",
     "armadaDetail": {
       "person": 5,
-      "transmission": "manual",
+      "transmission": "AT/MT",
       "rental": {
         "basic": 275000,
-        "allin": 650000
+        "allin": 600000
       }
     }
   },
@@ -16,10 +16,10 @@
     "imageUrl": "/images/armada/armada_calya.webp",
     "armadaDetail": {
       "person": 6,
-      "transmission": "manual",
+      "transmission": "AT/MT",
       "rental": {
         "basic": 275000,
-        "allin": 650000
+        "allin": 600000
       }
     }
   },
@@ -28,10 +28,10 @@
     "imageUrl": "/images/armada/armada_brio.webp",
     "armadaDetail": {
       "person": 5,
-      "transmission": "manual",
+      "transmission": "AT/MT",
       "rental": {
         "basic": 300000,
-        "allin": 700000
+        "allin": 650000
       }
     }
   },
@@ -40,10 +40,10 @@
     "imageUrl": "/images/armada/armada_terios.webp",
     "armadaDetail": {
       "person": 7,
-      "transmission": "manual",
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 300000,
-        "allin": 700000
+        "basic": 350000,
+        "allin": 750000
       }
     }
   },
@@ -51,10 +51,10 @@
     "name": "toyota new avanza",
     "imageUrl": "/images/armada/armada_avanza.webp",
     "armadaDetail": {
-      "person": 8,
-      "transmission": "manual",
+      "person": 7,
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 300000,
+        "basic": 325000,
         "allin": 700000
       }
     }
@@ -64,9 +64,9 @@
     "imageUrl": "/images/armada/armada_xpander.webp",
     "armadaDetail": {
       "person": 7,
-      "transmission": "manual",
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 325000,
+        "basic": 350000,
         "allin": 750000
       }
     }
@@ -76,10 +76,10 @@
     "name": "kijang innova reborn",
     "imageUrl": "/images/armada/armada_reborn.webp",
     "armadaDetail": {
-      "person": 8,
-      "transmission": "manual",
+      "person": 7,
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 400000,
+        "basic": 450000,
         "allin": 800000
       }
     }
@@ -88,11 +88,11 @@
     "name": "kijang innova zenix",
     "imageUrl": "/images/armada/armada_zenix.webp",
     "armadaDetail": {
-      "person": 8,
-      "transmission": "manual",
+      "person": 7,
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 600000,
-        "allin": 1000000
+        "basic": 800000,
+        "allin": 1200000
       }
     }
   },
@@ -100,10 +100,10 @@
     "name": "toyota fortuner",
     "imageUrl": "/images/armada/armada_fortuner.webp",
     "armadaDetail": {
-      "person": 8,
-      "transmission": "manual",
+      "person": 7,
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 850000,
+        "basic": 900000,
         "allin": 1300000
       }
     }
@@ -112,10 +112,10 @@
     "name": "mitsubishi pajero",
     "imageUrl": "/images/armada/armada_pajero.webp",
     "armadaDetail": {
-      "person": 8,
-      "transmission": "manual",
+      "person": 7,
+      "transmission": "AT/MT",
       "rental": {
-        "basic": 850000,
+        "basic": 900000,
         "allin": 1300000
       }
     }
@@ -124,8 +124,8 @@
     "name": "toyota alphard",
     "imageUrl": "/images/armada/armada_alphard.webp",
     "armadaDetail": {
-      "person": 7,
-      "transmission": "manual",
+      "person": 6,
+      "transmission": "MT",
       "rental": {
         "basic": 0,
         "allin": 2500000
@@ -137,7 +137,7 @@
     "imageUrl": "/images/armada/armada_hiace.webp",
     "armadaDetail": {
       "person": 15,
-      "transmission": "manual",
+      "transmission": "MT",
       "rental": {
         "basic": 0,
         "allin": 1200000
@@ -149,7 +149,7 @@
     "imageUrl": "/images/armada/armada_premio.webp",
     "armadaDetail": {
       "person": 14,
-      "transmission": "manual",
+      "transmission": "MT",
       "rental": {
         "basic": 0,
         "allin": 1400000
@@ -160,8 +160,8 @@
     "name": "isuzu elf long",
     "imageUrl": "/images/armada/armada_elf.webp",
     "armadaDetail": {
-      "person": 19,
-      "transmission": "manual",
+      "person": 18,
+      "transmission": "MT",
       "rental": {
         "basic": 0,
         "allin": 1300000
