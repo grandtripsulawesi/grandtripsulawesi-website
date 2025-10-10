@@ -15,11 +15,7 @@ export const metadata: Metadata = {
   title: 'GrandTrip Sulawesi',
 };
 
-export const Blog = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
+const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const blogData = await getPostData(slug);
   const relatedBlog = getRelatedPost(slug, ['Travelling'], 3);

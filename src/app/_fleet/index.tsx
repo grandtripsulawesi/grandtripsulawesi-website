@@ -25,7 +25,7 @@ const armadaList: ArmadaType[] = armadaData;
 const Fleet = () => {
   const { isMobile } = useMediaQuery();
   const [isExpand, setIsExpand] = useState<boolean>(false);
-  const { searchParams, updateUrl } = useURLState();
+  const { updateUrl } = useURLState();
 
   return (
     <section

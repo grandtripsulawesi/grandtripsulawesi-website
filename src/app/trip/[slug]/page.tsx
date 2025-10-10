@@ -7,11 +7,7 @@ import Link from 'next/link';
 
 const postPathname = '/src/app/trip/posts';
 
-export const Trip = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
+const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const tripDetail = await getPostData(slug, postPathname);
   const relatedTrip = getRelatedPost(slug, ['Trip'], 3, postPathname);

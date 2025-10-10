@@ -61,30 +61,6 @@ const FleetDialog = () => {
                   {armada.armadaDetail.transmission}
                 </p>
               </span>
-              {/* <span className="flex flex-col items-left space-x-1">
-                <p className="text-xs">Rental Cost</p>
-                <ul className="flex flex-col space-y-2">
-                  <li>
-                    <p className="text-xs font-bold">Lepas Kunci:</p>
-                    <p className="text-lg">
-                      {`IDR `}
-                      {!armada.armadaDetail.rental.basic
-                        ? '-'
-                        : formatNumber(armada.armadaDetail.rental.basic)}
-                      <span className="text-slate-400 text-sm">/Hari</span>
-                    </p>
-                  </li>
-
-                  <li>
-                    <p className="text-xs font-bold">All-In: </p>
-                    <p className="text-lg">
-                      IDR {formatNumber(armada.armadaDetail.rental.allin)}
-                      <span className="text-slate-400 text-sm">/Hari</span>
-                    </p>
-                    <p className="text-xs">*Termasuk Driver & BBM</p>
-                  </li>
-                </ul>
-              </span> */}
             </div>
           </div>
           <OrderForm
