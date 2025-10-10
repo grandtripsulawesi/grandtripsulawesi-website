@@ -1,12 +1,8 @@
 import { Button } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import {
-  CalendarIcon,
-  ChevronRightIcon,
-  ClockIcon,
-  EyeSolidIcon,
-} from '@/icons';
+import { CalendarIcon, ChevronRightIcon, ClockIcon } from '@/icons';
 import { getAllPosts } from '@/lib/post';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Blog = () => {
@@ -24,9 +20,13 @@ const Blog = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
           {posts.map((post) => (
             <Card className="lg:min-h-[400px]" key={post.title}>
-              <div>
-                <div className="w-full h-[180px] bg-gray-200" />
-              </div>
+              <Image
+                src={post.coverImage as string}
+                alt={post.title}
+                width={300}
+                height={300}
+                className="w-full object-cover"
+              />
               <CardContent>
                 <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">
                   {post.title}
@@ -50,7 +50,7 @@ const Blog = () => {
                 </ul>
                 <Button
                   variant="default"
-                  className="w-full ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4"
+                  className="w-full ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4  transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                 >
                   <Link
                     href={'/'.concat('blog/', post.slug)}

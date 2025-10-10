@@ -1,4 +1,6 @@
+'use client';
 import { Button } from '@/components';
+import { chatToWhatsapp } from '@/lib/utils';
 import Image from 'next/image';
 
 const About = () => {
@@ -79,6 +81,9 @@ const About = () => {
           </p>
 
           <Button
+            onClick={() =>
+              chatToWhatsapp('Halo! Saya ingin membuat pemesanan.')
+            }
             variant="secondary"
             className="mx-auto w-full lg:mx-0 text-lg lg:text-base font-semibold px-4 lg:px-3 py-3 lg:py-2 mt-4 lg:mt-auto lg:w-fit transition duration-150 ease-out  active:scale-95 active:bg-amber-600 active:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >

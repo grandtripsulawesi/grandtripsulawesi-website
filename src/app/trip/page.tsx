@@ -34,7 +34,6 @@ const Trip = () => {
           {allTripPackages.map((tripPackage) => (
             <Card key={tripPackage.title}>
               <div>
-                {/* <div className="w-full h-[180px] bg-gray-200" /> */}
                 <Image
                   src={tripPackage.coverImage as string}
                   alt={tripPackage.title}

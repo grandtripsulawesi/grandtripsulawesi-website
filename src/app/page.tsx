@@ -21,8 +21,8 @@ export default function Home() {
       <Fleet />
       <Service />
       <Review />
-      {/* <Gallery /> */}
-      {/* <Blog /> */}
+      <Gallery />
+      <Blog />
     </main>
   );
 }

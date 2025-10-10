@@ -88,3 +88,10 @@ export const clearDialogParams = (params: URLSearchParams) => {
 
   return clearedObject;
 };
+
+export const chatToWhatsapp = (whatsappMessage: string) => {
+  const whatsappUrl = `https://wa.me/6285695771804?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+  window.open(whatsappUrl, '_blank');
+};

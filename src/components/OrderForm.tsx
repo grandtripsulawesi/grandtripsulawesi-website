@@ -31,7 +31,7 @@ import Button from './Button';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { XMarkIcon } from '@/icons';
 import { CalendarIcon, ChevronsUpDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { chatToWhatsapp, cn } from '@/lib/utils';
 import { formSchema } from '@/schema';
 import { Calendar } from './ui/calendar';
 
@@ -76,9 +76,6 @@ const OrderForm = ({
     destination,
     datePicker,
   }: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // You can add WhatsApp integration here
     const whatsappMessage = `Halo! Saya ingin membuat pemesanan. Berikut detailnya:
 
 Nama: ${name}
@@ -91,10 +88,7 @@ Tanggal Balik: ${
       datePicker.to ? format(datePicker.to, 'dd/MM/yyyy') : 'Belum ditentukan'
     }`;
 
-    const whatsappUrl = `https://wa.me/6285695771804?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-    window.open(whatsappUrl, '_blank');
+    chatToWhatsapp(whatsappMessage);
   }
 
   return (

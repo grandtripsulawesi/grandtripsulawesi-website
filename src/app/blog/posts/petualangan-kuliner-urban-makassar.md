@@ -6,7 +6,8 @@ excerpt: 'Selami scene kuliner Makassar yang vibrant dan budaya urban, dari pasa
 tags: ['Travelling', 'Makassar', 'Kuliner', 'Seafood']
 published: true
 readingTime: '5 menit baca'
-coverImage: ''
+coverImage: '/images/blog/blog_illustration_2.webp'
+slugImage: '/images/blog/blog_illustration_2_slug.webp'
 ---
 
 Makassar, ibu kota Sulawesi Selatan yang ramai, berdiri sebagai salah satu kota paling dinamis Indonesia di mana tradisi perdagangan rempah berabad-abad berpadu dengan energi urban kontemporer. Metropolis pesisir ini berfungsi sebagai gerbang Indonesia timur sambil menawarkan pengunjung perjalanan kuliner luar biasa yang mencerminkan posisi bersejarahnya sebagai persimpangan perdagangan maritim.

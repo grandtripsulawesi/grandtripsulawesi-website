@@ -9,7 +9,7 @@ export interface BlogPost {
   published: boolean;
   readingTime?: string;
   coverImage?: string;
-  coverImageDesktop?: string;
+  slugImage?: string;
 }
 
 export interface BlogPostWithContent extends BlogPost {

@@ -7,7 +7,13 @@ import {
   EyeSolidIcon,
 } from '@/icons';
 import { getPostData, getRelatedPost } from '@/lib/post';
+import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'GrandTrip Sulawesi',
+};
 
 export const Blog = async ({
   params,
@@ -15,45 +21,54 @@ export const Blog = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const postData = await getPostData(slug);
-  const relatedPosts = getRelatedPost(slug, ['Travelling'], 3);
+  const blogData = await getPostData(slug);
+  const relatedBlog = getRelatedPost(slug, ['Travelling'], 3);
+
+  metadata.title = blogData?.title;
 
   return (
     <section className="relative w-full">
-      <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
+      <div className="width__wrapper flex flex-col items-center min-h-screen mx-auto">
         <header className="mt-12 lg:mt-0 flex flex-col items-center justify-center lg:h-[33vh]">
           <div className="flex flex-col lg:flex-row items-baseline justify-between">
             <div className="lg:basis-2/5">
-              <h1 className="font-semibold text-3xl">{postData?.title}</h1>
+              <h1 className="font-semibold text-3xl">{blogData?.title}</h1>
               <div className="flex items-center space-x-2">
                 <div className="w-9/12 lg:w-1/3 h-0.5 bg-foreground my-6" />
-                <p>{postData?.tags[0]}</p>
+                <p>{blogData?.tags[0]}</p>
               </div>
               <ul className="mb-2 lg:mb-0 flex space-x-2.5 text-zinc-500 w-full">
                 <li className="flex items-center space-x-0.5">
                   <ClockIcon className="size-4" />
-                  <p className="text-xs">{postData?.readingTime}</p>
+                  <p className="text-xs">{blogData?.readingTime}</p>
                 </li>
                 <li className="flex items-center space-x-0.5">
                   <CalendarIcon className="size-4" />
-                  <p className="text-xs">{postData?.date}</p>
+                  <p className="text-xs">{blogData?.date}</p>
                 </li>
               </ul>
             </div>
             <p className="lg:basis-2/5 text-justify leading-relaxed">
-              {postData?.excerpt}
+              {blogData?.excerpt}
             </p>
           </div>
         </header>
 
         <article className="mt-4 w-full h-full">
-          <div className="w-full h-80 bg-gray-300" />
-
+          <Image
+            src={blogData?.slugImage as string}
+            alt={blogData?.title as string}
+            width={300}
+            height={300}
+            priority
+            quality={100}
+            className="w-full h-auto lg:h-[40vh] object-cover mt-12 lg:mt-0"
+          />
           <div
             id="markdown__content"
-            className="w-full max-w-none lg:max-w-4/5 text-left lg:text-justify prose lg:prose-lg mt-8 lg:mt-12 mb-24"
+            className="w-full mb-24 max-w-none text-justify prose-lg mt-8 lg:max-w-4/5 lg:mt-12"
             dangerouslySetInnerHTML={{
-              __html: postData?.contentHtml ?? '',
+              __html: blogData?.contentHtml ?? '',
             }}
           ></div>
         </article>
@@ -65,11 +80,15 @@ export const Blog = async ({
             </h1>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
-            {relatedPosts.map((post) => (
+            {relatedBlog.map((post) => (
               <Card key={post.slug} className="min-h-[400px]">
-                <div>
-                  <div className="w-full h-[180px] bg-gray-200" />
-                </div>
+                <Image
+                  src={post.coverImage as string}
+                  alt={post.title}
+                  width={300}
+                  height={300}
+                  className="w-full object-cover"
+                />
                 <CardContent>
                   <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">
                     {post.title}
@@ -78,10 +97,6 @@ export const Blog = async ({
                 </CardContent>
                 <CardFooter className="flex-col">
                   <ul className="flex space-x-2.5 text-zinc-500 w-full">
-                    <li className="flex items-center space-x-0.5">
-                      <EyeSolidIcon className="size-4" />
-                      <p className="text-xs">100 views</p>
-                    </li>
                     <li className="flex items-center space-x-0.5">
                       <ClockIcon className="size-4" />
                       <p className="text-xs">{post.readingTime}</p>

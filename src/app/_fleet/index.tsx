@@ -67,6 +67,7 @@ const Fleet = () => {
               title={armada.name}
               action={
                 <Button
+                  className="hover:cursor-pointer transition duration-150 ease-out hover:text-amber-600 active:scale-90 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                   variant="ghost"
                   onClick={() => {
                     updateUrl('/fleet', {
@@ -143,18 +144,18 @@ const Fleet = () => {
           onClick={() => setIsExpand(!isExpand)}
           className={cn(
             !isExpand ? 'absolute bottom-24 z-30' : 'mt-12 mb-24',
-            'text-white font-semibold px-4 py-2.5 tracking-wide rounded-full transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
+            'text-white font-semibold px-6 py-3 tracking-wide rounded-full transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
           )}
         >
           {!isExpand ? (
             <span className="flex items-center space-x-2">
-              <ChevronDoubleDownIcon />
-              <p className="text-md lg:text-lg">Selengkapnya</p>
+              <ChevronDoubleDownIcon className="size-6" />
+              <p className="text-2xl lg:text-lg">Selengkapnya</p>
             </span>
           ) : (
             <span className="flex items-center space-x-1">
-              <ChevronDoubleUpIcon />
-              <p className="text-md lg:text-lg">Tutup</p>
+              <ChevronDoubleUpIcon className="size-6" />
+              <p className="text-2xl lg:text-lg">Tutup</p>
             </span>
           )}
         </Button>

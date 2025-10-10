@@ -6,7 +6,8 @@ excerpt: 'Temukan pesona Dataran Tinggi Toraja dengan upacara pemakaman kuno, ar
 tags: ['Travelling', 'Toraja', 'Budaya', 'Pegunungan']
 published: true
 readingTime: '4 menit baca'
-coverImage: ''
+coverImage: '/images/blog/blog_illustration_3.webp'
+slugImage: '/images/blog/blog_illustration_3_slug.webp'
 ---
 
 Tersembunyi di jantung pegunungan Sulawesi Selatan, Dataran Tinggi Toraja menawarkan salah satu pengalaman budaya paling mendalam di Indonesia. Dikenal secara lokal sebagai Tana Toraja, wilayah luar biasa ini menyajikan museum hidup tradisi kuno, arsitektur spektakuler, dan praktik spiritual yang mendalam.

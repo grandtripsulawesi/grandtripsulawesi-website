@@ -6,7 +6,8 @@ excerpt: 'Jelajahi Taman Nasional Bantimurung-Bulusaraung yang menakjubkan, ruma
 tags: ['Travelling', 'Bantimurung', 'Kupu-kupu', 'Alam']
 published: true
 readingTime: '4 menit baca'
-coverImage: ''
+coverImage: '/images/blog/blog_illustration_1.webp'
+slugImage: '/images/blog/blog_illustration_1_slug.webp'
 ---
 
 Hanya 50 kilometer timur laut Makassar terletak Taman Nasional Bantimurung-Bulusaraung, "Kerajaan Kupu-Kupu" Indonesia yang memesona. Area lindung seluas 43.750 hektar ini menampilkan keanekaragaman hayati luar biasa dan keajaiban geologis melalui air terjun bertingkat yang dikelilingi kupu-kupu berwarna-warni, gua batu kapur luas dengan formasi kuno, dan lanskap karst unik.

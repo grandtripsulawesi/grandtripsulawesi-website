@@ -36,14 +36,13 @@ export const Trip = async ({
           </div>
         </header>
 
-        {/* <div className="w-full h-80 bg-gray-300 mt-12" /> */}
         <Image
-          src={tripDetail.coverImageDesktop as string}
+          src={tripDetail.slugImage as string}
           alt={tripDetail.title}
           width={300}
           height={300}
           priority
-          className="w-full h-auto lg:h-[60vh] object-cover mt-12 lg:mt-0"
+          className="w-full h-auto lg:h-[40vh] object-cover mt-12 lg:mt-0"
         />
         <article className="relative w-full h-full flex flex-col lg:flex-row gap-8">
           <div className="flex-1">

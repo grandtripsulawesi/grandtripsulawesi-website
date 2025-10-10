@@ -8,11 +8,12 @@ import MobileNav from './MobileNav';
 import { Command, CommandInput } from '@/components/ui/command';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { chatToWhatsapp } from '@/lib/utils';
 
 const pageSection = [
   {
     name: 'paket trip',
-    url: '#',
+    url: '/trip',
   },
   {
     name: 'tentang kami',
@@ -66,7 +67,11 @@ const Topbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return !isMobile && isMobile !== null ? (
-    <div className={`fixed z-50 top-6 flex items-center w-full my-3`}>
+    <div
+      className={`${
+        pathname === '/' ? 'fixed z-50' : 'relative'
+      } top-6 my-3 flex items-center w-full`}
+    >
       <div
         className={`flex items-center width__wrapper mx-auto px-4 py-2.5 ${
           scrolled
@@ -100,6 +105,9 @@ const Topbar = () => {
           <>
             <Navigation />
             <Button
+              onClick={() =>
+                chatToWhatsapp('Halo! Saya ingin membuat pemesanan.')
+              }
               variant="outline"
               className="border-black rounded-full font-heading pl-3 mr-4 bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
               aria-label="Booking sekarang"
