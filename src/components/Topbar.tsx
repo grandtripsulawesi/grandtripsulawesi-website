@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import MobileNav from './MobileNav';
-import { Command, CommandInput } from '@/components/ui/command';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { chatToWhatsapp } from '@/lib/utils';
+import { chatToWhatsapp, cn } from '@/lib/utils';
 
 const pageSection = [
   {
@@ -92,42 +91,21 @@ const Topbar = () => {
           </Link>
         </div>
 
-        {pathname === '/trip' ? (
-          <>
-            <Command className="ml-auto w-2/6 h-10 border rounded-full">
-              <CommandInput
-                className="h-full"
-                placeholder="Cari paket liburan mu"
-              />
-            </Command>
-          </>
-        ) : pathname === '/' ? (
-          <>
-            <Navigation />
-            <Button
-              onClick={() =>
-                chatToWhatsapp('Halo! Saya ingin membuat pemesanan.')
-              }
-              variant="outline"
-              className="border-black rounded-full font-heading pl-3 mr-4 bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
-              aria-label="Booking sekarang"
-            >
-              <p className="font-semibold">Booking Sekarang</p>
-              <ArrowRightIcon className="size-10" />
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              variant="outline"
-              className="border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
-              aria-label="Booking sekarang"
-            >
-              <p>Booking Sekarang</p>
-              <ArrowRightIcon className="size-10" />
-            </Button>
-          </>
-        )}
+        {/* show Navigation for index */}
+        {pathname === '/' && <Navigation />}
+
+        <Button
+          onClick={() => chatToWhatsapp('Halo! Saya ingin membuat pemesanan.')}
+          variant="outline"
+          className={cn(
+            pathname === '/' && 'ml-auto',
+            'border-black rounded-full font-heading pl-3 ml-auto bg-transparent transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
+          )}
+          aria-label="Booking sekarang"
+        >
+          <p>Booking Sekarang</p>
+          <ArrowRightIcon className="size-10" />
+        </Button>
       </div>
     </div>
   ) : isMobile && isMobile !== null ? (

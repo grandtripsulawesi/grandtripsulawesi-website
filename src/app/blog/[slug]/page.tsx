@@ -104,11 +104,11 @@ const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
                   </ul>
                   <Button
                     variant="default"
-                    className="w-full ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4"
+                    className="ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4  transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                   >
                     <Link
                       href={'/'.concat('blog/', post.slug)}
-                      className="flex"
+                      className="flex w-full"
                     >
                       <p>Baca Artikel</p>
                       <ChevronRightIcon />

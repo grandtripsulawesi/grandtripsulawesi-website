@@ -96,6 +96,7 @@ const Hero = () => {
           ) : isMobile && isMobile !== null ? (
             <div className="mt-auto h-1/4 max-h-1/3">
               <Image
+                priority
                 alt="Armada collection"
                 src={'/images/hero/hero_cars.webp'}
                 width={400}

@@ -5,7 +5,7 @@ import { Separator } from './ui/separator';
 
 const Widget = ({ tripTitle }: { tripTitle: string | undefined }) => {
   return (
-    <aside className="sticky top-40 w-full bg-gray-100 flex flex-col space-y-4 p-4 rounded-lg">
+    <aside className="sticky top-10 w-full bg-gray-100 flex flex-col space-y-4 p-4 rounded-lg">
       <h2 className="font-semibold text-3xl lg:text-2xl lg:w-3/4">
         {tripTitle}
       </h2>

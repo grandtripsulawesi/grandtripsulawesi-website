@@ -54,7 +54,7 @@ const Blog = () => {
                 >
                   <Link
                     href={'/'.concat('blog/', post.slug)}
-                    className="flex justify-center items-end font-semibold"
+                    className="flex w-full justify-center items-end font-semibold"
                   >
                     <p className="text-base">Baca Artikel</p>
                     <ChevronRightIcon className="size-6 lg:size-5" />

@@ -87,3 +87,11 @@ export const getRelatedPost = (
     .filter((post) => post.tags.some((tag) => post.tags.includes(tag)))
     .slice(0, limit);
 };
+
+export const getSearchedPost = (query: string, pathname: string) => {
+  const allPosts = getAllPosts(pathname);
+
+  return allPosts.filter((post) =>
+    post.tags.some((tag) => tag.includes(query))
+  );
+};

@@ -16,8 +16,8 @@ const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   return (
     <section className="w-full">
-      <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
-        <header className="lg:mt-12 flex flex-col items-center justify-center lg:h-[33vh]">
+      <div className="width__wrapper flex flex-col items-center min-h-screen mx-auto">
+        <header className="flex flex-col items-center justify-center lg:h-[33vh]">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:basis-2/5">
               <h1 className="font-semibold text-4xl">{tripDetail?.title}</h1>
@@ -63,7 +63,7 @@ const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
             {relatedTrip.map((tripPackage) => (
-              <Card className="min-h-[400px]">
+              <Card className="min-h-[400px]" key={tripPackage.slug}>
                 <div>
                   <div className="w-full h-[180px] bg-gray-200" />
                 </div>
@@ -76,11 +76,11 @@ const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
                 <CardFooter className="flex-col">
                   <Button
                     variant="default"
-                    className="ml-auto font-heading py-2.5 px-2 mt-4"
+                    className="ml-auto font-heading py-2.5 px-2 mt-4 transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                   >
                     <Link
                       href={'/'.concat('trip/', tripPackage.slug)}
-                      className="flex"
+                      className="flex w-full"
                     >
                       <p>Baca Artikel</p>
                       <ChevronRightIcon />

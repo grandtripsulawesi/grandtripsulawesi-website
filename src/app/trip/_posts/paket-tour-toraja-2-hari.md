@@ -1,8 +1,8 @@
 ---
-slug: 'paket-tour-bali-1-hari-ubud'
-title: 'Paket Tour Bali 1 Hari Ubud'
+slug: 'paket-tour-toraja-2-hari'
+title: 'Paket Tour Toraja 2 Hari'
 excerpt: 'Ubud terkenal di antara para wisatawan mancanegara karena lokasinya yang terletak di antara sawah dan hutan, serta di antara jurang-jurang yang membuat pemandangan alamnya sangat indah. Selain itu, Ubud dikenal karena seni dan budaya yang berkembang sangat pesat dan maju. '
-tags: ['travelling', 'bali', 'trip']
+tags: ['travelling', 'toraja', 'trip']
 coverImage: '/images/trip/trip_illustration_1.webp'
 slugImage: '/images/trip/trip_illustration_desktop_1.webp'
 ---

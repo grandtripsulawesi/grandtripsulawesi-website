@@ -21,3 +21,4 @@ export { default as MapIcon } from './MapIcon';
 export { default as BriefcaseIcon } from './BriefcaseIcon';
 export { default as MapPinIcon } from './MapPinIcon';
 export { default as KeyIcon } from './KeyIcon';
+export { default as FaceFrownIcon } from './FaceFrownIcon';
