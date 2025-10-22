@@ -10,8 +10,14 @@ import rehypeStringify from 'rehype-stringify';
 const postDirectory = (pathname: string = '/src/app/blog/posts') =>
   path.join(process.cwd(), pathname);
 
+const safeFileNames = (pathname?: string) => {
+  const dir = postDirectory(pathname);
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+};
+
 export const getAllPostSlug = (pathname?: string) => {
-  const fileNames = fs.readdirSync(postDirectory(pathname));
+  const fileNames = safeFileNames(pathname);
   const slugCollection = fileNames.map((filename) => {
     const slug = filename.replace(/\.md$/, '');
 
@@ -26,7 +32,7 @@ export const getAllPostSlug = (pathname?: string) => {
 };
 
 export const getAllPosts = (pathname?: string): BlogPost[] => {
-  const fileNames = fs.readdirSync(postDirectory(pathname));
+  const fileNames = safeFileNames(pathname);
   const allPostData: BlogPost[] = fileNames
     .map((filename) => {
       const slug = filename.replace(/\.md$/, '');
