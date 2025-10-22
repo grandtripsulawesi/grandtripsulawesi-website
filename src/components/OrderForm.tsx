@@ -129,7 +129,7 @@ Tanggal Balik: ${
                 <FormDescription>Ketik nama lengkap anda</FormDescription>
               </div>
               <FormControl>
-                <Input placeholder="Peter Parker" {...field} />
+                <Input placeholder="Nama Lengkap" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -147,7 +147,7 @@ Tanggal Balik: ${
               </div>
               <FormControl>
                 <Input
-                  placeholder="Jalan Ave Road No.17, Makassar"
+                  placeholder="Alamat Tempat Tinggal/Instansi"
                   {...field}
                 />
               </FormControl>

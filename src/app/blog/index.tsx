@@ -28,17 +28,13 @@ const Blog = () => {
                 className="w-full object-cover"
               />
               <CardContent>
-                <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">
+                <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base min-h-">
                   {post.title}
                 </h3>
                 <p className="line-clamp-3">{post.excerpt}</p>
               </CardContent>
-              <CardFooter className="flex-col">
+              <CardFooter className="mt-auto flex flex-col">
                 <ul className="flex space-x-2.5 text-zinc-500 w-full flex-wrap">
-                  {/* <li className="flex items-center space-x-0.5">
-                    <EyeSolidIcon className="size-4" />
-                    <p className="text-xs">100 views</p>
-                  </li> */}
                   <li className="flex items-center space-x-0.5">
                     <ClockIcon className="size-4" />
                     <p className="text-xs">{post.readingTime}</p>
