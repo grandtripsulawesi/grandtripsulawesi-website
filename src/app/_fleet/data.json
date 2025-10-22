@@ -1,74 +1,171 @@
 [
   {
+    "name": "toyota new agya",
+    "imageUrl": "/images/armada/armada_agya.webp",
+    "armadaDetail": {
+      "person": 5,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 275000,
+        "allin": 600000
+      }
+    }
+  },
+  {
+    "name": "toyota calya",
+    "imageUrl": "/images/armada/armada_calya.webp",
+    "armadaDetail": {
+      "person": 6,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 275000,
+        "allin": 600000
+      }
+    }
+  },
+  {
     "name": "honda brio",
-    "imagePath": "/images/armada/armada_brio.webp",
+    "imageUrl": "/images/armada/armada_brio.webp",
     "armadaDetail": {
       "person": 5,
-      "transmission": "manual",
-      "rental": 250000
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 300000,
+        "allin": 650000
+      }
     }
   },
   {
-    "name": "toyota innova",
-    "imagePath": "/images/armada/armada_innova.webp",
+    "name": "daihatsu terios",
+    "imageUrl": "/images/armada/armada_terios.webp",
     "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 350000,
+        "allin": 750000
+      }
+    }
+  },
+  {
+    "name": "toyota new avanza",
+    "imageUrl": "/images/armada/armada_avanza.webp",
+    "armadaDetail": {
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 325000,
+        "allin": 700000
+      }
+    }
+  },
+  {
+    "name": "mitsubishi xpander",
+    "imageUrl": "/images/armada/armada_xpander.webp",
+    "armadaDetail": {
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 350000,
+        "allin": 750000
+      }
+    }
+  },
+
+  {
+    "name": "kijang innova reborn",
+    "imageUrl": "/images/armada/armada_reborn.webp",
+    "armadaDetail": {
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 450000,
+        "allin": 800000
+      }
+    }
+  },
+  {
+    "name": "kijang innova zenix",
+    "imageUrl": "/images/armada/armada_zenix.webp",
+    "armadaDetail": {
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 800000,
+        "allin": 1200000
+      }
+    }
+  },
+  {
+    "name": "toyota fortuner",
+    "imageUrl": "/images/armada/armada_fortuner.webp",
+    "armadaDetail": {
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 900000,
+        "allin": 1300000
+      }
+    }
+  },
+  {
+    "name": "mitsubishi pajero",
+    "imageUrl": "/images/armada/armada_pajero.webp",
+    "armadaDetail": {
+      "person": 7,
+      "transmission": "AT/MT",
+      "rental": {
+        "basic": 900000,
+        "allin": 1300000
+      }
     }
   },
   {
     "name": "toyota alphard",
-    "imagePath": "/images/armada/armada_alphard.webp",
+    "imageUrl": "/images/armada/armada_alphard.webp",
     "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
+      "person": 6,
+      "transmission": "MT",
+      "rental": {
+        "basic": 0,
+        "allin": 2500000
+      }
     }
   },
   {
-    "name": "toyota hiace",
-    "imagePath": "/images/armada/armada_hiace.webp",
+    "name": "toyota hiace commuter",
+    "imageUrl": "/images/armada/armada_hiace.webp",
     "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
+      "person": 15,
+      "transmission": "MT",
+      "rental": {
+        "basic": 0,
+        "allin": 1200000
+      }
     }
   },
   {
-    "name": "toyota hiace",
-    "imagePath": "/images/armada/armada_hiace.webp",
+    "name": "toyota hiace premio",
+    "imageUrl": "/images/armada/armada_premio.webp",
     "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
+      "person": 14,
+      "transmission": "MT",
+      "rental": {
+        "basic": 0,
+        "allin": 1400000
+      }
     }
   },
   {
-    "name": "toyota alphard",
-    "imagePath": "/images/armada/armada_alphard.webp",
+    "name": "isuzu elf long",
+    "imageUrl": "/images/armada/armada_elf.webp",
     "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
-    }
-  },
-  {
-    "name": "toyota hiace",
-    "imagePath": "/images/armada/armada_hiace.webp",
-    "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
-    }
-  },
-  {
-    "name": "toyota hiace",
-    "imagePath": "/images/armada/armada_hiace.webp",
-    "armadaDetail": {
-      "person": 5,
-      "transmission": "manual",
-      "rental": 250000
+      "person": 18,
+      "transmission": "MT",
+      "rental": {
+        "basic": 0,
+        "allin": 1300000
+      }
     }
   }
 ]

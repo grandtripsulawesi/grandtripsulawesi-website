@@ -1,6 +1,5 @@
 import { Button } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import {
   CalendarIcon,
   ChevronRightIcon,
@@ -8,55 +7,64 @@ import {
   EyeSolidIcon,
 } from '@/icons';
 import { getPostData, getRelatedPost } from '@/lib/post';
+import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
-export const Blog = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
+export const metadata: Metadata = {
+  title: 'GrandTrip Sulawesi',
+};
+
+const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const postData = await getPostData(slug);
-  const relatedPosts = getRelatedPost(slug, ['Travelling'], 3);
+  const blogData = await getPostData(slug);
+  const relatedBlog = getRelatedPost(slug, ['Travelling'], 3);
+
+  metadata.title = blogData?.title;
 
   return (
     <section className="relative w-full">
-      <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
-        <header className="flex flex-col items-center justify-center h-[33vh]">
-          <div className="flex items-baseline justify-between">
-            <div className="basis-2/5">
-              <h1 className="font-semibold text-3xl">{postData?.title}</h1>
+      <div className="width__wrapper flex flex-col items-center min-h-screen mx-auto">
+        <header className="mt-12 lg:mt-0 flex flex-col items-center justify-center lg:h-[33vh]">
+          <div className="flex flex-col lg:flex-row items-baseline justify-between">
+            <div className="lg:basis-2/5">
+              <h1 className="font-semibold text-3xl">{blogData?.title}</h1>
               <div className="flex items-center space-x-2">
-                <div className="w-1/3 h-0.5 bg-foreground my-6" />
-                <p>{postData?.tags[0]}</p>
+                <div className="w-9/12 lg:w-1/3 h-0.5 bg-foreground my-6" />
+                <p>{blogData?.tags[0]}</p>
               </div>
-              <ul className="flex space-x-2.5 text-zinc-500 w-full">
+              <ul className="mb-2 lg:mb-0 flex space-x-2.5 text-zinc-500 w-full">
                 <li className="flex items-center space-x-0.5">
                   <ClockIcon className="size-4" />
-                  <p className="text-xs">{postData?.readingTime}</p>
+                  <p className="text-xs">{blogData?.readingTime}</p>
                 </li>
                 <li className="flex items-center space-x-0.5">
                   <CalendarIcon className="size-4" />
-                  <p className="text-xs">{postData?.date}</p>
+                  <p className="text-xs">{blogData?.date}</p>
                 </li>
               </ul>
             </div>
-            <p className="basis-2/5 text-justify leading-relaxed">
-              {postData?.excerpt}
+            <p className="lg:basis-2/5 text-justify leading-relaxed">
+              {blogData?.excerpt}
             </p>
           </div>
         </header>
 
-        <Separator />
-
-        <article className="w-full h-full">
-          <div className="w-full h-80 bg-gray-300" />
-
+        <article className="mt-4 w-full h-full">
+          <Image
+            src={blogData?.slugImage as string}
+            alt={blogData?.title as string}
+            width={300}
+            height={300}
+            priority
+            quality={100}
+            className="w-full h-auto lg:h-[40vh] object-cover mt-12 lg:mt-0"
+          />
           <div
             id="markdown__content"
-            className="w-full max-w-none prose mt-12 mb-24"
+            className="w-full mb-24 max-w-none text-justify prose-lg mt-8 lg:max-w-4/5 lg:mt-12"
             dangerouslySetInnerHTML={{
-              __html: postData?.contentHtml ?? '',
+              __html: blogData?.contentHtml ?? '',
             }}
           ></div>
         </article>
@@ -68,23 +76,23 @@ export const Blog = async ({
             </h1>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
-            {relatedPosts.map((post) => (
-              <Card className="min-h-[400px]">
-                <div>
-                  <div className="w-full h-[180px] bg-gray-200" />
-                </div>
+            {relatedBlog.map((post) => (
+              <Card key={post.slug} className="min-h-[400px]">
+                <Image
+                  src={post.coverImage as string}
+                  alt={post.title}
+                  width={300}
+                  height={300}
+                  className="w-full object-cover"
+                />
                 <CardContent>
-                  <h3 className="font-semibold font-heading mb-2 text-base">
+                  <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base">
                     {post.title}
                   </h3>
                   <p className="line-clamp-3">{post.excerpt}</p>
                 </CardContent>
                 <CardFooter className="flex-col">
                   <ul className="flex space-x-2.5 text-zinc-500 w-full">
-                    <li className="flex items-center space-x-0.5">
-                      <EyeSolidIcon className="size-4" />
-                      <p className="text-xs">100 views</p>
-                    </li>
                     <li className="flex items-center space-x-0.5">
                       <ClockIcon className="size-4" />
                       <p className="text-xs">{post.readingTime}</p>
@@ -96,11 +104,11 @@ export const Blog = async ({
                   </ul>
                   <Button
                     variant="default"
-                    className="ml-auto font-heading py-2.5 px-2 mt-4"
+                    className="ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4  transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                   >
                     <Link
                       href={'/'.concat('blog/', post.slug)}
-                      className="flex"
+                      className="flex w-full"
                     >
                       <p>Baca Artikel</p>
                       <ChevronRightIcon />

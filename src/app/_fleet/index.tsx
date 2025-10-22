@@ -1,28 +1,51 @@
 'use client';
-import { Backdrop, Button, Card, CarDialog, Icon } from '@/components';
-import { ArrowRightIcon, EyeIcon, EyeSlashIcon } from '@/icons';
+import {
+  Backdrop,
+  Button,
+  Card,
+  FleetDialog,
+  FleetDrawer,
+  Icon,
+} from '@/components';
+import {
+  ArrowRightIcon,
+  ChevronDoubleDownIcon,
+  ChevronDoubleUpIcon,
+} from '@/icons';
 import Image from 'next/image';
 import armadaData from './data.json';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn, formatNumber } from '@/lib/utils';
 import useURLState from '@/hooks/useUrlState';
-import { ArmadaType } from '../types';
+import useMediaQuery from '@/hooks/useMediaQuery';
+import { ArmadaType } from '@/types';
 
-const dummyArmada: ArmadaType[] = armadaData;
+const armadaList: ArmadaType[] = armadaData;
 
 const Fleet = () => {
+  const { isMobile } = useMediaQuery();
   const [isExpand, setIsExpand] = useState<boolean>(false);
-  const { searchParams, updateUrl } = useURLState();
+  const { updateUrl } = useURLState();
 
   return (
-    <section className="relative w-full">
+    <section
+      id="fleet"
+      className={cn(
+        'relative w-full',
+        isExpand
+          ? 'h-full'
+          : !isMobile
+          ? 'h-[100vh] overflow-clip'
+          : 'h-[150vh] overflow-clip'
+      )}
+    >
       {!isExpand && (
         <Backdrop className="bg-gradient-to-t background from-gray-50 opacity-100 absolute bottom-0 left-0 right-0 h-1/2" />
       )}
 
       <div className="width__wrapper mx-auto">
-        <div className="w-full flex justify-between my-24">
-          <div>
+        <div className="w-full flex flex-col lg:flex-row justify-between mt-24 lg:my-24 space-y-8 lg:space-y-0">
+          <div className="text-center lg:text-left">
             <p>Armada</p>
             <h1 className="font-heading leading-tight font-semibold">
               Kendaraan Terbaik Untuk
@@ -30,41 +53,44 @@ const Fleet = () => {
             </h1>
           </div>
 
-          <p className="w-1/3 text-justify">
+          <p className="lg:w-1/3 text-center lg:text-justify">
             Dari unit hemat bahan bakar untuk mobilitas pribadi, MPV nyaman
             untuk keluarga, hingga microbus untuk rombongan, kami punya
             semuanya. Setiap unit terawat dengan baik dan siap memberikan
             kenyamanan optimal.
           </p>
         </div>
-        <div className="flex flex-row flex-wrap justify-center gap-4">
-          {dummyArmada.map((armada, index) => (
+        <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-4 mt-12 lg:mt-0">
+          {armadaList.map((armada, index) => (
             <Card
               key={armada.name + '-' + index}
               title={armada.name}
               action={
                 <Button
+                  className="hover:cursor-pointer transition duration-150 ease-out hover:text-amber-600 active:scale-90 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                   variant="ghost"
                   onClick={() => {
                     updateUrl('/fleet', {
                       modal: true,
                       name: armada.name,
-                      imageUrl: armada.imagePath,
+                      imageUrl: armada.imageUrl,
                       person: armada.armadaDetail.person,
                       transmission: armada.armadaDetail.transmission,
-                      rental: armada.armadaDetail.rental,
+                      basicFee: armada.armadaDetail.rental.basic,
+                      allinFee: armada.armadaDetail.rental.allin,
                     });
                   }}
                 >
-                  <ArrowRightIcon className="size-8" />
+                  <ArrowRightIcon className="size-12 lg:size-8" />
                 </Button>
               }
               content={
                 <Image
-                  src={armada.imagePath}
+                  src={armada.imageUrl}
                   alt={armada.name}
                   width={226}
                   height={160}
+                  className="mx-auto"
                 />
               }
               footer={(data) => {
@@ -77,7 +103,7 @@ const Fleet = () => {
                           alt=""
                           height={20}
                           width={20}
-                          className="size-3"
+                          className="size-4 lg:size-3"
                         />
                         <p>{data.person}</p>
                       </span>
@@ -87,7 +113,7 @@ const Fleet = () => {
                           alt=""
                           height={20}
                           width={20}
-                          className="size-3"
+                          className="size-4 lg:size-3"
                         />
                         <p className="capitalize">{data.transmission}</p>
                       </span>
@@ -98,11 +124,11 @@ const Fleet = () => {
                         alt=""
                         height={20}
                         width={20}
-                        className="size-3"
+                        className="size-4 lg:size-3"
                       />
-                      <p>
-                        {data.rental}
-                        <span className="text-slate-400">/Jam</span>
+                      <p className="text-base lg:text-sm">
+                        {formatNumber(data.rental.basic || data.rental.allin)}
+                        <span className="text-slate-400">/Hari</span>
                       </p>
                     </span>
                   </div>
@@ -117,24 +143,24 @@ const Fleet = () => {
         <Button
           onClick={() => setIsExpand(!isExpand)}
           className={cn(
-            !isExpand ? 'absolute bottom-24 z-40' : 'mt-12 mb-24',
-            'text-white text-md font-medium px-4 py-2.5 tracking-wide rounded-full'
+            !isExpand ? 'absolute bottom-24 z-30' : 'mt-12 mb-24',
+            'text-white font-semibold px-6 py-3 tracking-wide rounded-full transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60'
           )}
         >
           {!isExpand ? (
             <span className="flex items-center space-x-2">
-              <EyeIcon />
-              <p>Selengkapnya</p>
+              <ChevronDoubleDownIcon className="size-6" />
+              <p className="text-2xl lg:text-lg">Selengkapnya</p>
             </span>
           ) : (
             <span className="flex items-center space-x-1">
-              <EyeSlashIcon />
-              <p>Tutup</p>
+              <ChevronDoubleUpIcon className="size-6" />
+              <p className="text-2xl lg:text-lg">Tutup</p>
             </span>
           )}
         </Button>
       </div>
-      <CarDialog params={searchParams} updateUrl={updateUrl} />
+      {!isMobile ? <FleetDialog /> : <FleetDrawer />}
     </section>
   );
 };

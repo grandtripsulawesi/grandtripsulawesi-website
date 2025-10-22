@@ -6,19 +6,23 @@
     },
     {
       "question": "Bagaimana saya bisa memesan layanan Rental Mobil untuk keperluan saya?",
-      "answer": "Anda dapat memesan rental mobil dengan beberapa cara mudah: melalui website resmi, aplikasi mobile, atau menghubungi customer service kami. Proses pemesanan hanya memerlukan identitas diri (KTP/SIM), deposit, dan konfirmasi jadwal pemakaian. Tim kami akan membantu Anda memilih kendaraan yang sesuai dengan kebutuhan dan budget, serta mengatur jadwal pengambilan dan pengembalian mobil."
+      "answer": "Anda dapat memesan rental mobil dengan beberapa cara mudah: melalui website resmi, aplikasi mobile, atau menghubungi customer service kami. Proses pemesanan memerlukan beberapa identitas diri dan jaminan serta konfirmasi jadwal pemakaian. Tim kami akan membantu Anda memilih kendaraan yang sesuai dengan kebutuhan dan budget, serta mengatur jadwal pengambilan dan pengembalian mobil."
+    },
+    {
+      "question": "Berapa lama durasi Rental Mobil perhari di GrandTrip Sulawesi?",
+      "answer": "Untuk penyewaan lepas kunci durasi perhari terhitung selama 24 Jam, sedangkan untuk All-In sudah termasuk Mobil, Driver dan BBM akan terhitung selama 12 Jam perhari."
+    },
+    {
+      "question": "Apakah ada tambahan biaya jika saya terlambat mengembalikan Mobil?",
+      "answer": "Pengembalian Mobil terlambat akan dikenakan biaya overtime per-jam."
     },
     {
       "question": "Apakah ada minimum pesanan untuk menggunakan layanan ini?",
-      "answer": "Tidak ada minimum pesanan khusus untuk menggunakan layanan rental mobil kami. Anda dapat menyewa mobil mulai dari hitungan jam (minimal 12 jam), harian, mingguan, hingga bulanan sesuai kebutuhan. Sistem pricing kami fleksibel dan disesuaikan dengan durasi penyewaan, semakin lama masa sewa maka semakin ekonomis tarif yang ditawarkan."
+      "answer": "Tidak ada minimum pesanan khusus untuk menggunakan layanan rental mobil kami. Anda dapat menyewa mobil mulai dari harian, mingguan, hingga bulanan sesuai kebutuhan. Sistem pricing kami fleksibel dan disesuaikan dengan durasi penyewaan, semakin lama masa sewa maka semakin ekonomis tarif yang ditawarkan."
     },
     {
-      "question": "Bisakah saya memilih warna kendaraan yang sesuai dengan preferensi saya?",
-      "answer": "Ya, Anda dapat memilih warna kendaraan sesuai preferensi, namun ketersediaan tergantung pada stok armada yang tersedia pada saat pemesanan. Kami menyediakan berbagai pilihan warna untuk setiap tipe kendaraan seperti putih, hitam, silver, dan warna lainnya. Untuk memastikan ketersediaan warna yang diinginkan, disarankan untuk melakukan pemesanan lebih awal atau menghubungi customer service kami."
-    },
-    {
-      "question": "Bagaimana proses penyewaan mobil dilakukan?",
-      "answer": "Proses penyewaan mobil sangat mudah dan cepat. Pertama, pilih tipe kendaraan dan durasi sewa, kemudian lakukan pemesanan dengan melengkapi data diri dan upload foto KTP/SIM. Setelah konfirmasi pembayaran deposit, mobil siap diantar ke lokasi Anda atau dapat diambil di kantor kami. Serah terima kendaraan dilakukan dengan pengecekan kondisi mobil dan penandatanganan kontrak sewa untuk memastikan transparansi dan keamanan bersama."
+      "question": "Apakah ada batasan wilayah untuk penggunaan Mobil di GrandTrip Sulawesi?",
+      "answer": "Mobil sewaan tidak dapat dipakai keluar dari pulau Sulawesi."
     }
   ]
 }

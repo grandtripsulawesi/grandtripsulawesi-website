@@ -102,6 +102,10 @@ body {
   color: var(--bg-black);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -162,6 +166,11 @@ body {
   }
 }
 
+/* Ensure anchored sections are not hidden under fixed Topbar */
+section[id] {
+  scroll-margin-top: 96px; /* matches approx Topbar height and spacing */
+}
+
 .width__wrapper {
   width: 75%; /* Equivalent to max-w-9/12 in Tailwind v4 */
   max-width: 75%;
@@ -186,4 +195,20 @@ body {
   background-repeat: no-repeat;
   background-size: contain; /* width, height */
   background-position: center;
+}
+
+@media (max-width: 639px) {
+  .width__wrapper {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .bg__custom__decorative {
+    background-size: 150%, 100%; /* width, height */
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }

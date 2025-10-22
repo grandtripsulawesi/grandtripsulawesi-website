@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { IconType } from './types';
 
-const XMarkIcon = ({ className }: { className?: IconType }) => (
+const XMarkIcon = ({ className }: IconType) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"

@@ -29,12 +29,14 @@ const Card = <T,>({
   return (
     <UICard
       className={cn(
-        'w-[259px] h-[281px] bg-slate-400/10 border-0 shadow-none',
+        'lg:w-[259px] lg:h-[281px] bg-slate-400/10 border-0 shadow-none',
         className
       )}
     >
       <UICardHeader className="flex items-center justify-between">
-        <UICardTitle className="font-heading capitalize">{title}</UICardTitle>
+        <UICardTitle className="font-heading capitalize text-xl lg:text-base">
+          {title}
+        </UICardTitle>
         <UICardAction className="flex items-center justify-center">
           {action}
         </UICardAction>

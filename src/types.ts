@@ -9,6 +9,7 @@ export interface BlogPost {
   published: boolean;
   readingTime?: string;
   coverImage?: string;
+  slugImage?: string;
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -27,10 +28,15 @@ export interface PostFrontMatter {
 
 export interface ArmadaType {
   name: string;
-  imagePath: string | StaticImport;
+  imageUrl: string | StaticImport;
   armadaDetail: {
     person: number;
     transmission: string;
-    rental: number;
+    rental: {
+      basic: number;
+      allin: number;
+    };
   };
 }
+
+export type ExtractParamsValue = Partial<ArmadaType>;

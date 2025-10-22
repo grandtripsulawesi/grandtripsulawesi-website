@@ -1,4 +1,5 @@
 import { Button as UIButton } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react';
 
 type variantsValue =
@@ -26,7 +27,7 @@ const Button = ({
   return (
     <UIButton
       {...rest}
-      className={className}
+      className={cn('hover:cursor-pointer', className)}
       variant={variant}
       onClick={onClick}
     >

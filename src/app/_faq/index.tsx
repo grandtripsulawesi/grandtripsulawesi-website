@@ -21,7 +21,7 @@ const Faq = () => {
               <AccordionTrigger className="text-lg">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 lg:text-balance ">
                 <p>{item.answer}</p>
               </AccordionContent>
             </AccordionItem>

@@ -1,22 +1,46 @@
+'use client';
 import { Button } from '@/components';
+import useMediaQuery from '@/hooks/useMediaQuery';
 import { ArrowRightIcon } from '@/icons';
-import Head from 'next/head';
+import { smoothScrollToElement } from '@/lib/utils';
 import Image from 'next/image';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+const images = [
+  {
+    src: '/images/hero/hero_slide_1.webp',
+    alt: 'hero illustration; honda brio fleet with 4 images of travelling spot',
+    priority: true,
+  },
+  {
+    src: '/images/hero/hero_slide_2.webp',
+    alt: 'hero illustration; hiace fleet with 4 images of travelling spot',
+  },
+];
 
 const Hero = () => {
+  const { isMobile } = useMediaQuery();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const intervalRef = useRef<any>(null);
+
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  }, [images.length]);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(goToNext, 3000);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [goToNext]);
+
   return (
     <>
-      <Head>
-        <link
-          rel="preload"
-          as="image"
-          href="/hero_gradient_bg.webp"
-          type="image/webp"
-        />
-      </Head>
       <section className="relative w-full bg__custom__gradient">
-        <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
-          <h1 className="mt-12 text-center font-heading font-bold text-4xl lg:text-5xl leading-tight">
+        <div className="pt-24 width__wrapper flex flex-col items-center h-svh lg:h-lvh mx-auto">
+          <h1 className="lg:text-center font-heading font-bold text-4xl text-center tracking-tight leading-tight lg:text-5xl lg:mt-12 lg:tracking-normal lg:leading-tight">
             Rental Mobil{' '}
             <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 inline-block text-transparent bg-clip-text">
               Terlengkap
@@ -27,99 +51,78 @@ const Hero = () => {
             </span>{' '}
             di Makassar & Maros
           </h1>
-          <div className="relative">
-            <Image
-              alt="White Honda Brio"
-              src={'/images/armada/armada_hiace.webp'}
-              width={720}
-              height={350}
-              className="max-w-11/12 mt-12 z-50 relative"
-            />
+          {!isMobile && isMobile !== null ? (
+            <div className="relative w-full h-3/5 overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-out h-full will-change-transform"
+                style={{
+                  width: `${images.length * 100}%`,
+                  transform: `translateX(-${currentIndex * 50}%)`,
+                }}
+              >
+                {images.map((image, index) => (
+                  <div
+                    className="shrink-0 flex items-center justify-center"
+                    key={index}
+                    style={{
+                      width: `${100 / images.length}%`,
+                    }}
+                  >
+                    <Image
+                      alt={image.alt}
+                      src={image.src}
+                      priority={image.priority || currentIndex === 0}
+                      width={720}
+                      height={350}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
 
-            <div className="absolute w-auto top-[10%] -left-[10%]">
-              <Image
-                alt="image of tana toraja depicts a traditional tana toraja building; tongkonan"
-                src={'/images/hero/hero_place_1.webp'}
-                width={800}
-                height={800}
-                className="w-1/2 max-w-full h-auto inline-block"
-              />
-              <Image
-                alt="arrow that points to a photo"
-                src={'/images/hero/hero_arrow_1.webp'}
-                width={260}
-                height={260}
-                className="w-1/3 max-w-xs md:max-w-sm h-auto inline-block"
-              />
-            </div>
-
-            <div className="absolute w-auto top-[5%] -right-[21%]">
-              <Image
-                alt="arrow that points to a photo"
-                src={'/images/hero/hero_arrow_2.webp'}
-                width={260}
-                height={260}
-                className="w-1/3 max-w-xs md:max-w-sm h-auto rotate-180 inline-block"
-              />
-              <Image
-                alt="image of tanjung bira depicts a beautiful beach located in bulukumba"
-                src={'/images/hero/hero_place_2.webp'}
-                width={800}
-                height={800}
-                className="w-3/5 max-w-full h-auto inline-block rotate-6"
-              />
-            </div>
-
-            <div className="absolute w-full bottom-[3%] left-0">
-              <div className="relative flex flex-col">
-                <Image
-                  alt=""
-                  src={'/images/hero/hero_place_4.webp'}
-                  width={200}
-                  height={200}
-                  className="absolute -top-[120%] -left-[20%] shrink-0 w-1/4 max-w-full h-auto -rotate-12"
-                />
-
-                <Image
-                  alt="arrow that points to a photo"
-                  src={'/images/hero/hero_arrow_2.webp'}
-                  width={100}
-                  height={100}
-                  className="shrink-0 w-1/6 max-w-xs md:max-w-sm h-auto rotate-12"
-                />
+              {/* Carousel indicators */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                      index === currentIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
-
-            <div className="absolute w-auto -bottom-[3%] -right-[20%]">
+          ) : isMobile && isMobile !== null ? (
+            <div className="mt-auto h-1/4 max-h-1/3">
               <Image
-                alt="arrow that points to a photo"
-                src={'/images/hero/hero_arrow_1.webp'}
-                width={260}
-                height={260}
-                className="w-1/3 max-w-xs md:max-w-sm h-auto inline-block rotate-180"
-              />
-              <Image
-                alt="image of tana toraja depicts a christian holy place; Lord Jesus Christ Statue"
-                src={'/images/hero/hero_place_3.webp'}
-                width={800}
-                height={800}
-                className="w-3/5 max-w-full h-auto inline-block rotate-12"
+                priority
+                alt="Armada collection"
+                src={'/images/hero/hero_cars.webp'}
+                width={400}
+                height={350}
+                className="w-full h-auto z-30 relative object-cover"
               />
             </div>
-          </div>
+          ) : (
+            <div className="h-3/5"></div>
+          )}
 
-          <Button
-            variant="outline"
-            className="border-black rounded-full font-heading pl-3 mx-auto bg-black text-white"
-          >
-            <p>Lihat Koleksi Armada</p>
-            <ArrowRightIcon className="size-10" />
-          </Button>
+          <div className="relative z-30 mt-24 lg:mt-auto mb-12 lg:mb-10 ">
+            <Button
+              variant="outline"
+              className="border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              onClick={() => smoothScrollToElement('fleet', 2500, -80)}
+            >
+              <p className="text-lg ">Lihat Koleksi Armada</p>
+              <ArrowRightIcon className="size-12 lg:size-10" />
+            </Button>
+          </div>
         </div>
 
         <div
           id="indo__map__decoration"
-          className="absolute -z-10 size-3/4 lg:size-3/4 bg__custom__decorative left-1/2 -translate-x-1/2 top-1/4 -translate-y-1/5 opacity-75"
+          className="bg__custom__decorative absolute -z-10 size-full lg:size-3/4 left-1/2 -translate-x-1/2 top-1/5 lg:top-1/4 -translate-y-1/5 opacity-75"
         />
       </section>
     </>

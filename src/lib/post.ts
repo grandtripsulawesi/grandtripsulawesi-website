@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { BlogPost, BlogPostWithContent, PostFrontMatter } from '@/app/types';
+import { BlogPost, BlogPostWithContent, PostFrontMatter } from '@/types';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -86,4 +86,12 @@ export const getRelatedPost = (
     .filter((post) => post.slug !== currentSlug)
     .filter((post) => post.tags.some((tag) => post.tags.includes(tag)))
     .slice(0, limit);
+};
+
+export const getSearchedPost = (query: string, pathname: string) => {
+  const allPosts = getAllPosts(pathname);
+
+  return allPosts.filter((post) =>
+    post.tags.some((tag) => tag.includes(query))
+  );
 };

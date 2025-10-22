@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import About from './_about';
 import Benefit from './_benefit';
 import Fleet from './_fleet';
@@ -12,13 +13,19 @@ export const metadata: Metadata = {
   title: 'GrandTrip Sulawesi',
 };
 
+function ComponentFallback() {
+  return <>placeholder</>;
+}
+
 export default function Home() {
   return (
     <main className="relative flex flex-col items-center justify-between font-sans">
       <Hero />
       <About />
       <Benefit />
-      <Fleet />
+      <Suspense fallback={<ComponentFallback />}>
+        <Fleet />
+      </Suspense>
       <Service />
       <Review />
       <Gallery />

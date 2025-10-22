@@ -1,12 +1,8 @@
 import { Button } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import {
-  CalendarIcon,
-  ChevronRightIcon,
-  ClockIcon,
-  EyeSolidIcon,
-} from '@/icons';
+import { CalendarIcon, ChevronRightIcon, ClockIcon } from '@/icons';
 import { getAllPosts } from '@/lib/post';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Blog = () => {
@@ -15,7 +11,7 @@ const Blog = () => {
   return (
     <section className="w-full relative">
       <div className="width__wrapper mx-auto my-24 flex flex-col space-x-4">
-        <div>
+        <div className="text-center lg:text-left">
           <p>Artikel</p>
           <h1 className="font-heading leading-tight font-semibold">
             Bacaan Untuk Anda
@@ -23,22 +19,22 @@ const Blog = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
           {posts.map((post) => (
-            <Card className="min-h-[400px]" key={post.title}>
-              <div>
-                <div className="w-full h-[180px] bg-gray-200" />
-              </div>
+            <Card className="lg:min-h-[400px]" key={post.title}>
+              <Image
+                src={post.coverImage as string}
+                alt={post.title}
+                width={300}
+                height={300}
+                className="w-full object-cover"
+              />
               <CardContent>
-                <h3 className="font-semibold font-heading mb-2 text-base">
+                <h3 className="font-semibold font-heading mb-2 text-lg lg:text-base min-h-">
                   {post.title}
                 </h3>
                 <p className="line-clamp-3">{post.excerpt}</p>
               </CardContent>
-              <CardFooter className="flex-col">
-                <ul className="flex space-x-2.5 text-zinc-500 w-full">
-                  <li className="flex items-center space-x-0.5">
-                    <EyeSolidIcon className="size-4" />
-                    <p className="text-xs">100 views</p>
-                  </li>
+              <CardFooter className="mt-auto flex flex-col">
+                <ul className="flex space-x-2.5 text-zinc-500 w-full flex-wrap">
                   <li className="flex items-center space-x-0.5">
                     <ClockIcon className="size-4" />
                     <p className="text-xs">{post.readingTime}</p>
@@ -50,11 +46,14 @@ const Blog = () => {
                 </ul>
                 <Button
                   variant="default"
-                  className="ml-auto font-heading py-2.5 px-2 mt-4"
+                  className="w-full ml-auto font-heading py-3 lg:py-2.5 px-2 mt-4  transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                 >
-                  <Link href={'/'.concat('blog/', post.slug)} className="flex">
-                    <p>Baca Artikel</p>
-                    <ChevronRightIcon />
+                  <Link
+                    href={'/'.concat('blog/', post.slug)}
+                    className="flex w-full justify-center items-end font-semibold"
+                  >
+                    <p className="text-base">Baca Artikel</p>
+                    <ChevronRightIcon className="size-6 lg:size-5" />
                   </Link>
                 </Button>
               </CardFooter>

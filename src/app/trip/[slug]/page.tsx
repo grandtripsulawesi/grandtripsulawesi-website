@@ -1,30 +1,28 @@
 import { Button, Widget } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { ChevronRightIcon } from '@/icons';
 import { getPostData, getRelatedPost } from '@/lib/post';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const postPathname = '/src/app/trip/posts';
 
-export const Trip = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
+const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const tripDetail = await getPostData(slug, postPathname);
   const relatedTrip = getRelatedPost(slug, ['Trip'], 3, postPathname);
 
+  if (!tripDetail) return <></>;
+
   return (
     <section className="w-full">
-      <div className="mt-24 width__wrapper flex flex-col items-center min-h-screen mx-auto">
-        <header className="flex flex-col items-center justify-center h-[33vh]">
-          <div className="flex items-center justify-between">
-            <div className="basis-2/5">
+      <div className="width__wrapper flex flex-col items-center min-h-screen mx-auto">
+        <header className="flex flex-col items-center justify-center lg:h-[33vh]">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="lg:basis-2/5">
               <h1 className="font-semibold text-4xl">{tripDetail?.title}</h1>
               <div className="flex items-center space-x-2">
-                <div className="w-1/3 h-0.5 bg-foreground my-6" />
+                <div className="w-9/12 lg:w-1/3 h-0.5 bg-foreground my-6" />
                 <p>{tripDetail?.tags[0]}</p>
               </div>
             </div>
@@ -34,10 +32,15 @@ export const Trip = async ({
           </div>
         </header>
 
-        <Separator />
-
-        <div className="w-full h-80 bg-gray-300 mt-12" />
-        <article className="relative w-full h-full flex gap-8">
+        <Image
+          src={tripDetail.slugImage as string}
+          alt={tripDetail.title}
+          width={300}
+          height={300}
+          priority
+          className="w-full h-auto lg:h-[40vh] object-cover mt-12 lg:mt-0"
+        />
+        <article className="relative w-full h-full flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             <div
               id="markdown__content"
@@ -47,7 +50,7 @@ export const Trip = async ({
               }}
             ></div>
           </div>
-          <div className="w-1/3 pt-10">
+          <div className="lg:w-1/3 lg:pt-10">
             <Widget tripTitle={tripDetail?.title} />
           </div>
         </article>
@@ -60,7 +63,7 @@ export const Trip = async ({
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-12">
             {relatedTrip.map((tripPackage) => (
-              <Card className="min-h-[400px]">
+              <Card className="min-h-[400px]" key={tripPackage.slug}>
                 <div>
                   <div className="w-full h-[180px] bg-gray-200" />
                 </div>
@@ -73,11 +76,11 @@ export const Trip = async ({
                 <CardFooter className="flex-col">
                   <Button
                     variant="default"
-                    className="ml-auto font-heading py-2.5 px-2 mt-4"
+                    className="ml-auto font-heading py-2.5 px-2 mt-4 transition duration-150 ease-out hover:bg-black/80 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
                   >
                     <Link
                       href={'/'.concat('trip/', tripPackage.slug)}
-                      className="flex"
+                      className="flex w-full"
                     >
                       <p>Baca Artikel</p>
                       <ChevronRightIcon />
