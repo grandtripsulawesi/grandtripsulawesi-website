@@ -1,10 +1,9 @@
 import { Button, Widget } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ChevronRightIcon } from '@/icons';
-import { getPostData, getRelatedPost } from '@/lib/post';
+import { getPostData, getRelatedPost, getAllPostSlug } from '@/lib/post';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAllPostSlug } from '@/lib/post';
 
 const postPathname = '/src/app/trip/posts';
 
