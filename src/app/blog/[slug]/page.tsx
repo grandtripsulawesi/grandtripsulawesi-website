@@ -1,11 +1,6 @@
 import { Button } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import {
-  CalendarIcon,
-  ChevronRightIcon,
-  ClockIcon,
-  EyeSolidIcon,
-} from '@/icons';
+import { CalendarIcon, ChevronRightIcon, ClockIcon } from '@/icons';
 import { getPostData, getRelatedPost, getAllPostSlug } from '@/lib/post';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -24,6 +19,8 @@ const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const blogData = await getPostData(slug);
   const relatedBlog = getRelatedPost(slug, ['Travelling'], 3);
+
+  console.log(blogData);
 
   if (!blogData) {
     return (
