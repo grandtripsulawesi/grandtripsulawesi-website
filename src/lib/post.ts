@@ -57,6 +57,13 @@ export const getPostData = async (
 ): Promise<BlogPostWithContent | null> => {
   try {
     const fullPath = path.join(postDirectory(pathname), slug + '.md');
+
+    // Check if file exists before reading
+    if (!fs.existsSync(fullPath)) {
+      console.error(`Post file not found: ${fullPath}`);
+      return null;
+    }
+
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
     const frontMatter = matterResult.data as PostFrontMatter;

@@ -6,7 +6,7 @@ import {
   ClockIcon,
   EyeSolidIcon,
 } from '@/icons';
-import { getPostData, getRelatedPost } from '@/lib/post';
+import { getPostData, getRelatedPost, getAllPostSlug } from '@/lib/post';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,6 +14,11 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'GrandTrip Sulawesi',
 };
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlug();
+  return slugs;
+}
 
 const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;

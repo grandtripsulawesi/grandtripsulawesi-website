@@ -4,8 +4,14 @@ import { ChevronRightIcon } from '@/icons';
 import { getPostData, getRelatedPost } from '@/lib/post';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getAllPostSlug } from '@/lib/post';
 
 const postPathname = '/src/app/trip/posts';
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlug('/src/app/trip/posts');
+  return slugs;
+}
 
 const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
