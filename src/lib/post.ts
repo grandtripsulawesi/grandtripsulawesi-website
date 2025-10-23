@@ -7,8 +7,16 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 
-const postDirectory = (pathname: string = '/src/app/blog/posts') =>
-  path.join(process.cwd(), pathname);
+const postDirectory = (pathname: string = '/src/app/blog/posts') => {
+  // In Vercel, the files are in a different location
+  const isVercel = process.env.VERCEL;
+  if (isVercel) {
+    // Remove /src prefix for Vercel deployment
+    const vercelPath = pathname.replace('/src', '');
+    return path.join(process.cwd(), vercelPath);
+  }
+  return path.join(process.cwd(), pathname);
+};
 
 const safeFileNames = (pathname?: string) => {
   const dir = postDirectory(pathname);
