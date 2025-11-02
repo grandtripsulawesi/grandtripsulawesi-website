@@ -197,6 +197,13 @@ section[id] {
   background-position: center;
 }
 
+@media (max-width: 1280px) {
+  .width__wrapper {
+    width: 95%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 639px) {
   .width__wrapper {
     width: 95%;

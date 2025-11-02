@@ -9,7 +9,7 @@ const About = () => {
       id="about"
       className="relative w-full bg-foreground text-background lg:h-[80vh] flex items-center justify-center"
     >
-      <div className="width__wrapper my-24 lg:my-0 h-3/4 lg:max-h-2/3 flex flex-col lg:flex-row mx-auto space-y-8 lg:space-y-0 lg:space-x-4">
+      <div className="width__wrapper my-24 lg:my-0 h-auto xl:max-h-2/3 flex flex-col lg:flex-row mx-auto space-y-8 lg:space-y-0 lg:space-x-4">
         <div className="lg:basis-3/5 h-full lg:h-auto flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
           <div className="relative h-1/3 lg:h-full min-w-2/4 flex justify-center items-center">
             <div className="absolute z-10 flex flex-col justify-center items-center">

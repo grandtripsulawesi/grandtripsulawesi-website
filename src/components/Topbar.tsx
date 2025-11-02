@@ -45,7 +45,9 @@ const Navigation = () => {
       {pageSection.map((section) => (
         <li key={section.name}>
           <Link href={section.url}>
-            <p className="text-base capitalize font-semibold">{section.name}</p>
+            <p className="text-sm xl:text-base capitalize font-semibold">
+              {section.name}
+            </p>
           </Link>
         </li>
       ))}
@@ -72,7 +74,7 @@ const Topbar = () => {
       } top-6 my-3 flex items-center w-full`}
     >
       <div
-        className={`flex items-center width__wrapper mx-auto px-4 py-2.5 ${
+        className={`flex items-center width__wrapper mx-auto px-4 py-2 xl:py-2.5 ${
           scrolled
             ? 'bg-white border border-slate-200 rounded-full'
             : 'bg-transparent'
@@ -85,7 +87,7 @@ const Topbar = () => {
               alt="GrandTrip Sulawesi logo"
               width={500}
               height={500}
-              className="size-20 rounded-full object-cover"
+              className="size-16 xl:size-20 rounded-full object-cover"
               priority
             />
           </Link>
@@ -103,8 +105,8 @@ const Topbar = () => {
           )}
           aria-label="Booking sekarang"
         >
-          <p>Booking Sekarang</p>
-          <ArrowRightIcon className="size-10" />
+          <p className="text-xs xl:text-base">Booking Sekarang</p>
+          <ArrowRightIcon className="size-8 xl:size-10" />
         </Button>
       </div>
     </div>

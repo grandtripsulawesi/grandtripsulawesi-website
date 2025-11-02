@@ -14,7 +14,7 @@ const Benefit = () => {
           </h1>
         </div>
         <article className="flex flex-col space-y-14 lg:flex-row lg:space-x-8 lg:space-y-0">
-          <div className="relative">
+          <div className="relative h-11/12 xl:h-auto">
             <Image
               alt="illustration of two people handshake in agreement with showroom at the background"
               src={'/images/benefit/benefit_illustration_1.webp'}
@@ -22,7 +22,7 @@ const Benefit = () => {
               height={270}
               className="w-full h-auto"
             />
-            <div className="absolute top-8 left-0 lg:-left-6 -z-10 bg-slate-300 w-full h-full lg:h-11/12 rounded-2xl" />
+            <div className="absolute top-8 left-0 lg:-left-10 xl:-left-6 -z-10 bg-slate-300 w-full h-full xl:h-11/12 rounded-2xl" />
           </div>
           <div className="basis-1/2">
             <ul className="mt-4 text-base lg:text-sm space-y-3">
@@ -61,16 +61,16 @@ const Benefit = () => {
           </div>
         </article>
 
-        <article className="flex flex-col space-y-14 lg:space-y-0 lg:flex-row-reverse lg:space-x-8 lg:mt-24">
-          <div className="relative">
+        <article className="flex flex-col space-y-14 lg:space-y-0 lg:flex-row-reverse xl:mt-24">
+          <div className="relative h-auto">
             <Image
               alt="illustration of two people handshake in agreement with showroom at the background"
               src={'/images/benefit/benefit_illustration_2.webp'}
               width={350}
               height={270}
-              className="w-full h-auto"
+              className="ml-auto w-full h-auto"
             />
-            <div className="absolute top-8 right-0 lg:-right-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
+            <div className="absolute top-8 right-0 lg:-right-10 xl:-right-6 -z-10 bg-slate-300 w-full h-full rounded-2xl" />
           </div>
           <div className="mr-auto basis-3/5">
             <ul className="mt-4 text-base lg:text-sm space-y-3">

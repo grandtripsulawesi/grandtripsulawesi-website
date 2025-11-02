@@ -14,42 +14,42 @@ const dummyService = [
   {
     title: '⁠Lepas Kunci Dalam/Luar Kota',
     body: 'Sewa mobil tanpa sopir untuk bepergian dalam dan luar kota.',
-    icon: <KeyIcon className="size-12 lg:size-6" />,
+    icon: <KeyIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: 'Perjalanan Dalam dan Luar Kota',
     body: 'Melayani semua keperluan perjalanan Anda di dalam maupun luar kota.',
-    icon: <MapPinIcon className="size-12 lg:size-6" />,
+    icon: <MapPinIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: 'Perjalanan Dinas',
     body: 'Layanan sewa kendaraan khusus untuk perjalanan dinas pekerjaan kantor.',
-    icon: <BriefcaseIcon className="size-12 lg:size-6" />,
+    icon: <BriefcaseIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: '⁠Perjalanan Wisata',
     body: 'Rental mobil untuk menemani seluruh perjalanan liburan wisata.',
-    icon: <MapIcon className="size-12 lg:size-6" />,
+    icon: <MapIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: 'Pribadi/Grup',
     body: 'Melayani kebutuhan transportasi untuk perorangan maupun grup.',
-    icon: <UserGroupIcon className="size-12 lg:size-6" />,
+    icon: <UserGroupIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: 'Antar/Jemput Dalam dan Luar Kota',
     body: 'Jasa pengantaran atau penjemputan dari/ke lokasi dalam atau luar kota.',
-    icon: <ArrowRightLeftIcon className="size-12 lg:size-6" />,
+    icon: <ArrowRightLeftIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: 'Antar/Jemput Bandara/Pelabuhan',
     body: 'Melayani antar-jemput penumpang dari/ke bandara atau pelabuhan.',
-    icon: <PaperPlaneIcon className="size-12 lg:size-6" />,
+    icon: <PaperPlaneIcon className="size-12 lg:size-10 xl:size-6" />,
   },
   {
     title: '⁠Harian/Mingguan/Bulanan',
     body: 'Pilihan masa sewa mobil fleksibel: harian/mingguan/bulanan.',
-    icon: <CalendarIcon className="size-12 lg:size-6" />,
+    icon: <CalendarIcon className="size-12 lg:size-10 xl:size-6" />,
   },
 ];
 
@@ -83,14 +83,14 @@ const Service = () => {
             {dummyService.map((item, index) => (
               <li
                 key={item.title + '-' + index}
-                className="flex flex-col lg:flex-row w-full lg:space-x-2 bg-amber-500/10 border-2 border-amber-400/50 px-2.5 py-2 rounded-xl"
+                className="flex flex-col xl:flex-row w-full lg:space-x-2 bg-amber-500/10 border-2 border-amber-400/50 px-2.5 py-2 rounded-xl"
               >
-                <div className="flex w-fit mx-auto items-center justify-center lg:mr-2 lg:bg-amber-500/20 lg:border-2 lg:border-amber-400 p-1.5 rounded-lg h-fit">
+                <div className="flex w-fit mx-auto items-center justify-center xl:mr-2 xl:bg-amber-500/20 xl:border-2 xl:border-amber-400 p-1.5 rounded-lg h-fit">
                   {item.icon && (
                     <span className="text-amber-500">{item.icon}</span>
                   )}
                 </div>
-                <div className="text-center lg:text-left">
+                <div className="text-center xl:text-left">
                   <h3 className="font-semibold text-xl lg:text-sm">
                     {item.title}
                   </h3>
