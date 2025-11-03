@@ -29,7 +29,7 @@ const FleetDialog = () => {
   return (
     <Dialog open={Boolean(searchParams.get('modal')) === true}>
       <DialogContent
-        className="!w-3/5 h-auto !max-w-none"
+        className="!w-3/4 !xl:w-3/5 h-auto !max-w-none"
         showCloseButton={false}
       >
         <DialogHeader

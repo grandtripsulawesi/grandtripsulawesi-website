@@ -33,7 +33,7 @@ const Footer = () => {
   return (
     <section className="w-full">
       <CallToAction />
-      <footer className="text-white relative min-h-[40vh] bg-foreground flex items-center justify-center bg__custom__gradient__footer overflow-clip">
+      <footer className="text-white relative min-h-[40vh] py-12 bg-foreground flex items-center justify-center bg__custom__gradient__footer overflow-clip">
         <div className="width__wrapper flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
           <div className="lg:basis-1/5 shrink-0 flex flex-col text-center lg:text-left">
             {/* logo */}

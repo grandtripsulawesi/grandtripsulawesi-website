@@ -1,0 +1,17 @@
+import { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://www.grandtripsulawesi.com';
+
+  // Static pages with their priorities and change frequencies
+  const routes = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 1,
+    },
+  ];
+
+  return routes;
+}

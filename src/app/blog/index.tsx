@@ -5,6 +5,11 @@ import { getAllPosts } from '@/lib/post';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Add this if you want to pre-generate the blog index
+export async function generateStaticParams() {
+  return []; // Empty array means this page will be statically generated
+}
+
 const Blog = () => {
   const posts = getAllPosts();
 

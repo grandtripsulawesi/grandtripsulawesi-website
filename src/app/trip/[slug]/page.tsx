@@ -1,11 +1,16 @@
 import { Button, Widget } from '@/components';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ChevronRightIcon } from '@/icons';
-import { getPostData, getRelatedPost } from '@/lib/post';
+import { getPostData, getRelatedPost, getAllPostSlug } from '@/lib/post';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const postPathname = '/src/app/trip/posts';
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlug('/src/app/trip/posts');
+  return slugs;
+}
 
 const Trip = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;

@@ -7,7 +7,7 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 
-const postDirectory = (pathname: string = '/src/app/blog/posts') =>
+const postDirectory = (pathname: string = 'src/app/blog/posts') =>
   path.join(process.cwd(), pathname);
 
 const safeFileNames = (pathname?: string) => {
@@ -22,9 +22,7 @@ export const getAllPostSlug = (pathname?: string) => {
     const slug = filename.replace(/\.md$/, '');
 
     return {
-      params: {
-        slug: slug,
-      },
+      slug: slug,
     };
   });
 
@@ -57,6 +55,13 @@ export const getPostData = async (
 ): Promise<BlogPostWithContent | null> => {
   try {
     const fullPath = path.join(postDirectory(pathname), slug + '.md');
+
+    // Check if file exists before reading
+    if (!fs.existsSync(fullPath)) {
+      console.error(`Post file not found: ${fullPath}`);
+      return null;
+    }
+
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
     const frontMatter = matterResult.data as PostFrontMatter;

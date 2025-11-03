@@ -40,7 +40,7 @@ const Hero = () => {
     <>
       <section className="relative w-full bg__custom__gradient">
         <div className="pt-24 width__wrapper flex flex-col items-center h-svh lg:h-lvh mx-auto">
-          <h1 className="lg:text-center font-heading font-bold text-4xl text-center tracking-tight leading-tight lg:text-5xl lg:mt-12 lg:tracking-normal lg:leading-tight">
+          <h1 className="lg:text-center font-heading font-bold text-4xl text-center tracking-tight leading-tight xl:text-5xl lg:mt-12 lg:tracking-normal lg:leading-tight">
             Rental Mobil{' '}
             <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 inline-block text-transparent bg-clip-text">
               Terlengkap
@@ -114,8 +114,8 @@ const Hero = () => {
               className="border-black rounded-full font-heading pl-4 lg:pl-3 mx-auto bg-black text-white transition duration-150 ease-out hover:bg-white/10 active:scale-95 active:bg-amber-600 active:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
               onClick={() => smoothScrollToElement('fleet', 2500, -80)}
             >
-              <p className="text-lg ">Lihat Koleksi Armada</p>
-              <ArrowRightIcon className="size-12 lg:size-10" />
+              <p className="text-lg">Lihat Koleksi Armada</p>
+              <ArrowRightIcon className="size-12 xl:size-10" />
             </Button>
           </div>
         </div>
