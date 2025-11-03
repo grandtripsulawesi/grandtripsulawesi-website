@@ -7,11 +7,6 @@ import Hero from './_hero';
 import Review from './_review';
 import Service from './_service';
 import Blog from './blog';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'GrandTrip Sulawesi',
-};
 
 function ComponentFallback() {
   return <>placeholder</>;
