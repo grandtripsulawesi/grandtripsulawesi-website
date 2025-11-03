@@ -20,8 +20,6 @@ const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const blogData = await getPostData(slug);
   const relatedBlog = getRelatedPost(slug, ['Travelling'], 3);
 
-  console.log(blogData);
-
   if (!blogData) {
     return (
       <section className="relative w-full">

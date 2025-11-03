@@ -8,6 +8,7 @@ import {
   homepageSchema,
   localBusinessSchema,
 } from '@/lib/seoConfig';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const notoSans = Noto_Sans({
   variable: '--font-noto-sans',
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${tomorrow.variable} antialiased relative`}
       >
+        <GoogleAnalytics />
         <Topbar />
         {children}
         <Faq />
