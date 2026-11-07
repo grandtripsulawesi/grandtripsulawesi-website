@@ -4,9 +4,9 @@ const Benefit = () => {
   return (
     <section
       id="benefit"
-      className="w-full lg:h-screen flex flex-col items-center justify-center mt-24 overflow-clip lg:overflow-visible"
+      className="w-full flex flex-col items-center justify-center mt-24 overflow-clip lg:overflow-visible"
     >
-      <div className="width__wrapper mx-auto flex flex-col min-h-4/5 lg:max-h-screen space-y-8">
+      <div className="width__wrapper mx-auto flex flex-col min-h-4/5 space-y-8">
         <div className="text-center">
           <p>Mengapa memilih kami?</p>
           <h1 className="font-semibold font-heading">
